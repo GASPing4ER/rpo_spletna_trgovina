@@ -1,4 +1,4 @@
-# rpo_spletna_trgovina
+# RPO SPLETNA STRAN
 Projekt "Spletna trgovina" pri predmetu Razvoj programske opreme
 
 ## FullStack:
