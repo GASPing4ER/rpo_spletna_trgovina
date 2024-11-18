@@ -62,7 +62,35 @@ export default async function ProductDetailsPage({
               <p>{product.description}</p>
             </div>
           </div>
-
+          <div className="grid gap-6">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+              Product Specifications
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid gap-2">
+                <h3 className="text-lg font-semibold">Material</h3>
+                <p className="text-muted-foreground">
+                  60% combed ringspun cotton, 40% polyester jersey
+                </p>
+              </div>
+              <div className="grid gap-2">
+                <h3 className="text-lg font-semibold">Fit</h3>
+                <p className="text-muted-foreground">
+                  Regular fit, true to size
+                </p>
+              </div>
+              <div className="grid gap-2">
+                <h3 className="text-lg font-semibold">Care Instructions</h3>
+                <p className="text-muted-foreground">
+                  Machine wash cold, tumble dry low
+                </p>
+              </div>
+              <div className="grid gap-2">
+                <h3 className="text-lg font-semibold">Origin</h3>
+                <p className="text-muted-foreground">Made in USA</p>
+              </div>
+            </div>
+          </div>
           <div className="grid gap-6">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
               Related Products
