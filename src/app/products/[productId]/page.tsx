@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { productsDummyData } from "@/constants";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function ProductDetailsPage({
   params,
@@ -86,8 +87,20 @@ export default async function ProductDetailsPage({
                 </p>
               </div>
               <div className="grid gap-2">
-                <h3 className="text-lg font-semibold">Origin</h3>
-                <p className="text-muted-foreground">Made in USA</p>
+                <h3 className="text-lg font-semibold">Fit</h3>
+                <p className="text-muted-foreground">
+                  Regular fit, true to size
+                </p>
+              </div>
+              <div className="grid gap-2">
+                <h3 className="text-lg font-semibold">Link to original page</h3>
+                <Link href="/" className="text-muted-foreground">
+                  www.originalpage.com
+                </Link>
+              </div>
+              <div className="grid gap-2">
+                <h3 className="text-lg font-semibold">Warranty</h3>
+                <p className="text-muted-foreground">3 years</p>
               </div>
             </div>
           </div>
