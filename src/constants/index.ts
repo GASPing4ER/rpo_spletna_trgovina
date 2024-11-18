@@ -46,13 +46,13 @@ export const productsDummyData: TProduct[] = [
     price: 29.99,
     stock: 80,
     category: "Electronics",
-    imgUrl: "/images/portable_power_bank.webp",
+    imgUrl: "/images/portable_power_bank.jpg",
     created_at: new Date("2024-11-04T16:00:00Z"),
   },
   {
     id: "5",
     branch_id: "105",
-    name: "Stainless Steel Water Bottle",
+    name: "Steel Water Bottle",
     description:
       "Insulated stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours.",
     price: 19.99,
