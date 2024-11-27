@@ -22,3 +22,9 @@ export type TOrder = {
   status: "completed" | "pending" | "shipped" | "canceled";
   created_at: string;
 };
+
+export type TCategory = {
+  title: string;
+  slug: string;
+  iconUrl: string;
+};

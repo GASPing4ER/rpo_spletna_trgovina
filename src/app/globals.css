@@ -3,6 +3,14 @@
 @tailwind utilities;
 @layer base {
   :root {
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
+}
+
+.hero-bg-color {
+  background: linear-gradient(100.23deg, #2e2e2e 42.36%, #000000 98.65%);
+}
+
+.hero-bg {
+  background: url("/images/hero.png") no-repeat;
 }

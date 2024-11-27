@@ -1,66 +1,110 @@
-import { TNavigation, TOrder, TProduct } from "@/types";
+import { TCategory, TNavigation, TOrder, TProduct } from "@/types";
 
 export const productsDummyData: TProduct[] = [
   {
     id: "1",
     branch_id: "101",
-    name: "Wireless Earbuds",
-    description:
-      "High-quality noise-canceling wireless earbuds with up to 20 hours of battery life.",
-    price: 99.99,
-    stock: 50,
-    category: "Electronics",
-    imgUrl: "/images/wireless_earbuds.webp",
-    created_at: new Date("2024-11-01T10:00:00Z"),
+    name: "HUAWEI pametni telefon Nova 12 SE",
+    description: "8/256GB, zelena",
+    price: 256.0,
+    stock: 100,
+    category: "telefoni",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
   },
   {
     id: "2",
-    branch_id: "102",
-    name: "Smartphone Stand",
-    description:
-      "Adjustable aluminum stand for smartphones and tablets, perfect for hands-free use.",
-    price: 14.99,
-    stock: 200,
-    category: "Electronics",
-    imgUrl: "/images/smartphone_stand.jpg",
-    created_at: new Date("2024-11-02T12:00:00Z"),
+    branch_id: "101",
+    name: "AirPods Max Silver",
+    description: "Noise-canceling headphones",
+    price: 256.0,
+    stock: 50,
+    category: "Accessories",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
   },
   {
     id: "3",
-    branch_id: "103",
-    name: "Gaming Mouse",
-    description:
-      "Ergonomic gaming mouse with RGB lighting and customizable buttons.",
-    price: 49.99,
-    stock: 120,
-    category: "Electronics",
-    imgUrl: "/images/gaming_mouse.webp",
-    created_at: new Date("2024-11-03T14:30:00Z"),
+    branch_id: "101",
+    name: "Apple Watch Series 9 GPS",
+    description: "41mm Starlight Aluminium",
+    price: 256.0,
+    stock: 30,
+    category: "Wearables",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
   },
   {
     id: "4",
-    branch_id: "104",
-    name: "Portable Power Bank",
-    description:
-      "10,000mAh portable power bank with fast-charging capabilities and dual USB ports.",
-    price: 29.99,
-    stock: 80,
-    category: "Electronics",
-    imgUrl: "/images/portable_power_bank.jpg",
-    created_at: new Date("2024-11-04T16:00:00Z"),
+    branch_id: "101",
+    name: "Apple iPhone 14 Pro",
+    description: "1TB Gold (MQ2V3)",
+    price: 256.0,
+    stock: 20,
+    category: "telefoni",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
   },
-  {
-    id: "5",
-    branch_id: "105",
-    name: "Steel Water Bottle",
-    description:
-      "Insulated stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours.",
-    price: 19.99,
-    stock: 150,
-    category: "Electronics",
-    imgUrl: "/images/stainless_steel_water_bottle.webp",
-    created_at: new Date("2024-11-05T18:00:00Z"),
-  },
+  // {
+  //   id: "1",
+  //   branch_id: "101",
+  //   name: "Wireless Earbuds",
+  //   description:
+  //     "High-quality noise-canceling wireless earbuds with up to 20 hours of battery life.",
+  //   price: 99.99,
+  //   stock: 50,
+  //   category: "Electronics",
+  //   imgUrl: "/images/wireless_earbuds.webp",
+  //   created_at: new Date("2024-11-01T10:00:00Z"),
+  // },
+  // {
+  //   id: "2",
+  //   branch_id: "102",
+  //   name: "Smartphone Stand",
+  //   description:
+  //     "Adjustable aluminum stand for smartphones and tablets, perfect for hands-free use.",
+  //   price: 14.99,
+  //   stock: 200,
+  //   category: "Electronics",
+  //   imgUrl: "/images/smartphone_stand.jpg",
+  //   created_at: new Date("2024-11-02T12:00:00Z"),
+  // },
+  // {
+  //   id: "3",
+  //   branch_id: "103",
+  //   name: "Gaming Mouse",
+  //   description:
+  //     "Ergonomic gaming mouse with RGB lighting and customizable buttons.",
+  //   price: 49.99,
+  //   stock: 120,
+  //   category: "Electronics",
+  //   imgUrl: "/images/gaming_mouse.webp",
+  //   created_at: new Date("2024-11-03T14:30:00Z"),
+  // },
+  // {
+  //   id: "4",
+  //   branch_id: "104",
+  //   name: "Portable Power Bank",
+  //   description:
+  //     "10,000mAh portable power bank with fast-charging capabilities and dual USB ports.",
+  //   price: 29.99,
+  //   stock: 80,
+  //   category: "Electronics",
+  //   imgUrl: "/images/portable_power_bank.jpg",
+  //   created_at: new Date("2024-11-04T16:00:00Z"),
+  // },
+  // {
+  //   id: "5",
+  //   branch_id: "105",
+  //   name: "Steel Water Bottle",
+  //   description:
+  //     "Insulated stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours.",
+  //   price: 19.99,
+  //   stock: 150,
+  //   category: "Electronics",
+  //   imgUrl: "/images/stainless_steel_water_bottle.webp",
+  //   created_at: new Date("2024-11-05T18:00:00Z"),
+  // },
 ];
 
 export const navigationData: TNavigation[] = [
@@ -148,5 +192,38 @@ export const ordersDummyData: TOrder[] = [
     total_price: 99.99,
     status: "pending",
     created_at: "2024-11-19T18:15:00Z",
+  },
+];
+
+export const categoriesData: TCategory[] = [
+  {
+    title: "Računalniki",
+    slug: "/shop?category=racunalniki",
+    iconUrl: "/icons/racunalniki.svg",
+  },
+  {
+    title: "Telefoni",
+    slug: "/shop?category=telefoni",
+    iconUrl: "/icons/telefoni.svg",
+  },
+  {
+    title: "Slušalke",
+    slug: "/shop?category=slusalke",
+    iconUrl: "/icons/slusalke.svg",
+  },
+  {
+    title: "Pametne ure",
+    slug: "/shop?category=pametne-ure",
+    iconUrl: "/icons/pametne-ure.svg",
+  },
+  {
+    title: "Tablice",
+    slug: "/shop?category=tablice",
+    iconUrl: "/icons/tablice.svg",
+  },
+  {
+    title: "Drugo",
+    slug: "/shop?category=drugo",
+    iconUrl: "/icons/drugo.svg",
   },
 ];
