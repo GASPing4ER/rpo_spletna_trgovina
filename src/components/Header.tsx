@@ -18,7 +18,7 @@ const Header = () => {
       {/* TODO: Logo tukaj! */}
       <Navigation />
       <div className="flex gap-4">
-        <Link href="/">
+        <Link href="/cart">
           <Image
             src="/icons/shopping-bag.svg"
             alt="shopping bag"

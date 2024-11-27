@@ -7,7 +7,7 @@ import { ordersDummyData } from "@/constants";
 
 export default function Profile() {
   return (
-    <main className="w-full min-h-screen flex gap-10 items-center justify-center bg-gray-100 p-24">
+    <main className="w-full h-screen flex gap-10 items-center justify-center bg-gray-100">
       <Card className="w-full max-w-lg p-6 bg-white rounded-lg shadow-md">
         <div className="flex flex-col items-center">
           <Image
