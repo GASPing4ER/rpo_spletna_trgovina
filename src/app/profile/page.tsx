@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import OrdersTable from "@/components/OrdersTable";
+import { OrdersTable } from "@/components";
 import { ordersDummyData } from "@/constants";
 
 export default function Profile() {
