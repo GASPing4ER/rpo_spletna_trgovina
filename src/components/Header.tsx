@@ -1,22 +1,31 @@
 // Header Component
 
+import Image from "next/image";
 import Link from "next/link";
+import { Navigation } from "@/components";
 
 const Header = () => {
   return (
-    <header className="w-full h-20 fixed top-0 left-0 border flex justify-between items-center bg-white">
-      <div>
-        {/* TODO: Nakupovalni meni tukaj */}
-        {/* TODO: Ostali linki do strani tukaj */}
-      </div>
+    <header className="w-full h-20 fixed top-0 left-0 border flex justify-between items-center bg-white px-10">
       <h1>
-        <Link href="/">LOGO ALNEKI</Link>
+        <Link
+          href="/"
+          className="text-xs bg-gray-400 py-2 px-4 text-white font-bold"
+        >
+          LOGO
+        </Link>
       </h1>{" "}
       {/* TODO: Logo tukaj! */}
-      <div>
+      <Navigation />
+      <div className="flex gap-4">
+        <Image
+          src="/icons/shopping-bag.svg"
+          alt="shopping bag"
+          width={20}
+          height={20}
+        />
+        <Image src="/icons/user.svg" alt="user" width={20} height={20} />
         {/* TODO: Izbira jezika tukaj */}
-        {/* TODO: Ikona za uporabnika tukaj */}
-        {/* TODO: Košarica tukaj */}
       </div>
     </header>
   );

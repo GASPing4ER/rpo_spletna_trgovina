@@ -1,4 +1,4 @@
-import { TProduct } from "@/types";
+import { TNavigation, TProduct } from "@/types";
 
 export const productsDummyData: TProduct[] = [
   {
@@ -60,5 +60,20 @@ export const productsDummyData: TProduct[] = [
     category: "Electronics",
     imgUrl: "/images/stainless_steel_water_bottle.webp",
     created_at: new Date("2024-11-05T18:00:00Z"),
+  },
+];
+
+export const navigationData: TNavigation[] = [
+  {
+    title: "Domov",
+    slug: "/",
+  },
+  {
+    title: "O nas",
+    slug: "/about",
+  },
+  {
+    title: "Kontakt",
+    slug: "/contact",
   },
 ];

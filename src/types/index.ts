@@ -9,3 +9,8 @@ export type TProduct = {
   imgUrl: string;
   created_at: Date;
 };
+
+export type TNavigation = {
+  title: string;
+  slug: string;
+};
