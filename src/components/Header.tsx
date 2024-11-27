@@ -17,7 +17,7 @@ const Header = () => {
       </h1>{" "}
       {/* TODO: Logo tukaj! */}
       <Navigation />
-      <div className="flex gap-4">
+      <div className="flex items-center gap-4">
         <Link href="/cart">
           <Image
             src="/icons/shopping-bag.svg"
@@ -30,6 +30,12 @@ const Header = () => {
           <Image src="/icons/user.svg" alt="user" width={20} height={20} />
         </Link>
         {/* TODO: Izbira jezika tukaj */}
+        <Image
+          src="/icons/slovene-flag.svg"
+          alt="slovene language"
+          width={24}
+          height={24}
+        />
       </div>
     </header>
   );
