@@ -316,4 +316,15 @@ export const categoriesData: TCategory[] = [
     slug: "/shop?category=drugo",
     iconUrl: "/icons/drugo.svg",
   },
+  //* Duplicated test data
+  {
+    title: "TEST1",
+    slug: "/shop?category=Test1",
+    iconUrl: "/icons/racunalniki.svg",
+  },
+  {
+    title: "TEST2",
+    slug: "/shop?category=Test2",
+    iconUrl: "/icons/telefoni.svg",
+  },
 ];

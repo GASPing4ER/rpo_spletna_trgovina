@@ -1,66 +1,12 @@
-"use client";
-
+import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
-import React, { useState } from "react";
 import { categoriesData, productsDummyData } from "@/constants";
-import { ArrowRightIcon, ArrowUpIcon, ArrowLeftIcon } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-
-interface Indexes {
-  carouselIndex1: number;
-  carouselIndex2: number;
-  carouselIndex3: number;
-  categoryIndex: number;
-}
+import { ArrowUpIcon } from "lucide-react";
+import { AnimatedCarousel } from "@/components";
+import AnimatedCategory from "@/components/AnimatedCategory";
 
 export default function Home() {
-  const [indexes, setIndexes] = useState<Indexes>({
-    carouselIndex1: 0,
-    carouselIndex2: 0,
-    carouselIndex3: 0,
-    categoryIndex: 0,
-  });
-  const [direction, setDirection] = useState<string>("right");
-
-  const handleNext = (index: keyof Indexes) => {
-    if (!productsDummyData || productsDummyData.length === 0) return;
-
-    setDirection("left");
-    setIndexes((prevIndexes) => ({
-      ...prevIndexes,
-      [index]: (prevIndexes[index] + 4) % productsDummyData.length,
-    }));
-  };
-
-  const handlePrev = (index: keyof Indexes) => {
-    if (!productsDummyData || productsDummyData.length === 0) return;
-
-    setDirection("right");
-    setIndexes((prevIndexes) => ({
-      ...prevIndexes,
-      [index]:
-        (prevIndexes[index] - 4 + productsDummyData.length) %
-        productsDummyData.length,
-    }));
-  };
-
-  const variants = {
-    enter: (direction: string) => ({
-      x: direction === "left" ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: string) => ({
-      x: direction === "left" ? -1000 : 1000,
-      opacity: 0,
-    }),
-  };
-
   return (
     <main className="w-full min-h-screen flex flex-col items-center justify-center">
       <section className="w-full hero-bg-color mt-20 text-white">
@@ -80,151 +26,15 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col gap-10 bg-[#EDEDED] w-full py-20 px-40">
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl">Išči po kategoriji</h2>
-          <ArrowRightIcon />
-        </div>
-        <ul className="flex gap-8">
-          {categoriesData.map((category) => (
-            <li
-              key={category.slug}
-              className="flex-1 flex flex-col items-center justify-center h-[128px] bg-white rounded-[15px]"
-            >
-              <Link
-                href={category.slug}
-                className="flex flex-col items-center gap-1"
-              >
-                <Image
-                  src={category.iconUrl}
-                  alt="kategorija"
-                  width={25}
-                  height={25}
-                />
-                <h3>{category.title}</h3>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <AnimatedCategory categories={categoriesData} initialIndex={0} />
       </section>
       <section className="flex flex-col gap-10 bg-white w-full py-20 px-40">
         <h2 className="text-2xl font-semibold">Novo v ponudbi</h2>
-        <div className="flex">
-          <AnimatePresence initial={false} custom={direction} mode="wait">
-            <motion.div
-              key={indexes.carouselIndex1}
-              className="flex gap-10"
-              initial="enter"
-              animate="center"
-              exit="exit"
-              variants={variants}
-              custom={direction}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex justify-center items-center">
-                <button
-                  onClick={() => handlePrev("carouselIndex1")}
-                  className="bg-gray-200 rounded-full p-2"
-                >
-                  <ArrowLeftIcon className="w-6 h-6" />
-                </button>
-              </div>
-              {Array.from({ length: 4 }).map((_, index) => {
-                const product =
-                  productsDummyData[
-                    (indexes.carouselIndex1 + index) % productsDummyData.length
-                  ];
-                return (
-                  <div
-                    key={index}
-                    className={
-                      "bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center pt-14 px-4 gap-4"
-                    }
-                  >
-                    <Image
-                      src={product.imgUrl}
-                      alt="product"
-                      width={246}
-                      height={185}
-                    />
-                    <h3 className="text-center">
-                      {product.name}, {product.description}
-                    </h3>
-                    <p className="text-2xl font-bold">{product.price},00 €</p>
-                    <button className="px-16 py-3 bg-[#4156D8] text-white rounded-[8px]">
-                      Kupi zdaj
-                    </button>
-                  </div>
-                );
-              })}
-              <div className="flex justify-center items-center">
-                <button
-                  onClick={() => handleNext("carouselIndex1")}
-                  className="bg-gray-200 rounded-full p-2"
-                >
-                  <ArrowRightIcon className="w-6 h-6" />
-                </button>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+        <AnimatedCarousel products={productsDummyData} initialIndex={0} />
       </section>
       <section className="flex flex-col gap-10 bg-white w-full pb-20 px-40">
         <h2 className="text-2xl font-semibold">Znižanje do -50%</h2>
-        <AnimatePresence initial={false} custom={direction} mode="wait">
-          <motion.div
-            key={indexes.carouselIndex2}
-            className="flex gap-10"
-            initial="enter"
-            animate="center"
-            exit="exit"
-            variants={variants}
-            custom={direction}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="flex justify-center items-center">
-              <button
-                className="bg-gray-200 rounded-full p-2"
-                onClick={() => handlePrev("carouselIndex2")}
-              >
-                <ArrowLeftIcon className="w-6 h-6" />
-              </button>
-            </div>
-            {Array.from({ length: 4 }).map((_, index) => {
-              const product =
-                productsDummyData[
-                  (indexes.carouselIndex2 + index) % productsDummyData.length
-                ];
-              return (
-                <div
-                  key={index}
-                  className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center pt-14 px-4 gap-4"
-                >
-                  <Image
-                    src={product.imgUrl}
-                    alt="product"
-                    width={246}
-                    height={185}
-                  />
-                  <h3 className="text-center">
-                    {product.name}, {product.description}
-                  </h3>
-                  <p className="text-2xl font-bold">{product.price},00 €</p>
-                  <button className="px-16 py-3 bg-[#4156D8] text-white rounded-[8px]">
-                    Kupi zdaj
-                  </button>
-                </div>
-              );
-            })}
-            <div className="flex justify-center items-center">
-              <button
-                className="bg-gray-200 rounded-full p-2"
-                onClick={() => handleNext("carouselIndex2")}
-              >
-                <ArrowRightIcon className="w-6 h-6" />
-              </button>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+        <AnimatedCarousel products={productsDummyData} initialIndex={0} />
       </section>
       <section className="w-full hero-bg-color mt-20 text-white flex relative">
         <div className="flex flex-col gap-4 h-full w-full p-24">
@@ -284,61 +94,7 @@ export default function Home() {
       </section>
       <section className="flex flex-col gap-10 bg-white w-full pb-20 px-40">
         <h2 className="text-2xl font-semibold">Znižanje do -50%</h2>
-        <AnimatePresence initial={false} custom={direction} mode="wait">
-          <motion.div
-            key={indexes.carouselIndex3}
-            className="flex gap-10"
-            initial="enter"
-            animate="center"
-            exit="exit"
-            variants={variants}
-            custom={direction}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="flex justify-center items-center">
-              <button
-                className="bg-gray-200 rounded-full p-2"
-                onClick={() => handlePrev("carouselIndex3")}
-              >
-                <ArrowLeftIcon className="w-6 h-6" />
-              </button>
-            </div>
-            {Array.from({ length: 4 }).map((_, index) => {
-              const product =
-                productsDummyData[
-                  (indexes.carouselIndex3 + index) % productsDummyData.length
-                ];
-              return (
-                <div
-                  key={index}
-                  className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center pt-14 px-4 gap-4"
-                >
-                  <Image
-                    src={product.imgUrl}
-                    alt="product"
-                    width={246}
-                    height={185}
-                  />
-                  <h3 className="text-center">
-                    {product.name}, {product.description}
-                  </h3>
-                  <p className="text-2xl font-bold">{product.price},00 €</p>
-                  <button className="px-16 py-3 bg-[#4156D8] text-white rounded-[8px]">
-                    Kupi zdaj
-                  </button>
-                </div>
-              );
-            })}
-            <div className="flex justify-center items-center">
-              <button
-                className="bg-gray-200 rounded-full p-2"
-                onClick={() => handleNext("carouselIndex3")}
-              >
-                <ArrowRightIcon className="w-6 h-6" />
-              </button>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+        <AnimatedCarousel products={productsDummyData} initialIndex={0} />
       </section>
       <section className="w-full hero-bg-color mt-20 text-white flex relative">
         <div className="flex flex-col items-center justify-center gap-4 h-full w-full p-24 z-20">
@@ -391,3 +147,4 @@ export default function Home() {
     </main>
   );
 }
+//<AnimatedCategory categories={categoriesData} initialIndex={1} />
