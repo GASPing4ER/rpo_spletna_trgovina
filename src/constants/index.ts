@@ -45,6 +45,96 @@ export const productsDummyData: TProduct[] = [
     imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
     created_at: new Date(),
   },
+  //* Dumplicated test data
+  {
+    id: "5",
+    branch_id: "101",
+    name: "HUAWEI pametni telefon Nova 12 SE TEST1",
+    description: "8/256GB, zelena",
+    price: 256.0,
+    stock: 100,
+    category: "telefoni",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
+  },
+  {
+    id: "6",
+    branch_id: "101",
+    name: "AirPods Max Silver TEST1",
+    description: "Noise-canceling headphones",
+    price: 256.0,
+    stock: 50,
+    category: "Accessories",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
+  },
+  {
+    id: "7",
+    branch_id: "101",
+    name: "Apple Watch Series 9 GPS TEST1",
+    description: "41mm Starlight Aluminium",
+    price: 256.0,
+    stock: 30,
+    category: "Wearables",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
+  },
+  {
+    id: "8",
+    branch_id: "101",
+    name: "Apple iPhone 14 Pro TEST1",
+    description: "1TB Gold (MQ2V3)",
+    price: 256.0,
+    stock: 20,
+    category: "telefoni",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
+  },
+  //* Duplicated test data2
+  {
+    id: "9",
+    branch_id: "101",
+    name: "HUAWEI pametni telefon Nova 12 SE TEST2",
+    description: "8/256GB, zelena",
+    price: 256.0,
+    stock: 100,
+    category: "telefoni",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
+  },
+  {
+    id: "10",
+    branch_id: "101",
+    name: "AirPods Max Silver TEST2",
+    description: "Noise-canceling headphones",
+    price: 256.0,
+    stock: 50,
+    category: "Accessories",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
+  },
+  {
+    id: "11",
+    branch_id: "101",
+    name: "Apple Watch Series 9 GPS TEST2",
+    description: "41mm Starlight Aluminium",
+    price: 256.0,
+    stock: 30,
+    category: "Wearables",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
+  },
+  {
+    id: "12",
+    branch_id: "101",
+    name: "Apple iPhone 14 Pro TEST2",
+    description: "1TB Gold (MQ2V3)",
+    price: 256.0,
+    stock: 20,
+    category: "telefoni",
+    imgUrl: "/images/product-placeholder.png", // Replace with actual image URL
+    created_at: new Date(),
+  },
   // {
   //   id: "1",
   //   branch_id: "101",
