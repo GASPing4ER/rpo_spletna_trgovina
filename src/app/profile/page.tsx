@@ -2,14 +2,12 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-
-{
-  /* "TODO: Dummy data" */
-}
+import OrdersTable from "@/components/OrdersTable";
+import { ordersDummyData } from "@/constants";
 
 export default function Profile() {
   return (
-    <main className="w-full h-screen flex items-center justify-center bg-gray-100">
+    <main className="w-full min-h-screen flex gap-10 items-center justify-center bg-gray-100 p-24">
       <Card className="w-full max-w-lg p-6 bg-white rounded-lg shadow-md">
         <div className="flex flex-col items-center">
           <Image
@@ -33,6 +31,7 @@ export default function Profile() {
           </Button>
         </div>
       </Card>
+      <OrdersTable orders={ordersDummyData} />
     </main>
   );
 }

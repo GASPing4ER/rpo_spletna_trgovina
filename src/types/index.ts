@@ -14,3 +14,11 @@ export type TNavigation = {
   title: string;
   slug: string;
 };
+
+export type TOrder = {
+  id: number;
+  user_id: number;
+  total_price: number;
+  status: "completed" | "pending" | "shipped" | "canceled";
+  created_at: string;
+};

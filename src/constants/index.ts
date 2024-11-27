@@ -1,4 +1,4 @@
-import { TNavigation, TProduct } from "@/types";
+import { TNavigation, TOrder, TProduct } from "@/types";
 
 export const productsDummyData: TProduct[] = [
   {
@@ -75,5 +75,78 @@ export const navigationData: TNavigation[] = [
   {
     title: "Kontakt",
     slug: "/contact",
+  },
+];
+
+export const ordersDummyData: TOrder[] = [
+  {
+    id: 1,
+    user_id: 101,
+    total_price: 59.99,
+    status: "completed",
+    created_at: "2024-11-01T10:15:30Z",
+  },
+  {
+    id: 2,
+    user_id: 102,
+    total_price: 120.5,
+    status: "pending",
+    created_at: "2024-11-03T14:22:45Z",
+  },
+  {
+    id: 3,
+    user_id: 103,
+    total_price: 35.0,
+    status: "canceled",
+    created_at: "2024-11-05T08:10:00Z",
+  },
+  {
+    id: 4,
+    user_id: 104,
+    total_price: 250.75,
+    status: "completed",
+    created_at: "2024-11-07T11:45:30Z",
+  },
+  {
+    id: 5,
+    user_id: 105,
+    total_price: 89.99,
+    status: "shipped",
+    created_at: "2024-11-09T13:20:00Z",
+  },
+  {
+    id: 6,
+    user_id: 106,
+    total_price: 47.89,
+    status: "completed",
+    created_at: "2024-11-11T15:35:50Z",
+  },
+  {
+    id: 7,
+    user_id: 107,
+    total_price: 15.99,
+    status: "pending",
+    created_at: "2024-11-13T09:05:10Z",
+  },
+  {
+    id: 8,
+    user_id: 108,
+    total_price: 300.0,
+    status: "shipped",
+    created_at: "2024-11-15T12:55:20Z",
+  },
+  {
+    id: 9,
+    user_id: 109,
+    total_price: 75.25,
+    status: "completed",
+    created_at: "2024-11-17T16:40:30Z",
+  },
+  {
+    id: 10,
+    user_id: 110,
+    total_price: 99.99,
+    status: "pending",
+    created_at: "2024-11-19T18:15:00Z",
   },
 ];

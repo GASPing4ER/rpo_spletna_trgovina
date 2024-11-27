@@ -18,13 +18,17 @@ const Header = () => {
       {/* TODO: Logo tukaj! */}
       <Navigation />
       <div className="flex gap-4">
-        <Image
-          src="/icons/shopping-bag.svg"
-          alt="shopping bag"
-          width={20}
-          height={20}
-        />
-        <Image src="/icons/user.svg" alt="user" width={20} height={20} />
+        <Link href="/">
+          <Image
+            src="/icons/shopping-bag.svg"
+            alt="shopping bag"
+            width={20}
+            height={20}
+          />
+        </Link>
+        <Link href="/profile">
+          <Image src="/icons/user.svg" alt="user" width={20} height={20} />
+        </Link>
         {/* TODO: Izbira jezika tukaj */}
       </div>
     </header>
