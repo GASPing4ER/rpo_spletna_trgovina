@@ -47,7 +47,7 @@ export default function AnimatedCategory({
         </button>
       </div>
       <ul className="flex gap-8">
-        <AnimatePresence initial={false} custom={"left"} mode="wait">
+        <AnimatePresence initial={false} custom={"left"} mode="sync">
           {Array.from({ length: 6 }).map((_, index) => {
             const category =
               categories[(currentIndex + index) % categories.length];
