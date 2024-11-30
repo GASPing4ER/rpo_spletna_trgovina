@@ -42,43 +42,36 @@ The primary goal of Sprint 1 was to design and implement the visual components o
 ### Objectives
 1. **Choosing Technologies (1P):** This task involves finalizing the tech stack 
 2. **Planning and Implementing the Database (3P):** Design and implement the database schema using Supabase
-3. Design and develop the product catalog page, including:
-   - Product listing grid.
-   - Filters (e.g., price range, categories).
-   - Search functionality (UI only).
-4. Develop the product details page with placeholders for:
-   - Product images.
-   - Description, price, and reviews section.
-5. Create a basic shopping cart UI to display selected products.
-6. Ensure mobile responsiveness for all pages.
+3. **Product Information (5P):** Build a dynamic product detail page that fetches data from Supabase using Next.js. 
+4. **Homepage Design (8P):** Design homepage with header, main content and footer using Figma.
+5. **Login, Registration, and Profile (5P):** Create login and registration forms with validation, and user profile page.
+6. **Header (1P):** Design and build a responsive header.
+7. **Order History Overview (3P):** Develop an order history table for users to view their past orders.
+8. **Shopping Cart (8P):** Build the shopping cart functionality.
+9. **Design Implementation (5P):** Ensure consistent styling across the application.
+10. **Product Listing Page (Shopping Menu) (5P):** Create a product listing page that fetches products.
+11. **Language Dropdown Component (1P):** Create a language switcher component.
 
-### Tasks Completed
-- **Setup Project Structure**: Established the folder structure for the frontend project.
-- **Home Page**: Designed and implemented the homepage layout with a banner and product section.
-- **Product Catalog**:
-  - Built a grid-based layout for products.
-  - Added interactive filters and search bar (without backend functionality).
-- **Product Details Page**:
-  - Designed the layout for product images, descriptions, and reviews.
-- **Shopping Cart**:
-  - Created a modal/cart page to display items with basic styling.
-- **Styling and Responsiveness**:
-  - Used TailwindCSS (or preferred styling library) to ensure responsiveness across devices.
+### Tasks Moving to Sprint 2:
+-**Language Dropdown Component (1P):** Create a language switcher component.
 
-### Key Achievements
-- Delivered a polished visual prototype of the website.
-- Ensured consistency in design across pages.
-- Achieved a responsive layout for desktop, tablet, and mobile views.
+## Key Achievements
+- Delivered a visually complete prototype of the e-commerce website.
+- Established a consistent design system and styling across components.
+- Implemented essential UI components, including the homepage, product catalog, and shopping cart.
+- Designed a database schema and initiated frontend-backend integration.
+- Implemented advanced filters and search functionality in the product catalog.
 
-### Challenges
-- Managing design consistency across different components.
-- Balancing performance while adding interactivity to the frontend.
+## Challenges
+- Managing multiple dependencies and aligning designs with the finalized tech stack.
+- Time constraints while ensuring consistency and quality in visual design.
+- Incorporating dynamic functionality within the static frontend structure.
 
-### Next Steps
-1. Integrate backend APIs to make the implemented frontend functional.
-2. Add dynamic data loading for product catalog and details pages.
-3. Enhance UI/UX based on initial feedback.
-4. Start work on user authentication and account pages.
+## Next Steps
+1. Complete and integrate the Language Dropdown Component.
+2. Connect the frontend to backend APIs to fetch and display live data.
+3. Begin developing user authentication and session management features.
+4. Create responsive layouts for desktop, tablet, and mobile devices.
 
 ---
 
