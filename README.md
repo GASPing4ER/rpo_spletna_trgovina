@@ -35,3 +35,5 @@ The **Shop Project** is a modern e-commerce platform designed to provide a seaml
 - **CI/CD**: GitHub
 
 ## Sprint 1
+
+### Backlog
