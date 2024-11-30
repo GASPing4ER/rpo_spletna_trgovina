@@ -23,63 +23,13 @@ The **Shop Project** is a modern e-commerce platform designed to provide a seaml
 ### Frontend
 - **Framework**: Next.js
 - **Styling**: TailwindCSS and SHADCN and Framer Motion
-- **State Management**: Redux or Context API
+- **State Management**: Context API
 
 ### Backend
-- **Framework**: Node.js with Express.js or Nest.js
-- **Database**: PostgreSQL or MongoDB
-- **Authentication**: JWT (JSON Web Tokens)
-- **API**: REST or GraphQL
+- **Framework**: Next.js
+- **Database**: Supabase
+- **Authentication**: Supabase Auth
 
 ### Hosting and DevOps
-- **Frontend Hosting**: Vercel or Netlify
-- **Backend Hosting**: AWS, Heroku, or DigitalOcean
-- **CI/CD**: GitHub Actions or CircleCI
-
-## Installation
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-username/shop-project.git
-   cd shop-project
-   ```
-
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set Up Environment Variables**
-   Create a `.env` file in the root directory and add the following:
-   ```env
-   DATABASE_URL=your-database-url
-   JWT_SECRET=your-secret-key
-   STRIPE_API_KEY=your-stripe-api-key
-   ```
-
-4. **Run the Development Server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Access the Application**
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Contribution Guidelines
-We welcome contributions! Please follow these steps:
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/your-feature`.
-3. Commit your changes: `git commit -m 'Add some feature'`.
-4. Push to the branch: `git push origin feature/your-feature`.
-5. Open a pull request.
-
-## License
-This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-For questions or suggestions, please contact:
-- **Email**: your-email@example.com
-- **GitHub**: [your-username](https://github.com/your-username)
-
----
-
-Thank you for contributing to the Shop Project!
+- **Frontend Hosting**: Vercel
+- **CI/CD**: GitHub
