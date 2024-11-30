@@ -40,8 +40,8 @@ The **Shop Project** is a modern e-commerce platform designed to provide a seaml
 The primary goal of Sprint 1 was to design and implement the visual components of the e-commerce website, ensuring a responsive, user-friendly, and aesthetically pleasing interface. This sprint focused on laying a strong foundation for the customer-facing side of the platform.
 
 ### Objectives
-1. Create a responsive layout for the website.
-2. Implement the homepage with placeholders for featured products.
+1. **Choosing Technologies (1P):** This task involves finalizing the tech stack 
+2. **Planning and Implementing the Database (3P):** Design and implement the database schema using Supabase
 3. Design and develop the product catalog page, including:
    - Product listing grid.
    - Filters (e.g., price range, categories).
