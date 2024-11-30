@@ -123,25 +123,29 @@ export default function Shop() {
           ))}
         </select>
       </section>
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 bg-white w-full pb-20 px-40 grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center">
+      <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 bg-white w-full pb-20 px-40 grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-center">
         {products.map((product, index) => (
           <div
             key={index}
-            className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center pt-14 px-4 gap-4"
+            className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4"
           >
-            <Image
-              src={product.imgUrl}
-              alt="product"
-              width={246}
-              height={185}
-            />
-            <h3 className="text-center">
-              {product.name}, {product.description}
-            </h3>
-            <p className="text-2xl font-bold">{product.price},00 €</p>
-            <button className="px-16 py-3 bg-[#4156D8] text-white rounded-[8px]">
-              Kupi zdaj
-            </button>
+            <div className="flex flex-col gap-2 items-center">
+              <Image
+                src={product.imgUrl}
+                alt="product"
+                width={246}
+                height={185}
+              />
+              <h3 className="text-center">
+                {product.name}, {product.description}
+              </h3>
+            </div>
+            <div className="flex flex-col gap-2 items-center">
+              <p className="text-2xl font-bold">{product.price},00 €</p>
+              <button className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]">
+                Kupi zdaj
+              </button>
+            </div>
           </div>
         ))}
       </section>

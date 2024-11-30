@@ -200,15 +200,19 @@ export const productsDummyData: TProduct[] = [
 export const navigationData: TNavigation[] = [
   {
     title: "Domov",
-    slug: "/",
+    slug: "",
+  },
+  {
+    title: "Trgovina",
+    slug: "shop",
   },
   {
     title: "O nas",
-    slug: "/about",
+    slug: "about",
   },
   {
     title: "Kontakt",
-    slug: "/contact",
+    slug: "contact",
   },
 ];
 
