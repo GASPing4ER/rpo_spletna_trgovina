@@ -10,6 +10,8 @@ The **Shop Project** is a modern e-commerce platform designed to provide a seaml
 - **Shopping Cart**: Add items, adjust quantities, and manage your cart.
 - **Checkout Process**: Secure payment gateway integration for smooth transactions.
 - **Order Tracking**: View order history and track delivery status.
+- **Language Switcher**: Choose between slovene and english language.
+- **Light/Dark Theme** Option to switch between dark and light theme.
 
 ### Administrator Features
 - **Product Management**: Add, edit, and delete products with images and descriptions.
