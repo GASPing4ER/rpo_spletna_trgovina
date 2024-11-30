@@ -21,8 +21,8 @@ The **Shop Project** is a modern e-commerce platform designed to provide a seaml
 
 ## Tech Stack
 ### Frontend
-- **Framework**: React or Next.js
-- **Styling**: TailwindCSS or Material-UI
+- **Framework**: Next.js
+- **Styling**: TailwindCSS and SHADCN and Framer Motion
 - **State Management**: Redux or Context API
 
 ### Backend
