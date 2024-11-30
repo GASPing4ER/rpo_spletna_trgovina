@@ -6,7 +6,7 @@ import { Navigation } from "@/components";
 
 const Header = () => {
   return (
-    <header className="w-full h-20 fixed top-0 left-0 border flex justify-between items-center bg-white px-10">
+    <header className="w-full h-20 fixed top-0 left-0 border flex justify-between items-center bg-white px-10 z-20">
       <h1>
         <Link
           href="/"

@@ -50,7 +50,7 @@ export default function AnimatedCarousel({
     <AnimatePresence initial={false} custom={direction} mode="popLayout">
       <motion.div
         key={currentIndex}
-        className="flex gap-10"
+        className="flex gap-10 relative"
         initial="enter"
         animate="center"
         exit="exit"
@@ -58,7 +58,7 @@ export default function AnimatedCarousel({
         custom={direction}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center absolute top-[50%] -left-20">
           <button className="bg-gray-200 rounded-full p-2" onClick={handlePrev}>
             <ArrowLeftIcon className="w-6 h-6" />
           </button>
@@ -69,25 +69,29 @@ export default function AnimatedCarousel({
           return (
             <div
               key={index}
-              className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center pt-14 px-4 gap-4"
+              className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4"
             >
-              <Image
-                src={product.imgUrl}
-                alt="product"
-                width={246}
-                height={185}
-              />
-              <h3 className="text-center">
-                {product.name}, {product.description}
-              </h3>
-              <p className="text-2xl font-bold">{product.price},00 €</p>
-              <button className="px-16 py-3 bg-[#4156D8] text-white rounded-[8px]">
-                Kupi zdaj
-              </button>
+              <div className="flex flex-col gap-2 items-center">
+                <Image
+                  src={product.imgUrl}
+                  alt="product"
+                  width={246}
+                  height={185}
+                />
+                <h3 className="text-center">
+                  {product.name}, {product.description}
+                </h3>
+              </div>
+              <div className="flex flex-col gap-2 items-center">
+                <p className="text-2xl font-bold">{product.price},00 €</p>
+                <button className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]">
+                  Kupi zdaj
+                </button>
+              </div>
             </div>
           );
         })}
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center absolute top-[50%] -right-20">
           <button className="bg-gray-200 rounded-full p-2" onClick={handleNext}>
             <ArrowRightIcon className="w-6 h-6" />
           </button>
