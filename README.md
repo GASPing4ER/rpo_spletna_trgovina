@@ -22,7 +22,7 @@ The **Shop Project** is a modern e-commerce platform designed to provide a seaml
 ## Tech Stack
 ### Frontend
 - **Framework**: Next.js
-- **Styling**: TailwindCSS and SHADCN and Framer Motion
+- **Styling**: TailwindCSS and Shadcn and Framer Motion
 - **State Management**: Context API
 
 ### Backend
@@ -33,3 +33,5 @@ The **Shop Project** is a modern e-commerce platform designed to provide a seaml
 ### Hosting and DevOps
 - **Frontend Hosting**: Vercel
 - **CI/CD**: GitHub
+
+## Sprint 1
