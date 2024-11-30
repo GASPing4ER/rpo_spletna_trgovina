@@ -27,4 +27,5 @@ export type TCategory = {
   title: string;
   slug: string;
   iconUrl: string;
+  slugId: string;
 };

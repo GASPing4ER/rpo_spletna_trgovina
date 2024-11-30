@@ -47,7 +47,7 @@ export default function AnimatedCarousel({
   };
 
   return (
-    <AnimatePresence initial={false} custom={direction} mode="wait">
+    <AnimatePresence initial={false} custom={direction} mode="popLayout">
       <motion.div
         key={currentIndex}
         className="flex gap-10"
