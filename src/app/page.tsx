@@ -1,12 +1,15 @@
 import React from "react";
 import Image from "next/image";
 
-import { categoriesData, productsDummyData } from "@/constants";
+import { categoriesData } from "@/constants";
 import { ArrowUpIcon } from "lucide-react";
 import { AnimatedCarousel } from "@/components";
 import AnimatedCategory from "@/components/AnimatedCategory";
+import { getProducts } from "@/actions/products";
 
-export default function Home() {
+export default async function Home() {
+  const { data: products } = await getProducts();
+  console.log("Products:", products);
   return (
     <main className="w-full min-h-screen flex flex-col items-center justify-center">
       <section className="w-full hero-bg-color mt-20 text-white">
@@ -30,11 +33,11 @@ export default function Home() {
       </section>
       <section className="flex flex-col gap-10 bg-white w-full py-20 px-40">
         <h2 className="text-2xl font-semibold">Novo v ponudbi</h2>
-        <AnimatedCarousel products={productsDummyData} initialIndex={0} />
+        <AnimatedCarousel products={products} initialIndex={0} />
       </section>
       <section className="flex flex-col gap-10 bg-white w-full pb-20 px-40">
         <h2 className="text-2xl font-semibold">Znižanje do -50%</h2>
-        <AnimatedCarousel products={productsDummyData} initialIndex={0} />
+        <AnimatedCarousel products={products} initialIndex={0} />
       </section>
       <section className="w-full hero-bg-color mt-20 text-white flex relative">
         <div className="flex flex-col gap-4 h-full w-full p-24">
@@ -94,7 +97,7 @@ export default function Home() {
       </section>
       <section className="flex flex-col gap-10 bg-white w-full pb-20 px-40">
         <h2 className="text-2xl font-semibold">Znižanje do -50%</h2>
-        <AnimatedCarousel products={productsDummyData} initialIndex={0} />
+        <AnimatedCarousel products={products} initialIndex={0} />
       </section>
       <section className="w-full hero-bg-color mt-20 text-white flex relative">
         <div className="flex flex-col items-center justify-center gap-4 h-full w-full p-24 z-20">

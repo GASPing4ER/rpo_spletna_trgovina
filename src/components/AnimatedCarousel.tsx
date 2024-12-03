@@ -73,7 +73,7 @@ export default function AnimatedCarousel({
             >
               <div className="flex flex-col gap-2 items-center">
                 <Image
-                  src={product.imgUrl}
+                  src="/images/product-placeholder.png"
                   alt="product"
                   width={246}
                   height={185}
