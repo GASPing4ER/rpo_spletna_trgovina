@@ -5,12 +5,7 @@ import Image from "next/image";
 
 import { ArrowRightIcon, ArrowLeftIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TProduct } from "@/types";
-
-interface AnimatedCarouselProps {
-  products: TProduct[];
-  initialIndex: number;
-}
+import { AnimatedCarouselProps } from "@/types";
 
 const variants = {
   enter: (direction: string) => ({
@@ -27,10 +22,10 @@ const variants = {
   }),
 };
 
-export default function AnimatedCarousel({
+const AnimatedCarousel = ({
   products,
   initialIndex,
-}: AnimatedCarouselProps) {
+}: AnimatedCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [direction, setDirection] = useState<string>("");
 
@@ -99,4 +94,6 @@ export default function AnimatedCarousel({
       </motion.div>
     </AnimatePresence>
   );
-}
+};
+
+export default AnimatedCarousel;

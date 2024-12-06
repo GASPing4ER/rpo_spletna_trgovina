@@ -6,12 +6,7 @@ import Link from "next/link";
 
 import { ArrowRightIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TCategory } from "@/types";
-
-interface AnimatedCategoryProps {
-  categories: TCategory[];
-  initialIndex: number;
-}
+import { AnimatedCategoryProps } from "@/types";
 
 const variants = {
   enter: (direction: string) => ({
@@ -28,10 +23,10 @@ const variants = {
   }),
 };
 
-export default function AnimatedCategory({
+const AnimatedCategory = ({
   categories,
   initialIndex,
-}: AnimatedCategoryProps) {
+}: AnimatedCategoryProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   const handleNext = () => {
@@ -82,4 +77,6 @@ export default function AnimatedCategory({
       </ul>
     </>
   );
-}
+};
+
+export default AnimatedCategory;

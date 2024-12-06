@@ -1,9 +1,11 @@
 import React from "react";
+import Image from "next/image";
+
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { OrdersTable } from "@/components";
 import { ordersDummyData } from "@/constants";
+import { LogoutButton } from "@/components";
 
 export default function Profile() {
   return (
@@ -26,9 +28,7 @@ export default function Profile() {
           <Button variant="default" className="w-full mb-4">
             Edit Profile
           </Button>
-          <Button variant="outline" className="w-full">
-            Logout
-          </Button>
+          <LogoutButton />
         </div>
       </Card>
       <OrdersTable orders={ordersDummyData} />

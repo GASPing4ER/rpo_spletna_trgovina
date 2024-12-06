@@ -29,3 +29,29 @@ export type TCategory = {
   iconUrl: string;
   slugId: string;
 };
+
+export type NewUserDataProps = {
+  email: string;
+  username: string;
+  password: string;
+};
+
+export type UserDataWithoutPassword = Omit<
+  NewUserDataProps,
+  "password" | "confirmPassword"
+>;
+
+export type LoginUserProps = {
+  email: string;
+  password: string;
+};
+
+export type AnimatedCarouselProps = {
+  products: TProduct[];
+  initialIndex: number;
+};
+
+export type AnimatedCategoryProps = {
+  categories: TCategory[];
+  initialIndex: number;
+};
