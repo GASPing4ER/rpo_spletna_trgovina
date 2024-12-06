@@ -11,7 +11,6 @@ import {
   FormContent,
   FormFooter,
 } from "@/components/ui/form";
-import { toast } from "react-toastify";
 import Link from "next/link";
 
 const RegisterForm = () => {
@@ -41,8 +40,6 @@ const RegisterForm = () => {
 
     if (error) {
       setError(error);
-    } else {
-      toast.success("Signup successful!");
     }
   };
 
