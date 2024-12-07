@@ -1,5 +1,8 @@
 # Shop Project
 
+## Overview
+The **Shop Project** is a modern e-commerce platform designed to provide a seamless shopping experience for both customers and administrators. This project leverages cutting-edge technologies to deliver a fast, scalable, and user-friendly system. 
+
 ## Getting Started
 
 First, install the dependencies:
@@ -40,9 +43,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Overview
-The **Shop Project** is a modern e-commerce platform designed to provide a seamless shopping experience for both customers and administrators. This project leverages cutting-edge technologies to deliver a fast, scalable, and user-friendly system. 
 
 ## Features
 ### Customer-Facing Features
