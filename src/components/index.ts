@@ -8,6 +8,8 @@ import AnimatedCategory from "./AnimatedCategory";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import LogoutButton from "./LogoutButton";
+import CategoryListBox from "./CategoryListBox";
+import FilterDropDown from "./FilterDropDown";
 
 export {
   Header,
@@ -20,4 +22,6 @@ export {
   SignupForm,
   LoginForm,
   LogoutButton,
+  CategoryListBox,
+  FilterDropDown,
 };

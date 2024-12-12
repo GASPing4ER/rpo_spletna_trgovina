@@ -8,6 +8,7 @@ export type TProduct = {
   category: string;
   imgUrl: string;
   created_at: Date;
+  brand: string;
 };
 
 export type TNavigation = {
@@ -28,6 +29,7 @@ export type TCategory = {
   slug: string;
   iconUrl: string;
   slugId: string;
+  brands: string[];
 };
 
 export type NewUserDataProps = {

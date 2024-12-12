@@ -2,13 +2,21 @@ import { supabase } from "@/lib/supabase";
 import { TProduct } from "@/types";
 import { PostgrestError } from "@supabase/supabase-js";
 
-export const getProducts = async (): Promise<{
+export const getProducts = async (
+  category?: string
+): Promise<{
   data: TProduct[] | null;
   error: PostgrestError | null | unknown;
   message: string;
 }> => {
   try {
-    const { data, error } = await supabase.from("products").select();
+    let query = supabase.from("products").select();
+
+    if (category) {
+      query = query.eq("category", category);
+    }
+
+    const { data, error } = await query;
 
     return {
       data: data,
