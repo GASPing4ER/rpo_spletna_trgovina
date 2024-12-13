@@ -18,7 +18,8 @@ export const signup = async (formData: NewUserDataProps) => {
     password: formData.password!,
     options: {
       data: {
-        username: formData.username.trim(),
+        first_name: formData.first_name.trim(),
+        last_name: formData.last_name.trim(),
       },
     },
   });
@@ -35,7 +36,7 @@ export const signup = async (formData: NewUserDataProps) => {
   }
 
   revalidatePath("/", "layout");
-  redirect("/");
+  redirect("/login");
 };
 
 export const login = async (formData: LoginUserProps) => {
@@ -76,8 +77,9 @@ export const addUser = async (
     {
       id: userData.id,
       email: userData.email,
-      username: userData.username,
-      //! Other user fields
+      first_name: userData.first_name,
+      last_name: userData.last_name,
+      //Other user fields
     },
   ]);
 

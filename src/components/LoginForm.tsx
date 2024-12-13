@@ -36,17 +36,17 @@ const LoginForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="w-full max-w-lg p-2">
-      <FormHeader>
-        <FormTitle>Login</FormTitle>
+    <Form
+      onSubmit={handleSubmit}
+      className="w-full h-full max-w-[1120px] max-h-[508]"
+    >
+      <FormHeader className="font-bold text-xl">
+        <FormTitle>Vpis</FormTitle>
       </FormHeader>
       <FormContent>
         <div className="mb-4">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Email:
+          <label htmlFor="email" className="text-sm font-medium text-[#545454]">
+            E-mail naslov
           </label>
           <Input
             type="email"
@@ -54,16 +54,17 @@ const LoginForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            placeholder="Vpiši e-mail"
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1.5 w-full py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-700"
+            className="text-sm font-medium text-[#545454]"
           >
-            Password:
+            Geslo
           </label>
           <Input
             type="password"
@@ -71,23 +72,27 @@ const LoginForm = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
+            placeholder="Vpiši geslo"
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1.5 w-full py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
+        <div className="flex items-center justify-between mt-6">
+          <p className="text-center text-sm">Pozabljeno geslo?</p>
+          <p className="text-center text-sm">
+            Še nimaš računa?{" "}
+            <Link href="/signup" className="font-semibold">
+              Registriraj se.
+            </Link>
+          </p>
+        </div>
       </FormContent>
       <FormFooter>
-        <Button
-          type="submit"
-          className="w-full py-2 px-4 bg-indigo-600 text-white rounded-md"
-        >
-          Login
+        <Button type="submit" className="w-full py-7 bg-[#4156D8] mt-8">
+          Vpiši se
         </Button>
       </FormFooter>
-      <p className="text-center text-sm text-gray-600">
-        <Link href="/signup">Don&apos;t have an account?</Link>
-      </p>
     </Form>
   );
 };

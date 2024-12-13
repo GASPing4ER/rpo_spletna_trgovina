@@ -25,7 +25,7 @@ export default async function Profile() {
             className="rounded-full mb-4"
           />
           <h1 className="text-3xl font-bold mb-2">
-            {user?.user_metadata.username}
+            {user?.user_metadata.first_name} {user?.user_metadata.last_name}
           </h1>
           <p className="text-gray-600 mb-4">{user?.email}</p>
           <p className="text-center text-gray-700 mb-6">
