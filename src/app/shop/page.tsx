@@ -13,6 +13,7 @@ import {
   handleBrandChange,
   handleSliderChange,
 } from "@/actions/handlers";
+import { useCartContext } from "@/hooks";
 
 export default function Shop() {
   const searchParams = useSearchParams();
@@ -23,6 +24,7 @@ export default function Shop() {
   const [sortOption, setSortOption] = useState<string>("LowToHigh");
   const [selBrands, setSelBrands] = useState<Record<string, boolean>>({});
   const [sliderValue, setSliderValue] = useState<[number, number]>([0, 1500]);
+  const { handleAddProduct } = useCartContext();
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -56,14 +58,22 @@ export default function Shop() {
         className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4 shadow-inner"
       >
         <div className="flex flex-col gap-2 items-center">
-          <Image src={product.imgUrl} alt="product" width={246} height={185} />
+          <Image
+            src="/images/product-placeholder.png"
+            alt="product"
+            width={246}
+            height={185}
+          />
           <h3 className="text-center">
             {product.name}, {product.description}
           </h3>
         </div>
         <div className="flex flex-col gap-2 items-center">
           <p className="text-2xl font-bold">{product.price},00 €</p>
-          <button className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]">
+          <button
+            onClick={() => handleAddProduct(product)}
+            className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]"
+          >
             Kupi zdaj
           </button>
         </div>

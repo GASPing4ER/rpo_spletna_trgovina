@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowRightIcon, ArrowLeftIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedCarouselProps } from "@/types";
+import { useCartContext } from "@/hooks";
 
 const variants = {
   enter: (direction: string) => ({
@@ -28,6 +29,7 @@ const AnimatedCarousel = ({
 }: AnimatedCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [direction, setDirection] = useState<string>("");
+  const { handleAddProduct } = useCartContext();
 
   const handleNext = () => {
     setDirection("left");
@@ -79,7 +81,10 @@ const AnimatedCarousel = ({
               </div>
               <div className="flex flex-col gap-2 items-center">
                 <p className="text-2xl font-bold">{product.price},00 €</p>
-                <button className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]">
+                <button
+                  onClick={() => handleAddProduct(product)}
+                  className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]"
+                >
                   Kupi zdaj
                 </button>
               </div>

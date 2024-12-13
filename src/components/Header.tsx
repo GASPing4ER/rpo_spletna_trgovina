@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Navigation } from "@/components";
+import Cart from "./Cart";
 
 const Header = () => {
   return (
@@ -18,14 +19,7 @@ const Header = () => {
       {/* TODO: Logo tukaj! */}
       <Navigation />
       <div className="flex items-center gap-4">
-        <Link href="/cart">
-          <Image
-            src="/icons/shopping-bag.svg"
-            alt="shopping bag"
-            width={20}
-            height={20}
-          />
-        </Link>
+        <Cart />
         <Link href="/profile">
           <Image src="/icons/user.svg" alt="user" width={20} height={20} />
         </Link>
