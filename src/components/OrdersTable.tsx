@@ -17,7 +17,7 @@ type OrdersTableProps = {
 const OrdersTable = ({ orders }: OrdersTableProps) => {
   console.log(orders);
   return (
-    <Table className="border w-[500px]">
+    <Table className="border mx-auto w-[500px]">
       <TableCaption>A list of your recent orders.</TableCaption>
       <TableHeader>
         <TableRow>

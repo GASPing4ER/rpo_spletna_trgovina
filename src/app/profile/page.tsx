@@ -12,8 +12,8 @@ export default async function Profile() {
   const { data: orders } = await getOrders(user.id);
 
   return (
-    <main className="w-full h-screen flex gap-10 items-center justify-center bg-gray-100">
-      <Card className="w-full max-w-lg p-6 bg-white rounded-lg shadow-md">
+    <main className="w-full h-screen flex flex-col gap-10 items-center justify-center bg-gray-100">
+      <Card className="max-w-lg p-6 bg-white rounded-lg shadow-md">
         <div className="flex flex-col items-center">
           <Image
             src="/images/profile_img.png"
