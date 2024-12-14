@@ -1,10 +1,15 @@
 "use client";
 
 import { TProduct } from "@/types";
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 type CartContextProviderProps = {
-  //   data: TProduct[];
   children: React.ReactNode;
 };
 
@@ -23,7 +28,16 @@ export const CartContext = createContext<TCartContext | null>(null);
 
 const CartContextProvider = ({ children }: CartContextProviderProps) => {
   // state
-  const [cart, setCart] = useState<TProduct[]>([]);
+  const localCart: TProduct[] = (() => {
+    const cartData = localStorage.getItem("cart");
+    return cartData ? JSON.parse(cartData) : [];
+  })();
+
+  const [cart, setCart] = useState<TProduct[]>(localCart);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   // handlers
   const handleAddProduct = async (newProduct: TProduct) => {
