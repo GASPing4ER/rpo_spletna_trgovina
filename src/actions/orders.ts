@@ -1,5 +1,11 @@
 import { supabase } from "@/lib/supabase";
-import { TOrder, TOrderData, TOrderItem, TOrderItemData } from "@/types";
+import {
+  TOrder,
+  TOrderData,
+  TOrderItem,
+  TOrderItemData,
+  TOrderWithItems,
+} from "@/types";
 import { PostgrestError } from "@supabase/supabase-js";
 
 export const addOrder = async (
@@ -78,6 +84,47 @@ export const getOrders = async (
       data: null,
       error,
       message: "Database Error: Failed to Fetch Orders Data",
+    };
+  }
+};
+
+export const getOrdersWithItems = async (
+  userId?: string
+): Promise<{
+  data: TOrderWithItems[] | null;
+  error: PostgrestError | null | unknown;
+  message: string;
+}> => {
+  try {
+    // Fetch orders along with their related order items and product data
+    const { data, error } = await supabase
+      .from("orders")
+      .select(
+        `
+        *,
+        order_items(*, products(*))
+      `
+      )
+      .eq("user_id", userId);
+
+    if (error) {
+      return {
+        data: null,
+        error,
+        message: "Database Error: Failed to Fetch Orders with Items",
+      };
+    }
+
+    return {
+      data: data as TOrderWithItems[],
+      error: null,
+      message: "Successfully Fetched Orders with Items",
+    };
+  } catch (error) {
+    return {
+      data: null,
+      error,
+      message: "Unexpected Error: Failed to Fetch Orders with Items",
     };
   }
 };

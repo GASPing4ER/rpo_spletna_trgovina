@@ -36,6 +36,11 @@ export type TOrderItem = {
 
 export type TOrderItemData = Omit<TOrderItem, "id" | "created_at">;
 
+// Example type definition for TOrderWithItems
+export type TOrderWithItems = TOrder & {
+  order_items: (TOrderItem & { products: TProduct })[];
+};
+
 export type TCategory = {
   title: string;
   slug: string;

@@ -5,11 +5,14 @@ import { Button } from "@/components/ui/button";
 import { OrdersTable } from "@/components";
 import { LogoutButton } from "@/components";
 import { getUser } from "@/actions/auth";
-import { getOrders } from "@/actions/orders";
+import { getOrdersWithItems } from "@/actions/orders";
 
 export default async function Profile() {
   const user = await getUser();
-  const { data: orders } = await getOrders(user.id);
+  const { data: orders } = await getOrdersWithItems(user.id);
+  if (orders) {
+    console.log("ORDER ITEMS:", orders[0].order_items);
+  }
 
   return (
     <main className="w-full h-screen flex flex-col gap-10 items-center justify-center bg-gray-100">
