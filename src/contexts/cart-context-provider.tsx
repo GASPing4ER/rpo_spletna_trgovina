@@ -1,7 +1,7 @@
 "use client";
 
 import { TProduct } from "@/types";
-import { createContext, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useState } from "react";
 
 type CartContextProviderProps = {
   //   data: TProduct[];
@@ -10,6 +10,7 @@ type CartContextProviderProps = {
 
 type TCartContext = {
   products: TProduct[];
+  setProducts: Dispatch<SetStateAction<TProduct[]>>;
   handleAddProduct: (newProduct: TProduct) => Promise<void>;
   handleEditProduct: (
     productId: TProduct["id"],
@@ -48,6 +49,7 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
     <CartContext.Provider
       value={{
         products: cart,
+        setProducts: setCart,
         handleAddProduct,
         handleEditProduct,
         handleDeleteProduct,

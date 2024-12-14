@@ -5,9 +5,14 @@ import { TrashIcon } from "lucide-react";
 import { useCartContext } from "@/hooks";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { addOrder, addOrderItems } from "@/actions/orders";
+import { getUser } from "@/actions/auth";
+import { TOrderItemData } from "@/types";
+import { FormEvent } from "react";
+import { redirect } from "next/navigation";
 
 const CartPage = () => {
-  const { products, handleDeleteProduct } = useCartContext();
+  const { products, setProducts, handleDeleteProduct } = useCartContext();
 
   // derived states
   const totalPrice = products.reduce(
@@ -17,6 +22,28 @@ const CartPage = () => {
 
   const tax = Math.round(totalPrice * 0.22);
   const shipping = 15;
+
+  const onHandleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const user = await getUser();
+    const { data } = await addOrder({
+      total_price: totalPrice + tax + shipping,
+      user_id: user.id,
+      status: "pending",
+    });
+    console.log(data);
+    if (data) {
+      const modifiedProducts: TOrderItemData[] = products.map((product) => ({
+        order_id: data.id,
+        product_id: product.id,
+        quantity: 1,
+      }));
+      const { error } = await addOrderItems(modifiedProducts);
+      console.log("error:", error);
+    }
+    setProducts([]);
+    redirect("/");
+  };
 
   return (
     <div className="mx-auto py-28 px-24 bg-gray-100">
@@ -49,7 +76,10 @@ const CartPage = () => {
               );
             })}
           </div>
-          <div className="bg-white w-[600px] flex flex-col justify-center gap-4 p-8">
+          <form
+            onSubmit={onHandleSubmit}
+            className="bg-white w-[600px] flex flex-col justify-center gap-4 p-8"
+          >
             <h2 className="text-xl font-bold">Pregled naročila</h2>
             <div className="flex flex-col gap-4">
               <Label>Promo koda</Label>
@@ -77,10 +107,13 @@ const CartPage = () => {
               <p className="font-semibold">Skupno</p>
               <p className="font-semibold">{totalPrice + tax + shipping} €</p>
             </div>
-            <button className="text-white font-semibold bg-blue-600 py-3 rounded-sm">
+            <button
+              type="submit"
+              className="text-white font-semibold bg-blue-600 py-3 rounded-sm"
+            >
               Naroči
             </button>
-          </div>
+          </form>
         </div>
       ) : (
         <div className="flex flex-col gap-4">

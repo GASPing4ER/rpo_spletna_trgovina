@@ -3,15 +3,13 @@ import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { OrdersTable } from "@/components";
-import { ordersDummyData } from "@/constants";
 import { LogoutButton } from "@/components";
-import { createClient } from "@/utils/supabase/server";
+import { getUser } from "@/actions/auth";
+import { getOrders } from "@/actions/orders";
 
 export default async function Profile() {
-  const supabase = await createClient();
-  const { data } = await supabase.auth.getUser();
-
-  const user = data.user;
+  const user = await getUser();
+  const { data: orders } = await getOrders(user.id);
 
   return (
     <main className="w-full h-screen flex gap-10 items-center justify-center bg-gray-100">
@@ -38,7 +36,7 @@ export default async function Profile() {
           <LogoutButton />
         </div>
       </Card>
-      <OrdersTable orders={ordersDummyData} />
+      <OrdersTable orders={orders} />
     </main>
   );
 }

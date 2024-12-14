@@ -11,10 +11,11 @@ import { formatDate } from "@/lib/utils";
 import { TOrder } from "@/types";
 
 type OrdersTableProps = {
-  orders: TOrder[];
+  orders: TOrder[] | null;
 };
 
 const OrdersTable = ({ orders }: OrdersTableProps) => {
+  console.log(orders);
   return (
     <Table className="border w-[500px]">
       <TableCaption>A list of your recent orders.</TableCaption>
@@ -27,14 +28,15 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {orders.map((order) => (
-          <TableRow key={order.id}>
-            <TableCell>{order.id}</TableCell>
-            <TableCell>{order.status}</TableCell>
-            <TableCell>{order.total_price} €</TableCell>
-            <TableCell>{formatDate(order.created_at)}</TableCell>
-          </TableRow>
-        ))}
+        {orders &&
+          orders.map((order, index) => (
+            <TableRow key={order.id}>
+              <TableCell>#{index + 1}</TableCell>
+              <TableCell>{order.status}</TableCell>
+              <TableCell>{order.total_price} €</TableCell>
+              <TableCell>{formatDate(order.created_at)}</TableCell>
+            </TableRow>
+          ))}
       </TableBody>
     </Table>
   );
