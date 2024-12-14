@@ -28,7 +28,11 @@ export const signup = async (formData: NewUserDataProps) => {
   const { password, ...rest } = formData;
 
   if (data.user) {
-    await addUser({ ...rest, id: data.user.id });
+    if (data.user.created_at !== data.user.updated_at) {
+      return { error: "This email is already taken!" };
+    } else {
+      await addUser({ ...rest, id: data.user.id });
+    }
   }
 
   if (error) {
