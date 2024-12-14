@@ -60,8 +60,7 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
                         <ul className="list-disc list-inside">
                           {order.order_items.map((item) => (
                             <li key={item.id}>
-                              {item.products.name} - {item.quantity} pcs @{" "}
-                              {item.products.price} €
+                              {item.products.name} - {item.products.price} €
                             </li>
                           ))}
                         </ul>
