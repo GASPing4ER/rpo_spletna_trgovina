@@ -11,6 +11,7 @@ import CategoryListBox from "./CategoryListBox";
 import FilterDropDown from "./FilterDropDown";
 import DeliveryForm from "./DeliveryForm";
 import BankForm from "./BankForm";
+import LanguageSelector from "./LanguageSelector";
 
 export {
   Header,
@@ -26,4 +27,5 @@ export {
   FilterDropDown,
   DeliveryForm,
   BankForm,
+  LanguageSelector,
 };

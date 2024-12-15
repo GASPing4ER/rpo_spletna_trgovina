@@ -1,8 +1,9 @@
 // Header Component
 
+import { Navigation } from "@/components";
+import { LanguageSelector } from "@/components";
 import Image from "next/image";
 import Link from "next/link";
-import { Navigation } from "@/components";
 import Cart from "./Cart";
 
 const Header = () => {
@@ -24,12 +25,7 @@ const Header = () => {
           <Image src="/icons/user.svg" alt="user" width={20} height={20} />
         </Link>
         {/* TODO: Izbira jezika tukaj */}
-        <Image
-          src="/icons/slovene-flag.svg"
-          alt="slovene language"
-          width={24}
-          height={24}
-        />
+        <LanguageSelector />
       </div>
     </header>
   );
