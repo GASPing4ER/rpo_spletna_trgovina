@@ -1,24 +1,15 @@
 import React from "react";
-import {
-  updateBankDetails,
-  getUserBankDetails,
-  getUserData,
-} from "@/actions/profile";
-import { BankForm } from "@/components";
+import { getUserData } from "@/actions/profile";
 import { Text } from "@/components/ui/text";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { logout } from "@/actions/auth";
-import { headers } from "next/headers";
 import Link from "next/link";
 
 export default async function OrderHistory() {
   const { data: user } = await getUserData();
-  const headersList = await headers();
-  const referer = headersList.get("referer") || "";
-  const currentPath = new URL(referer).pathname;
 
   return (
     <div className="h-screen flex justify-center bg-gray-100 mt-20 py-20 px-24">

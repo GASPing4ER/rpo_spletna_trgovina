@@ -4,15 +4,11 @@ import {
   NewUserDataProps,
   LoginUserProps,
   UserDataWithoutPassword,
-  TUser,
 } from "@/types";
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { User } from "@supabase/supabase-js";
-import { PostgrestError } from "@supabase/supabase-js";
-import { supabase } from "@/lib/supabase";
-
 export const signup = async (formData: NewUserDataProps) => {
   const supabaseAuth = await createClient();
 

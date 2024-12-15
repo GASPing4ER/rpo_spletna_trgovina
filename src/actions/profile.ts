@@ -28,7 +28,7 @@ const setBankDetails = async (
   try {
     const user = await getUser();
 
-    const { data, error } = await supabase
+    await supabase
       .from("users")
       .update({
         bank_details: {
@@ -61,7 +61,7 @@ const setDeliveryDetails = async (
   try {
     const user = await getUser();
 
-    const { data, error } = await supabase
+    await supabase
       .from("users")
       .update({
         delivery_details: {

@@ -2,15 +2,10 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { logout } from "@/actions/auth";
-import {
-  updateBankDetails,
-  updateDeliveryDetails,
-  getUserData,
-} from "@/actions/profile";
+import { getUserData } from "@/actions/profile";
 import { Text } from "@/components/ui/text";
 import { Separator } from "@/components/ui/separator";
 import { ChevronRight } from "lucide-react";
-import { DeliveryForm, BankForm } from "@/components";
 import Link from "next/link";
 
 export default async function Profile() {
