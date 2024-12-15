@@ -14,10 +14,6 @@ export default async function OrderHistory() {
   const { data: user } = await getUserData();
   const { data: orders } = await getOrdersWithItems(user.id);
 
-  if (orders) {
-    console.log("ORDER ITEMS:", orders[0].order_items);
-  }
-
   return (
     <div className="h-screen flex justify-center bg-gray-100 mt-20 py-20 px-24">
       <div className="w-[70%] max-w-[1200px] flex flex-col">
@@ -63,7 +59,7 @@ export default async function OrderHistory() {
               variant="outline"
               type="submit"
               className="w-full border-[#4156D8] text-[#4156D8] hover:bg-[#4156D8] hover:text-white"
-              onClick={await logout}
+              onClick={logout}
             >
               Izpiši se
             </Button>

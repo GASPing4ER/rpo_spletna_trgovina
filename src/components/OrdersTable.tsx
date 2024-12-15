@@ -37,6 +37,7 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
       </TableHeader>
       <TableBody>
         {orders &&
+          orders.length > 0 &&
           orders.map((order, index) => (
             <React.Fragment key={order.id}>
               {/* Main Order Row */}
