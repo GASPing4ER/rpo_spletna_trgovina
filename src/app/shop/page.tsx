@@ -14,11 +14,13 @@ import {
   handleSliderChange,
 } from "@/actions/handlers";
 import { useCartContext } from "@/hooks";
+import Pagination from "@mui/material/Pagination";
 
 export default function Shop() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const category = searchParams.get("category");
+  const page = parseInt(searchParams.get("page") || "1", 10);
   const [loading, setLoading] = useState<boolean>(false);
   const [products, setProducts] = useState<TProduct[] | null>(null);
   const [sortOption, setSortOption] = useState<string>("LowToHigh");
@@ -26,16 +28,31 @@ export default function Shop() {
   const [sliderValue, setSliderValue] = useState<[number, number]>([0, 1500]);
   const { handleAddProduct } = useCartContext();
 
+  const validCategory = categoriesData.find((cat) => cat.slugId === category)
+    ? category
+    : "";
+
+  const validPage = Number.isInteger(page) && page > 0 ? page : 1;
+
   useEffect(() => {
     const loadProducts = async () => {
       setLoading(true);
-      const data = await fetchProducts(category);
+      const data = await fetchProducts(validCategory);
       setProducts(data);
       setLoading(false);
     };
 
     loadProducts();
-  }, [category]);
+  }, [validCategory, validPage]);
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    newPage: number
+  ) => {
+    if (validCategory)
+      router.push(`?category=${validCategory}&page=${newPage}`);
+    else router.push(`?page=${newPage}`);
+  };
 
   const renderProducts = () => {
     if (!loading && products && products.length === 0) {
@@ -52,7 +69,11 @@ export default function Shop() {
       );
     }
 
-    return filteredProducts.map((product, index) => (
+    const startIndex = (validPage - 1) * 20;
+    const endIndex = startIndex + 20;
+    const productsToDisplay = filteredProducts.slice(startIndex, endIndex);
+
+    return productsToDisplay.map((product, index) => (
       <div
         key={index}
         className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4 shadow-inner"
@@ -91,10 +112,10 @@ export default function Shop() {
   }, [products, selBrands, sliderValue, sortOption]);
 
   return (
-    <main className="w-full min-h-screen flex flex-col items-center">
-      <section className="w-full flex mt-20 justify-end py-10 px-40">
+    <main className="min-h-screen flex flex-col items-center mt-20">
+      <section className="w-full flex justify-end py-10 px-40">
         <FilterDropDown
-          category={category || ""}
+          category={validCategory || ""}
           sortOption={sortOption}
           onSortChange={handleSortChange(setSortOption)}
           selBrands={selBrands}
@@ -104,7 +125,7 @@ export default function Shop() {
         />
         <CategoryListBox
           categories={categoriesData}
-          category={category}
+          category={validCategory}
           onCategoryChange={handleCategoryClick(
             router,
             setSelBrands,
@@ -114,6 +135,24 @@ export default function Shop() {
       </section>
       <section className="flex gap-5 items-center justify-center">
         {renderProducts()}
+      </section>
+      <section className="mt-10">
+        <Pagination
+          count={
+            products && (products.length / 1 < 20 ? 1 : products.length / 20)
+          }
+          page={validPage}
+          onChange={handlePageChange}
+          sx={{
+            "& .MuiPaginationItem-root": {
+              color: "#111",
+              "&.Mui-selected": {
+                backgroundColor: "#4156D8",
+                color: "#fff",
+              },
+            },
+          }}
+        />
       </section>
     </main>
   );

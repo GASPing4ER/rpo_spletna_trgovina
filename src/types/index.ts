@@ -11,6 +11,27 @@ export type TProduct = {
   brand: string;
 };
 
+export type TUser = {
+  id: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  bank_details: {
+    full_name: string;
+    account_number: string;
+    expiration_date: string;
+    ccv: string;
+  };
+  delivery_details: {
+    first_name: string;
+    last_name: string;
+    address: string;
+    city: string;
+    postal: string;
+  };
+  created_at: Date;
+};
+
 export type TNavigation = {
   title: string;
   slug: string;

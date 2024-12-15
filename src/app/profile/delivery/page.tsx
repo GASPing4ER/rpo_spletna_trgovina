@@ -1,23 +1,24 @@
 import React from "react";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { logout } from "@/actions/auth";
 import {
-  updateBankDetails,
   updateDeliveryDetails,
+  getUserDeliveryDetails,
   getUserData,
 } from "@/actions/profile";
+import { DeliveryForm } from "@/components";
 import { Text } from "@/components/ui/text";
-import { Separator } from "@/components/ui/separator";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
-import { DeliveryForm, BankForm } from "@/components";
+import { Separator } from "@/components/ui/separator";
+import { logout } from "@/actions/auth";
+import { headers } from "next/headers";
 import Link from "next/link";
 
-export default async function Profile() {
+export default async function Delivery() {
   const { data: user } = await getUserData();
 
   return (
-    <div className="h-screen flex justify-center items-center bg-gray-100">
+    <div className="h-screen flex justify-center bg-gray-100 mt-20 py-20 px-24">
       <div className="w-[70%] max-w-[1200px] flex flex-col">
         <Text size="large" className="mb-10 text-left">
           Pozdravljen/a, {user.first_name}!
@@ -30,7 +31,7 @@ export default async function Profile() {
             <Link href="/profile/delivery">
               <Button
                 variant="ghost"
-                className="w-full flex flex-wrap justify-between"
+                className="w-full flex flex-wrap justify-between bg-[#F6F6F6]"
               >
                 Podatki za dostavo
                 <ChevronRight />
@@ -47,13 +48,15 @@ export default async function Profile() {
               </Button>
             </Link>
             <Separator className="my-3" />
-            <Button
-              variant="ghost"
-              className="w-full flex flex-wrap justify-between"
-            >
-              Zgodovina nakupov
-              <ChevronRight />
-            </Button>
+            <Link href="/profile/order-history">
+              <Button
+                variant="ghost"
+                className="w-full flex flex-wrap justify-between"
+              >
+                Zgodovina nakupov
+                <ChevronRight />
+              </Button>
+            </Link>
             <Separator className="mt-3 mb-6" />
             <Button
               variant="outline"
@@ -64,7 +67,12 @@ export default async function Profile() {
               Izpiši se
             </Button>
           </Card>
-          <div className="w-full lg:w-2/3"></div>
+          <div className="w-full lg:w-2/3">
+            <DeliveryForm
+              delivery_details={user.delivery_details}
+              onSubmit={updateDeliveryDetails}
+            />
+          </div>
         </div>
       </div>
     </div>

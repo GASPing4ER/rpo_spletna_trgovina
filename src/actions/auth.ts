@@ -4,11 +4,14 @@ import {
   NewUserDataProps,
   LoginUserProps,
   UserDataWithoutPassword,
+  TUser,
 } from "@/types";
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { User } from "@supabase/supabase-js";
+import { PostgrestError } from "@supabase/supabase-js";
+import { supabase } from "@/lib/supabase";
 
 export const signup = async (formData: NewUserDataProps) => {
   const supabaseAuth = await createClient();
@@ -28,11 +31,7 @@ export const signup = async (formData: NewUserDataProps) => {
   const { password, ...rest } = formData;
 
   if (data.user) {
-    if (data.user.created_at !== data.user.updated_at) {
-      return { error: "This email is already taken!" };
-    } else {
-      await addUser({ ...rest, id: data.user.id });
-    }
+    await addUser({ ...rest, id: data.user.id });
   }
 
   if (error) {
@@ -83,7 +82,8 @@ export const addUser = async (
       email: userData.email,
       first_name: userData.first_name,
       last_name: userData.last_name,
-      //Other user fields
+      bank_details: {},
+      delivery_details: {},
     },
   ]);
 

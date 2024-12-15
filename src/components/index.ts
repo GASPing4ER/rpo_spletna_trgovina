@@ -7,9 +7,10 @@ import AnimatedCarousel from "./AnimatedCarousel";
 import AnimatedCategory from "./AnimatedCategory";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
-import LogoutButton from "./LogoutButton";
 import CategoryListBox from "./CategoryListBox";
 import FilterDropDown from "./FilterDropDown";
+import DeliveryForm from "./DeliveryForm";
+import BankForm from "./BankForm";
 
 export {
   Header,
@@ -21,7 +22,8 @@ export {
   AnimatedCategory,
   SignupForm,
   LoginForm,
-  LogoutButton,
   CategoryListBox,
   FilterDropDown,
+  DeliveryForm,
+  BankForm,
 };
