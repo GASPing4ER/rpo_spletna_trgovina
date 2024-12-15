@@ -1,5 +1,5 @@
 import React from "react";
-import { getUserData } from "@/actions/profile";
+import { updateBankDetails, getUserData } from "@/actions/profile";
 import { BankForm } from "@/components";
 import { Text } from "@/components/ui/text";
 import { Card } from "@/components/ui/card";
@@ -19,7 +19,7 @@ export default async function Bank() {
           Pozdravljen/a, {user.first_name}!
         </Text>
         <div className="flex flex-col lg:flex-row gap-4">
-          <Card className="w-full lg:w-1/3 bg-white shadow-md rounded-lg p-10 self-start">
+          <Card className="w-full lg:w-1/3 bg-white shadow-sm rounded-lg p-10 self-start">
             <Text size="custom" className="mb-5">
               Osebni podatki
             </Text>

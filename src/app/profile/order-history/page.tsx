@@ -6,10 +6,17 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { logout } from "@/actions/auth";
+import { OrdersTable } from "@/components";
+import { getOrdersWithItems } from "@/actions/orders";
 import Link from "next/link";
 
 export default async function OrderHistory() {
   const { data: user } = await getUserData();
+  const { data: orders } = await getOrdersWithItems(user.id);
+
+  if (orders) {
+    console.log("ORDER ITEMS:", orders[0].order_items);
+  }
 
   return (
     <div className="h-screen flex justify-center bg-gray-100 mt-20 py-20 px-24">
@@ -18,7 +25,7 @@ export default async function OrderHistory() {
           Pozdravljen/a, {user.first_name}!
         </Text>
         <div className="flex flex-col lg:flex-row gap-4">
-          <Card className="w-full lg:w-1/3 bg-white shadow-md rounded-lg p-10 self-start">
+          <Card className="w-full lg:w-1/3 bg-white shadow-sm rounded-lg p-10 self-start">
             <Text size="custom" className="mb-5">
               Osebni podatki
             </Text>
@@ -61,7 +68,9 @@ export default async function OrderHistory() {
               Izpiši se
             </Button>
           </Card>
-          <div className="w-full lg:w-2/3"></div>
+          <div className="w-full lg:w-2/3 rounded-md border">
+            <OrdersTable orders={orders} />
+          </div>
         </div>
       </div>
     </div>

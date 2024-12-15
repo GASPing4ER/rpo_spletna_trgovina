@@ -38,11 +38,28 @@ export type TNavigation = {
 };
 
 export type TOrder = {
-  id: number;
-  user_id: number;
+  id: string;
+  user_id: string;
   total_price: number;
   status: "completed" | "pending" | "shipped" | "canceled";
-  created_at: string;
+  created_at: Date;
+};
+
+export type TOrderData = Omit<TOrder, "id" | "created_at">;
+
+export type TOrderItem = {
+  id: string;
+  order_id: string;
+  product_id: string;
+  quantity: number;
+  created_at: Date;
+};
+
+export type TOrderItemData = Omit<TOrderItem, "id" | "created_at">;
+
+// Example type definition for TOrderWithItems
+export type TOrderWithItems = TOrder & {
+  order_items: (TOrderItem & { products: TProduct })[];
 };
 
 export type TCategory = {
