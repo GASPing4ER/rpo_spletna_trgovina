@@ -10,17 +10,15 @@ import {
   FormContent,
   FormFooter,
 } from "@/components/ui/form";
+import { DeliveryDetailsProps, TUser } from "@/types";
+import { updateDeliveryDetails } from "@/actions/profile";
 
-interface FormData {
-  first_name: string;
-  last_name: string;
-  address: string;
-  city: string;
-  postal: string;
-}
+type DeliveryFormProps = {
+  delivery_details: TUser["delivery_details"];
+};
 
-const DeliveryForm: React.FC = ({ delivery_details, onSubmit }) => {
-  const [formData, setFormData] = useState<FormData>({
+const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
+  const [formData, setFormData] = useState<DeliveryDetailsProps>({
     first_name: delivery_details.first_name || "",
     last_name: delivery_details.last_name || "",
     address: delivery_details.address || "",
@@ -28,7 +26,7 @@ const DeliveryForm: React.FC = ({ delivery_details, onSubmit }) => {
     postal: delivery_details.postal || "",
   });
   const [message, setMessage] = useState<string>("");
-  const [error, setError] = useState<string>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,7 +34,7 @@ const DeliveryForm: React.FC = ({ delivery_details, onSubmit }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { message } = await onSubmit(formData);
+    const { message } = await updateDeliveryDetails(formData);
     if (error) setError(message);
     setMessage(message);
   };

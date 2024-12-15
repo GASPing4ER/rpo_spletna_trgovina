@@ -1,5 +1,5 @@
 import React from "react";
-import { updateBankDetails, getUserData } from "@/actions/profile";
+import { getUserData } from "@/actions/profile";
 import { BankForm } from "@/components";
 import { Text } from "@/components/ui/text";
 import { Card } from "@/components/ui/card";
@@ -8,9 +8,14 @@ import { ChevronRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { logout } from "@/actions/auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function Bank() {
   const { data: user } = await getUserData();
+
+  if (!user) {
+    redirect("/login");
+  }
 
   return (
     <div className="h-screen flex justify-center bg-gray-100 mt-20 py-20 px-24">
@@ -57,16 +62,13 @@ export default async function Bank() {
               variant="outline"
               type="submit"
               className="w-full border-[#4156D8] text-[#4156D8] hover:bg-[#4156D8] hover:text-white"
-              onClick={await logout}
+              onClick={logout}
             >
               Izpiši se
             </Button>
           </Card>
           <div className="w-full lg:w-2/3">
-            <BankForm
-              bank_details={user.bank_details}
-              onSubmit={updateBankDetails}
-            />
+            <BankForm bank_details={user.bank_details} />
           </div>
         </div>
       </div>

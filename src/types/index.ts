@@ -72,8 +72,9 @@ export type TCategory = {
 
 export type NewUserDataProps = {
   email: string;
-  username: string;
   password: string;
+  first_name: string;
+  last_name: string;
 };
 
 export type UserDataWithoutPassword = Omit<
@@ -94,4 +95,19 @@ export type AnimatedCarouselProps = {
 export type AnimatedCategoryProps = {
   categories: TCategory[];
   initialIndex: number;
+};
+
+export type BankDetailsProps = {
+  full_name: string;
+  account_number: string;
+  expiration_date: string;
+  ccv: string;
+};
+
+export type DeliveryDetailsProps = {
+  first_name: string;
+  last_name: string;
+  address: string;
+  city: string;
+  postal: string;
 };

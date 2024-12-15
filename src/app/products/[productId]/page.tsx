@@ -1,6 +1,6 @@
+import { getProduct, getProducts } from "@/actions/products";
 import { ProductCard } from "@/components";
 import { Button } from "@/components/ui/button";
-import { productsDummyData } from "@/constants";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +11,12 @@ export default async function ProductDetailsPage({
   params: Promise<{ productId: string }>;
 }) {
   const productId = (await params).productId;
-  const product = productsDummyData.find((product) => product.id === productId);
+  const [productResponse, productsResponse] = await Promise.all([
+    getProduct(productId),
+    getProducts(),
+  ]);
+  const product = productResponse.data;
+  const products = productsResponse.data;
 
   if (!product) {
     return <div>Product not found!</div>;
@@ -22,7 +27,7 @@ export default async function ProductDetailsPage({
         <div className="container grid md:grid-cols-2 gap-8 px-4 md:px-6">
           <div className="flex flex-col items-start gap-6">
             <Image
-              src={product.imgUrl}
+              src="/product-placeholder.png"
               alt="Product Image"
               width={600}
               height={600}
@@ -109,12 +114,13 @@ export default async function ProductDetailsPage({
               Related Products
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {productsDummyData
-                .filter((product) => product.id !== productId)
-                .splice(0, 3)
-                .map((product) => (
-                  <ProductCard product={product} key={product.id} />
-                ))}
+              {products &&
+                products
+                  .filter((product) => product.id !== productId)
+                  .splice(0, 3)
+                  .map((product) => (
+                    <ProductCard product={product} key={product.id} />
+                  ))}
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@
 import { supabase } from "@/lib/supabase";
 import { PostgrestError } from "@supabase/supabase-js";
 import { getUser } from "@/actions/auth";
+import { BankDetailsProps, DeliveryDetailsProps, TUser } from "@/types";
 
 interface FormBankData {
   full_name: string;
@@ -87,14 +88,19 @@ const setDeliveryDetails = async (
 };
 
 export const getUserData = async (): Promise<{
-  data: TUser[] | null;
+  data: TUser | null;
   error: PostgrestError | null | unknown;
   message: string;
 }> => {
   try {
     const user = await getUser();
 
-    if (!user) return { message: "User does not exist!" };
+    if (!user)
+      return {
+        data: null,
+        error: "User does not exist",
+        message: "User does not exist!",
+      };
 
     const { data, error } = await supabase
       .from("users")
@@ -116,21 +122,19 @@ export const getUserData = async (): Promise<{
   }
 };
 
-export async function updateBankDetails(formData) {
-  "use server";
+export async function updateBankDetails(formData: BankDetailsProps) {
   const { error, message } = await setBankDetails(formData);
   if (error) {
-    return { error, message: error.message };
+    return { error, message: "Bank Details Update Failed" };
   } else {
     return { message };
   }
 }
 
-export async function updateDeliveryDetails(formData) {
-  "use server";
+export async function updateDeliveryDetails(formData: DeliveryDetailsProps) {
   const { error, message } = await setDeliveryDetails(formData);
   if (error) {
-    return { error, message: error.message };
+    return { error, message: "Delivery Details Update Failed" };
   } else {
     return { message };
   }

@@ -69,7 +69,9 @@ export const getUser = async (): Promise<User> => {
 };
 
 export const addUser = async (
-  userData: UserDataWithoutPassword & { id: string }
+  userData: UserDataWithoutPassword & {
+    id: string;
+  }
 ) => {
   const supabaseAuth = await createClient();
   const { data, error } = await supabaseAuth.from("users").insert([

@@ -37,7 +37,7 @@ export default function Shop() {
   useEffect(() => {
     const loadProducts = async () => {
       setLoading(true);
-      const data = await fetchProducts(validCategory);
+      const { data } = await fetchProducts(validCategory);
       setProducts(data);
       setLoading(false);
     };
@@ -139,7 +139,9 @@ export default function Shop() {
       <section className="mt-10">
         <Pagination
           count={
-            products && (products.length / 1 < 20 ? 1 : products.length / 20)
+            (products &&
+              (products.length / 1 < 20 ? 1 : products.length / 20)) ||
+            1
           }
           page={validPage}
           onChange={handlePageChange}

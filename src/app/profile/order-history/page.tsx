@@ -9,9 +9,13 @@ import { logout } from "@/actions/auth";
 import { OrdersTable } from "@/components";
 import { getOrdersWithItems } from "@/actions/orders";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function OrderHistory() {
   const { data: user } = await getUserData();
+  if (!user) {
+    redirect("/login");
+  }
   const { data: orders } = await getOrdersWithItems(user.id);
 
   return (

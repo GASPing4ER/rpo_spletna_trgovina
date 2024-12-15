@@ -11,7 +11,7 @@ import { X } from "lucide-react";
 interface ListBoxProps {
   categories: TCategory[];
   category: string | null;
-  onCategoryChange: (value: string) => void;
+  onCategoryChange: (value: string | null) => void;
 }
 
 const CategoryListBox = ({

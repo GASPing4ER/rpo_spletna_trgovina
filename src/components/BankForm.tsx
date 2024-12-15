@@ -10,23 +10,22 @@ import {
   FormContent,
   FormFooter,
 } from "@/components/ui/form";
+import { BankDetailsProps, TUser } from "@/types";
+import { updateBankDetails } from "@/actions/profile";
 
-interface FormData {
-  full_name: string;
-  account_number: string;
-  expiration_date: string;
-  ccv: string;
-}
+type BankFormProps = {
+  bank_details: TUser["bank_details"];
+};
 
-const BankForm: React.FC = ({ bank_details, onSubmit }) => {
-  const [formData, setFormData] = useState<FormData>({
+const BankForm = ({ bank_details }: BankFormProps) => {
+  const [formData, setFormData] = useState<BankDetailsProps>({
     full_name: bank_details.full_name || "",
     account_number: bank_details.account_number || "",
     expiration_date: bank_details.expiration_date || "",
     ccv: bank_details.ccv || "",
   });
   const [message, setMessage] = useState<string>("");
-  const [error, setError] = useState<string>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -34,7 +33,7 @@ const BankForm: React.FC = ({ bank_details, onSubmit }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { error, message } = await onSubmit(formData);
+    const { error, message } = await updateBankDetails(formData);
     if (error) setError(message);
     setMessage(message);
   };

@@ -1,7 +1,6 @@
 import React from "react";
 import { getUserData } from "@/actions/profile";
 import { DeliveryForm } from "@/components";
-import { updateDeliveryDetails } from "@/actions/profile";
 import { Text } from "@/components/ui/text";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,9 +8,14 @@ import { ChevronRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { logout } from "@/actions/auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function Delivery() {
   const { data: user } = await getUserData();
+
+  if (!user) {
+    redirect("/login");
+  }
 
   return (
     <div className="h-screen flex justify-center bg-gray-100 mt-20 py-20 px-24">
@@ -64,10 +68,7 @@ export default async function Delivery() {
             </Button>
           </Card>
           <div className="w-full lg:w-2/3">
-            <DeliveryForm
-              delivery_details={user.delivery_details}
-              onSubmit={updateDeliveryDetails}
-            />
+            <DeliveryForm delivery_details={user.delivery_details} />
           </div>
         </div>
       </div>
