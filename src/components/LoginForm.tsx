@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { login } from "@/actions/auth";
+import { login, forgotPassword } from "@/actions/auth";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -30,6 +30,19 @@ const LoginForm = () => {
       email: formData.email,
       password: formData.password,
     });
+    if (error) {
+      setError(error);
+    }
+  };
+
+  const handlePasswordReset = async (email: string) => {
+    if (!email) {
+      setError("Vpiši e-mail naslov.");
+      return;
+    }
+
+    const { error } = await forgotPassword(email);
+
     if (error) {
       setError(error);
     }
@@ -79,7 +92,12 @@ const LoginForm = () => {
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
         <div className="flex items-center justify-between mt-6">
-          <p className="text-center text-sm">Pozabljeno geslo?</p>
+          <button
+            type="button"
+            onClick={() => handlePasswordReset(formData.email)}
+          >
+            <p className="text-center text-sm">Pozabljeno geslo?</p>
+          </button>
           <p className="text-center text-sm">
             Še nimaš računa?{" "}
             <Link href="/signup" className="font-semibold">

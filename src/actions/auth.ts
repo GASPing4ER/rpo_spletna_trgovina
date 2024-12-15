@@ -68,6 +68,17 @@ export const getUser = async (): Promise<User> => {
   return data.user;
 };
 
+export const forgotPassword = async (email: string) => {
+  const supabaseAuth = await createClient();
+  const { error } = await supabaseAuth.auth.resetPasswordForEmail(email);
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  return { data: "We sent you a password change request on e-mail." };
+};
+
 export const addUser = async (
   userData: UserDataWithoutPassword & {
     id: string;
