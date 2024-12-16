@@ -18,7 +18,8 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,7 +45,13 @@ const LoginForm = () => {
     const { error } = await forgotPassword(email);
 
     if (error) {
+      setMessage(null);
       setError(error);
+    }
+
+    if (!error) {
+      setError(null);
+      setMessage("E-mail za ponastavitev gesla je bil poslan.");
     }
   };
 
@@ -91,6 +98,7 @@ const LoginForm = () => {
           />
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
+        {message && <p className="text-green-500 text-sm">{message}</p>}
         <div className="flex items-center justify-between mt-6">
           <button
             type="button"
