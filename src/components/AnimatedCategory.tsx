@@ -29,6 +29,16 @@ const AnimatedCategory = ({
 }: AnimatedCategoryProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
+  const visibleLength = 6;
+  const categoryCount = categories.length;
+
+  const visibleCategories = Array.from({ length: visibleLength }).map(
+    (_, index) => {
+      const categoryIndex = (currentIndex + index) % categoryCount;
+      return categories[categoryIndex];
+    }
+  );
+
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % categories.length);
   };
@@ -43,19 +53,19 @@ const AnimatedCategory = ({
       </div>
       <ul className="flex gap-8">
         <AnimatePresence initial={false} custom={"left"} mode="popLayout">
-          {Array.from({ length: 6 }).map((_, index) => {
-            const category =
-              categories[(currentIndex + index) % categories.length];
+          {visibleCategories.map((category, index) => {
+            const isFirst = index === 0;
+            const isLast = index === visibleLength - 1;
 
             return (
               <motion.li
-                key={category.slug}
+                key={`${category.slug}-${index}`}
                 className="flex-1 flex flex-col items-center justify-center h-[128px] bg-white rounded-[15px]"
-                initial="enter"
+                initial={isLast ? "enter" : undefined}
                 animate="center"
-                exit="exit"
+                exit={isFirst ? "exit" : undefined}
                 variants={variants}
-                custom={"left"}
+                custom="left"
                 transition={{ duration: 0.5 }}
               >
                 <Link

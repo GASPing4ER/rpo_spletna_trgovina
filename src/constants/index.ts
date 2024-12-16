@@ -69,4 +69,20 @@ export const categoriesData: TCategory[] = [
       "Cooler Master",
     ],
   },
+  /*
+  {
+    title: "Drugo2",
+    slug: "/shop?category=drugo2",
+    iconUrl: "/icons/drugo.svg",
+    slugId: "drugo2",
+    brands: [
+      "Logitech",
+      "Razer",
+      "Corsair",
+      "SteelSeries",
+      "HyperX",
+      "Cooler Master",
+    ],
+  },
+  */
 ];
