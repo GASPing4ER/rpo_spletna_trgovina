@@ -145,3 +145,56 @@ The primary goal of Sprint 2 was to connect our Supabase tables with our fronten
    - Add design refinements to the Language Dropdown Component for a better user experience.
    - Implement loading indicators for actions like fetching data or form submissions.
 
+## Sprint 3  
+
+### Sprint Goal  
+The primary goal of Sprint 3 is to implement advanced features and functionalities, focusing on enhancing the user experience and providing key e-commerce functionalities for both registered and unregistered users.  
+
+### Objectives  
+1. **Design and Implement Login/Register/Profile and Cart Pages (8P):**  
+   - Finalize the visual designs for login, register, profile, and cart pages.  
+   - Implement functionality for user profile management, including editing delivery and payment information.  
+
+2. **Shopping Cart Functionality (10P):**  
+   - Display a detailed list of products in the cart.  
+   - Include total price, taxes, product prices, and delivery costs.  
+   - Add visual options for selecting payment and delivery methods.  
+   - For unregistered users, include a form to fill out the delivery address.  
+   - Finalize the "Place Order" feature.  
+
+3. **Order History Overview (5P):**  
+   - Display a comprehensive list of all past orders, including product details and total prices.  
+
+4. **Pagination and Product Filters (8P):**  
+   - Implement sorting functionality to sort products by price, name, or stock availability.  
+   - Add category-based product filtering.  
+   - Enable pagination to display a limited number of products per page.  
+
+5. **Profile Functionality (7P):**  
+   - Allow users to edit and save banking information and delivery details.  
+   - Provide a view of purchased products.  
+   - Enforce limitations for non-administrator users, such as restricted access to certain areas or actions.  
+
+### Key Achievements (Carried Over)  
+- Completed the design for login, register, profile, and cart pages.  
+- Built visual options for shopping cart functionalities such as payment and delivery selection.  
+- Enhanced profile features with editable delivery and banking information.  
+- Added pagination and robust product filtering capabilities.  
+
+### Challenges  
+- Ensuring seamless integration of shopping cart functionalities for both registered and unregistered users.  
+- Managing performance and responsiveness for pagination and filter features on large datasets.  
+- Designing intuitive yet secure profile functionality for editing sensitive information like banking details.  
+
+### Next Steps  
+1. **Backend Integration for Cart and Profile Features:**  
+   - Connect cart functionalities to the backend for live updates.  
+   - Implement backend validations for profile changes (e.g., delivery and banking details).  
+
+2. **Optimize Performance:**  
+   - Fine-tune pagination and filtering for faster rendering.  
+   - Implement lazy loading for product images in the catalog.  
+
+3. **UI/UX Improvements:**  
+   - Add feedback mechanisms (e.g., success/error messages for profile updates and order placement).  
+   - Introduce tooltips and additional guidance for sensitive fields like banking information.  
