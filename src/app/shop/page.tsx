@@ -69,14 +69,14 @@ export default function Shop() {
       );
     }
 
-    const startIndex = (validPage - 1) * 20;
-    const endIndex = startIndex + 20;
+    const startIndex = (validPage - 1) * 9;
+    const endIndex = startIndex + 9;
     const productsToDisplay = filteredProducts.slice(startIndex, endIndex);
 
     return productsToDisplay.map((product, index) => (
       <div
         key={index}
-        className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4 shadow-inner"
+        className="w-[390px] h-[450px] bg-[#F6F6F6] flex flex-col items-center justify-between py-4 px-2 gap-4 shadow-inner"
       >
         <div className="flex flex-col gap-2 items-center">
           <Image
@@ -133,16 +133,13 @@ export default function Shop() {
           )}
         />
       </section>
-      <section className="flex gap-5 items-center justify-center">
+      <section className="flex flex-wrap gap-5 justify-center w-full px-4">
         {renderProducts()}
       </section>
       <section className="mt-10">
         <Pagination
-          count={
-            (products &&
-              (products.length / 1 < 20 ? 1 : products.length / 20)) ||
-            1
-          }
+          className="p-5"
+          count={(products && Math.ceil(products.length / 9)) || 1}
           page={validPage}
           onChange={handlePageChange}
           sx={{
