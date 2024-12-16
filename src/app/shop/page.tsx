@@ -76,28 +76,24 @@ export default function Shop() {
     return productsToDisplay.map((product, index) => (
       <div
         key={index}
-        className="w-[390px] h-[450px] bg-[#F6F6F6] flex flex-col items-center justify-between py-4 px-2 gap-4 shadow-inner"
+        className="w-[390px] h-[450px] bg-[#F6F6F6] flex flex-col items-center justify-center py-4 px-2 gap-4 shadow-inner"
       >
-        <div className="flex flex-col gap-2 items-center">
-          <Image
-            src="/images/product-placeholder.png"
-            alt="product"
-            width={246}
-            height={185}
-          />
-          <h3 className="text-center">
-            {product.name}, {product.description}
-          </h3>
-        </div>
-        <div className="flex flex-col gap-2 items-center">
-          <p className="text-2xl font-bold">{product.price},00 €</p>
-          <button
-            onClick={() => handleAddProduct(product)}
-            className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]"
-          >
-            Kupi zdaj
-          </button>
-        </div>
+        <Image
+          src="/images/product-placeholder.png"
+          alt="product"
+          width={246}
+          height={185}
+        />
+        <h3 className="text-center">
+          {product.name}, {product.description}
+        </h3>
+        <p className="text-2xl font-bold">{product.price},00 €</p>
+        <button
+          onClick={() => handleAddProduct(product)}
+          className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]"
+        >
+          Kupi zdaj
+        </button>
       </div>
     ));
   };
