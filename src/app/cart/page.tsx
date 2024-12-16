@@ -46,7 +46,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="mx-auto py-28 px-24 bg-gray-100">
+    <div className="min-h-screen mx-auto py-28 px-24 bg-gray-100">
       <h1 className="text-xl pb-4">Košarica</h1>
       {products.length > 0 ? (
         <div className="flex h-[450px]">
