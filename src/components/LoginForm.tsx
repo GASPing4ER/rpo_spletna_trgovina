@@ -51,7 +51,7 @@ const LoginForm = () => {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="w-full h-full max-w-[1120px] max-h-[508]"
+      className="w-full max-w-[1120px] max-h-[508] p-10"
     >
       <FormHeader className="font-bold text-xl">
         <FormTitle>Vpis</FormTitle>
@@ -69,7 +69,7 @@ const LoginForm = () => {
             onChange={handleChange}
             placeholder="Vpiši e-mail"
             required
-            className="mt-1.5 w-full py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         <div className="mb-4">
@@ -87,7 +87,7 @@ const LoginForm = () => {
             onChange={handleChange}
             placeholder="Vpiši geslo"
             required
-            className="mt-1.5 w-full py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}

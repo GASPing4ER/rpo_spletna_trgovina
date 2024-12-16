@@ -47,7 +47,7 @@ const RegisterForm = () => {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="w-full h-full max-w-[1120px] max-h-[624]"
+      className="w-full max-w-[1120px] max-h-[624] p-10"
     >
       <FormHeader className="font-bold text-xl">
         <FormTitle>Registracija</FormTitle>
@@ -68,7 +68,7 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder="Vpiši ime"
             required
-            className="mt-1.5 w-full py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
           <Input
             type="text"
@@ -78,7 +78,7 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder="Vpiši priimek"
             required
-            className="mt-1.5 w-full py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         <div className="mb-4">
@@ -93,7 +93,7 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder="Vpiši e-mail"
             required
-            className="mt-1.5 w-full py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         <div className="mb-4">
@@ -108,7 +108,7 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder="Vpiši geslo"
             required
-            className="mt-1.5 w-full py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
           <Input
             type="password"
@@ -118,7 +118,7 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder="Ponovi geslo"
             required
-            className="mt-1.5 w-full py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
