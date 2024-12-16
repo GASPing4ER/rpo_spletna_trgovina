@@ -114,7 +114,34 @@ The primary goal of Sprint 1 was to design and implement the visual components o
 3. Begin developing user authentication and session management features.
 4. Create responsive layouts for desktop, tablet, and mobile devices.
 
----
+## Sprint 2
 
-Sprint 1 successfully established the visual framework for the Shop Project, setting the stage for functionality integration in upcoming sprints.
+### Sprint Goal
+The primary goal of Sprint 2 was to connect our Supabase tables with our frontend. We also wanted to finish the login/signup functionality and the task from last sprint. 
+
+### Objectives
+1. **Connect Supabase with our Next.js app (1P):** This task involves connecting environment variables from Supabase to our Next.js app. 
+2. **Implement actions for fetching products, orders, and users. (5P):** This task involves programming actions for fetching data from Supabase.
+3. **Finish functionality for Login/Signup page (5P):** Build a form for login/signup and forward the data to our database to create user instances.
+4. **Finish Language Dropdown Component from last sprint (1P):** Create a language switcher component.
+
+### Key Achievements
+- Successfully integrated Supabase with the Next.js app by configuring environment variables and establishing a connection.
+- Developed and tested actions for fetching data such as products, orders, and users, ensuring proper data flow between the frontend and the database.
+- Completed the login/signup functionality, including form validation and seamless user creation in the database.
+- Finalized the Language Dropdown Component, providing users with an intuitive way to switch languages on the platform.
+
+### Challenges
+- Encountered issues with environment variable misconfigurations during the Supabase integration, which delayed initial progress.
+- Debugging data-fetching actions was time-consuming due to inconsistencies in database schema definitions.
+- Managing asynchronous operations for login/signup posed challenges in error handling and state management.
+- Achieving a polished UI for the Language Dropdown Component required additional iterations.
+
+### Next Steps
+1. **Improve error handling and validations:**
+   - Refine error messages for login/signup forms.
+   - Ensure robust fallback mechanisms for failed API calls.
+2. **Enhance UI/UX:**
+   - Add design refinements to the Language Dropdown Component for a better user experience.
+   - Implement loading indicators for actions like fetching data or form submissions.
 
