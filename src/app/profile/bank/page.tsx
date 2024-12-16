@@ -18,7 +18,7 @@ export default async function Bank() {
   }
 
   return (
-    <div className="h-max flex justify-center bg-gray-100 mt-20 py-20 px-24">
+    <div className="min-h-screen flex justify-center bg-gray-100 mt-20 py-20 px-24">
       <div className="w-[70%] max-w-[1200px] flex flex-col">
         <Text size="large" className="mb-10 text-left">
           Pozdravljen/a, {user.first_name}!
