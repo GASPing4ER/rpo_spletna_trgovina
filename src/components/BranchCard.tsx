@@ -18,26 +18,34 @@ const ProductCard = ({ branch }: BranchCardProps) => {
 
   return (
     <Card className="w-[300px] h-[450px] space-y-1">
-      <GoogleMap
-        mapContainerClassName="w-full h-[300px]"
-        center={branch.location}
-        zoom={15}
-      >
-        <Marker position={branch.location} />
-      </GoogleMap>
+      {branch.location ? (
+        <GoogleMap
+          mapContainerClassName="w-full h-[300px]"
+          center={branch.location}
+          zoom={10}
+        >
+          <Marker position={branch.location} />
+        </GoogleMap>
+      ) : (
+        <div className="w-full h-[300px] bg-gray-200">
+          <div className="w-full h-full flex justify-center items-center">
+            <p>No image available</p>
+          </div>
+        </div>
+      )}
       <CardContent>
         <h1 className="text-xl font-bold mb-1.5">{branch.name}</h1>
         <div className="flex items-center gap-4 text-gray-500 overflow-hidden">
           <p>Delovnik:</p>
-          <p className="text-gray-500">{branch.working_hours}</p>
+          <p>{branch.working_hours}</p>
         </div>
         <div className="flex items-center gap-4 text-gray-500 overflow-hidden">
           <p>Manager:</p>
-          <p className="text-gray-500">{branch.manager}</p>
+          <p>{branch.manager}</p>
         </div>
         <div className="flex items-center gap-4 text-gray-500 overflow-hidden">
           <p>Kontakt:</p>
-          <p className="text-gray-500">{branch.contact}</p>
+          <p>{branch.contact}</p>
         </div>
       </CardContent>
     </Card>
