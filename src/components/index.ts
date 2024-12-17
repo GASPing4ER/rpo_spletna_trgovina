@@ -12,6 +12,7 @@ import FilterDropDown from "./FilterDropDown";
 import DeliveryForm from "./DeliveryForm";
 import BankForm from "./BankForm";
 import LanguageSelector from "./LanguageSelector";
+import BranchCard from "./BranchCard";
 
 export {
   Header,
@@ -28,4 +29,5 @@ export {
   DeliveryForm,
   BankForm,
   LanguageSelector,
+  BranchCard,
 };

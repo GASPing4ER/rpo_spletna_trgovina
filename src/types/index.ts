@@ -32,6 +32,20 @@ export type TUser = {
   created_at: Date;
 };
 
+export type TBranch = {
+  id: string;
+  name: string;
+  description: string;
+  location: {
+    lat: number;
+    lng: number;
+  };
+  created_at: Date;
+  working_hours: string;
+  manager: string;
+  contact: string;
+};
+
 export type TNavigation = {
   title: string;
   slug: string;

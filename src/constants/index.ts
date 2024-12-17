@@ -10,6 +10,10 @@ export const navigationData: TNavigation[] = [
     slug: "shop",
   },
   {
+    title: "Poslovalnice",
+    slug: "branches",
+  },
+  {
     title: "O nas",
     slug: "about",
   },
