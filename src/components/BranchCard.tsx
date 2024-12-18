@@ -17,7 +17,7 @@ const ProductCard = ({ branch }: BranchCardProps) => {
   if (!isLoaded) return <div>Loading...</div>;
 
   return (
-    <Card className="w-[300px] h-[450px] space-y-1">
+    <Card className="w-[300px] h-[450px] space-y-4">
       {branch.location ? (
         <GoogleMap
           mapContainerClassName="w-full h-[300px]"
@@ -35,16 +35,16 @@ const ProductCard = ({ branch }: BranchCardProps) => {
       )}
       <CardContent>
         <h1 className="text-xl font-bold mb-1.5">{branch.name}</h1>
-        <div className="flex items-center gap-4 text-gray-500 overflow-hidden">
-          <p>Delovnik:</p>
+        <div className="flex items-center gap-4 overflow-hidden">
+          <h3 className="font-bold text-base">Delovnik:</h3>
           <p>{branch.working_hours}</p>
         </div>
-        <div className="flex items-center gap-4 text-gray-500 overflow-hidden">
-          <p>Manager:</p>
+        <div className="flex items-center gap-4 overflow-hidden">
+          <h3 className="font-bold text-base">Manager:</h3>
           <p>{branch.manager}</p>
         </div>
-        <div className="flex items-center gap-4 text-gray-500 overflow-hidden">
-          <p>Kontakt:</p>
+        <div className="flex items-center gap-4 overflow-hidden">
+          <h3 className="font-bold text-base">Kontakt:</h3>
           <p>{branch.contact}</p>
         </div>
       </CardContent>
