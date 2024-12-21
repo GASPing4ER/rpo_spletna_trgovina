@@ -84,6 +84,8 @@
     "delivery_label_full_name": "Ime in priimek",
     "delivery_placeholder_first_name": "Vpiši ime",
     "delivery_placeholder_last_name": "Vpiši priimek",
+    "delivery_label_email": "Email",
+    "delivery_placeholder_email": "Vpiši email",
     "delivery_label_address": "Naslov",
     "delivery_placeholder_address": "Ulica in številka",
     "delivery_placeholder_city": "Vpiši mesto",

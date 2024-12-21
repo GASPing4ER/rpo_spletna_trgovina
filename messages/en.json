@@ -84,6 +84,8 @@
     "delivery_label_full_name": "Full name",
     "delivery_placeholder_first_name": "Enter first name",
     "delivery_placeholder_last_name": "Enter last name",
+    "delivery_label_email": "Email",
+    "delivery_placeholder_email": "Enter email",
     "delivery_label_address": "Address",
     "delivery_placeholder_address": "Street and number",
     "delivery_label_city": "City",

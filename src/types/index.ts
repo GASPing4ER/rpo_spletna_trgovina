@@ -81,7 +81,7 @@ export type TNavigation = {
 
 export type TOrder = {
   id: string;
-  user_id: string;
+  user_email: string;
   total_price: number;
   status: "completed" | "pending" | "shipped" | "canceled";
   created_at: Date;

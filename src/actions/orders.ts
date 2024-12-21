@@ -89,7 +89,7 @@ export const getOrders = async (
 };
 
 export const getOrdersWithItems = async (
-  userId?: string
+  user_email?: string
 ): Promise<{
   data: TOrderWithItems[] | null;
   error: PostgrestError | null | unknown;
@@ -105,7 +105,7 @@ export const getOrdersWithItems = async (
         order_items(*, products(*))
       `
       )
-      .eq("user_id", userId);
+      .eq("user_email", user_email);
 
     if (error) {
       return {

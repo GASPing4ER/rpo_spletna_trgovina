@@ -20,28 +20,6 @@ const CartPage = () => {
   const tax = Math.round(totalPrice * 0.22);
   const shipping = 15;
 
-  // const onHandleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const user = await getUser();
-  //   const { data } = await addOrder({
-  //     total_price: totalPrice + tax + shipping,
-  //     user_id: user.id,
-  //     status: "pending",
-  //   });
-  //   console.log(data);
-  //   if (data) {
-  //     const modifiedProducts: TOrderItemData[] = products.map((product) => ({
-  //       order_id: data.id,
-  //       product_id: product.id,
-  //       quantity: 1,
-  //     }));
-  //     const { error } = await addOrderItems(modifiedProducts);
-  //     console.log("error:", error);
-  //   }
-  //   setProducts([]);
-  //   redirect("/");
-  // };
-
   return (
     <div className="min-h-screen mx-auto py-28 px-24 bg-gray-100">
       <h1 className="text-xl pb-4">{t("cart")}</h1>

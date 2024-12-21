@@ -14,7 +14,7 @@ export default async function OrderHistory() {
     redirect("/login");
   }
 
-  const { data: orders } = await getOrdersWithItems(user.id);
+  const { data: orders } = await getOrdersWithItems(user.email);
 
   return (
     <div className="min-h-screen flex justify-center bg-gray-100 mt-20 py-20 px-24">
