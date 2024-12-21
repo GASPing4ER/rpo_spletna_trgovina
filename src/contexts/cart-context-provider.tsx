@@ -61,11 +61,15 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
     productId: TProductWithQuantity["id"],
     editedProduct: TProductWithQuantity
   ) => {
-    setCart((prevCart) =>
-      prevCart.map((product) =>
-        product.id === productId ? editedProduct : product
-      )
-    );
+    if (editedProduct.quantity !== 0) {
+      setCart((prevCart) =>
+        prevCart.map((product) =>
+          product.id === productId ? editedProduct : product
+        )
+      );
+    } else {
+      await handleDeleteProduct(productId);
+    }
   };
 
   const handleDeleteProduct = async (id: TProduct["id"]) => {
