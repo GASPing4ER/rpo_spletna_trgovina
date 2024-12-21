@@ -10,8 +10,10 @@ import { getUser } from "@/actions/auth";
 import { TOrderItemData } from "@/types";
 import { FormEvent } from "react";
 import { redirect } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const CartPage = () => {
+  const t = useTranslations("Cart");
   const { products, setProducts, handleDeleteProduct } = useCartContext();
 
   // derived states
@@ -47,7 +49,7 @@ const CartPage = () => {
 
   return (
     <div className="min-h-screen mx-auto py-28 px-24 bg-gray-100">
-      <h1 className="text-xl pb-4">Košarica</h1>
+      <h1 className="text-xl pb-4">{t("cart")}</h1>
       {products.length > 0 ? (
         <div className="flex h-[450px]">
           <div className="flex-1 flex flex-col gap-4 overflow-y-scroll pr-10">
@@ -80,46 +82,44 @@ const CartPage = () => {
             onSubmit={onHandleSubmit}
             className="bg-white w-[600px] flex flex-col justify-center gap-4 p-8"
           >
-            <h2 className="text-xl font-bold">Pregled naročila</h2>
+            <h2 className="text-xl font-bold">{t("order_summary")}</h2>
             <div className="flex flex-col gap-4">
-              <Label>Promo koda</Label>
+              <Label>{t("promo_code")}</Label>
               <input
-                placeholder="Vpiši kodo"
+                placeholder={t("enter_code")}
                 className="border border-gray p-2"
               />
             </div>
-            <p className="text-gray-500 text-sm">
-              Predvidena dostava 13.12.2024
-            </p>
+            <p className="text-gray-500 text-sm">{t("estimated_delivery")}</p>
             <div className="flex items-center justify-between">
-              <p className="font-semibold">Cena brez DDV in dostave</p>
+              <p className="font-semibold">{t("price_without_vat_shipping")}</p>
               <p className="font-semibold">{totalPrice} €</p>
             </div>
             <div className="flex items-center justify-between">
-              <p>Davek</p>
+              <p>{t("tax")}</p>
               <p>{tax} €</p>
             </div>
             <div className="flex items-center justify-between">
-              <p>Poštnina</p>
+              <p>{t("shipping")}</p>
               <p>{shipping} €</p>
             </div>
             <div className="flex items-center justify-between">
-              <p className="font-semibold">Skupno</p>
+              <p className="font-semibold">{t("total")}</p>
               <p className="font-semibold">{totalPrice + tax + shipping} €</p>
             </div>
             <button
               type="submit"
               className="text-white font-semibold bg-blue-600 py-3 rounded-sm"
             >
-              Naroči
+              {t("order")}
             </button>
           </form>
         </div>
       ) : (
         <div className="flex flex-col gap-4">
-          <p>Dodajte produkte v košarico!</p>
+          <p>{t("add_products_to_cart")}</p>
           <Link href="/shop" className="px-8 py-2 text-white bg-blue-600 w-fit">
-            Nadaljuj z nakupom
+            {t("continue_shopping")}
           </Link>
         </div>
       )}

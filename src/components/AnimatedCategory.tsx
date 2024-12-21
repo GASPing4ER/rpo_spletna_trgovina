@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-
 import { ArrowRightIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedCategoryProps } from "@/types";
+import { useTranslations, useLocale } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
 
 const variants = {
   enter: (direction: string) => ({
@@ -27,6 +27,8 @@ const AnimatedCategory = ({
   categories,
   initialIndex,
 }: AnimatedCategoryProps) => {
+  const t = useTranslations("Home");
+  const locale: string = useLocale();
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   const visibleLength = 6;
@@ -46,7 +48,7 @@ const AnimatedCategory = ({
   return (
     <>
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl">Išči po kategoriji</h2>
+        <h2 className="text-2xl">{t("category_title")}</h2>
         <button onClick={handleNext}>
           <ArrowRightIcon />
         </button>
@@ -74,11 +76,13 @@ const AnimatedCategory = ({
                 >
                   <Image
                     src={category.iconUrl}
-                    alt="kategorija"
+                    alt="category icon"
                     width={25}
                     height={25}
                   />
-                  <h3>{category.title}</h3>
+                  <h3>
+                    {locale === "sl" ? category.sl_title : category.en_title}
+                  </h3>
                 </Link>
               </motion.li>
             );

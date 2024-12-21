@@ -12,12 +12,14 @@ import {
 } from "@/components/ui/form";
 import { DeliveryDetailsProps, TUser } from "@/types";
 import { updateDeliveryDetails } from "@/actions/profile";
+import { useTranslations } from "next-intl";
 
 type DeliveryFormProps = {
   delivery_details: TUser["delivery_details"];
 };
 
 const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
+  const t = useTranslations("Profile");
   const [formData, setFormData] = useState<DeliveryDetailsProps>({
     first_name: delivery_details.first_name || "",
     last_name: delivery_details.last_name || "",
@@ -45,14 +47,14 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
       className="flex flex-col rounded-lg shadow-sm p-10"
     >
       <FormHeader className="font-bold text-xl">
-        <FormTitle>Podatki za dostavo</FormTitle>
+        <FormTitle>{t("delivery_form_title")}</FormTitle>
       </FormHeader>
       <FormContent>
         <label
           htmlFor="firstLastName"
           className="text-sm font-medium text-[#545454]"
         >
-          Ime in priimek
+          {t("delivery_label_full_name")}
         </label>
         <div className="flex mb-4 gap-x-4">
           <Input
@@ -61,7 +63,7 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
             name="first_name"
             value={formData.first_name}
             onChange={handleChange}
-            placeholder="Vpiši ime"
+            placeholder={t("delivery_placeholder_first_name")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
@@ -71,13 +73,13 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
             name="last_name"
             value={formData.last_name}
             onChange={handleChange}
-            placeholder="Vpiši priimek"
+            placeholder={t("delivery_placeholder_last_name")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         <label htmlFor="email" className="text-sm font-medium text-[#545454]">
-          Naslov
+          {t("delivery_label_address")}
         </label>
         <Input
           type="text"
@@ -85,7 +87,7 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
           name="address"
           value={formData.address}
           onChange={handleChange}
-          placeholder="Ulica in številka"
+          placeholder={t("delivery_placeholder_address")}
           required
           className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
         />
@@ -95,7 +97,7 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
           name="city"
           value={formData.city}
           onChange={handleChange}
-          placeholder="Mesto"
+          placeholder={t("delivery_placeholder_city")}
           required
           className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
         />
@@ -105,7 +107,7 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
           name="postal"
           value={formData.postal}
           onChange={handleChange}
-          placeholder="Poštna številka"
+          placeholder={t("delivery_placeholder_postal")}
           required
           className="mt-1.5 mb-4 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
         />
@@ -113,7 +115,7 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
       <FormFooter>
         <div className="w-full flex flex-col gap-y-3">
           <Button type="submit" className="py-7 bg-[#4156D8]">
-            Shrani
+            {t("save_button")}
           </Button>
           <div className="flex justify-center gap-y-3">
             {error ? (

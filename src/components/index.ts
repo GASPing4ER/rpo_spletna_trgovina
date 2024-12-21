@@ -13,6 +13,7 @@ import DeliveryForm from "./DeliveryForm";
 import BankForm from "./BankForm";
 import LanguageSelector from "./LanguageSelector";
 import BranchCard from "./BranchCard";
+import ProfileUserData from "./ProfileUserData";
 
 export {
   Header,
@@ -30,4 +31,5 @@ export {
   BankForm,
   LanguageSelector,
   BranchCard,
+  ProfileUserData,
 };

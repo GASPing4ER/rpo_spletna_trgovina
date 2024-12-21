@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Listbox,
@@ -7,6 +9,7 @@ import {
 } from "@headlessui/react";
 import { TCategory } from "@/types";
 import { X } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 interface ListBoxProps {
   categories: TCategory[];
@@ -19,6 +22,9 @@ const CategoryListBox = ({
   category,
   onCategoryChange,
 }: ListBoxProps) => {
+  const t = useTranslations("Shop");
+  const locale = useLocale();
+
   return (
     <Listbox value={category} onChange={onCategoryChange}>
       <div className="relative min-w-40 ml-2">
@@ -28,8 +34,10 @@ const CategoryListBox = ({
           } w-full rounded-lg bg-gray-100 py-1.5 text-sm font-semibold text-gray-700 focus:outline-none`}
         >
           {category
-            ? categories.find((cat) => cat.slugId === category)?.title
-            : "Select a category"}
+            ? categories.find((cat) => cat.slugId === category)?.[
+                locale === "sl" ? "sl_title" : "en_title"
+              ]
+            : t("category_select")}
           {category && (
             <X
               size={18}
@@ -44,7 +52,7 @@ const CategoryListBox = ({
               key={category.slugId}
               value={category.slugId}
               className={({ selected }) =>
-                `cursor-default select-none relative py-2 pl-10 pr-4 ${
+                `cursor-default select-none relative py-2 pl-3 pr-4 ${
                   selected ? "text-white bg-[#4156D8]" : "text-gray-900"
                 } ${selected ? "font-medium" : "font-normal"}`
               }
@@ -56,7 +64,7 @@ const CategoryListBox = ({
                       selected ? "font-medium" : "font-normal"
                     }`}
                   >
-                    {category.title}
+                    {locale === "sl" ? category.sl_title : category.en_title}
                   </span>
                   {selected ? (
                     <span

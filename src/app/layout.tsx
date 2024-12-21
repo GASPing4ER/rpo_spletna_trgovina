@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Footer, Header } from "@/components";
 import CartContextProvider from "@/contexts/cart-context-provider";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,21 +22,26 @@ export const metadata: Metadata = {
   description: "Projekt za predmet Razvoj programske opreme",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CartContextProvider>
-          <Header />
-          {children}
-          <Footer />
-        </CartContextProvider>
+        <NextIntlClientProvider messages={messages}>
+          <CartContextProvider>
+            <Header />
+            {children}
+            <Footer />
+          </CartContextProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

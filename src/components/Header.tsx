@@ -1,5 +1,4 @@
 // Header Component
-
 import { Navigation } from "@/components";
 import { LanguageSelector } from "@/components";
 import Image from "next/image";

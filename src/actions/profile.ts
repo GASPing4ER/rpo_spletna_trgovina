@@ -4,6 +4,7 @@ import { supabase } from "@/lib/supabase";
 import { PostgrestError } from "@supabase/supabase-js";
 import { getUser } from "@/actions/auth";
 import { BankDetailsProps, DeliveryDetailsProps, TUser } from "@/types";
+import { getLocale } from "next-intl/server";
 
 interface FormBankData {
   full_name: string;
@@ -26,6 +27,8 @@ const setBankDetails = async (
   error: PostgrestError | null | unknown;
   message: string;
 }> => {
+  const locale: string = await getLocale();
+
   try {
     const user = await getUser();
 
@@ -43,12 +46,18 @@ const setBankDetails = async (
 
     return {
       error: null,
-      message: "Successful updated bank details",
+      message:
+        locale === "sl"
+          ? "Bančni podatki so bili uspešno posodobljeni."
+          : "Successfully updated bank details.",
     };
   } catch (error) {
     return {
       error,
-      message: "Database Error: Failed to update bank details",
+      message:
+        locale === "sl"
+          ? "Bančni podatki niso bili uspešno posodobljeni."
+          : "Failed to update bank details.",
     };
   }
 };
@@ -59,6 +68,8 @@ const setDeliveryDetails = async (
   error: PostgrestError | null | unknown;
   message: string;
 }> => {
+  const locale: string = await getLocale();
+
   try {
     const user = await getUser();
 
@@ -77,12 +88,18 @@ const setDeliveryDetails = async (
 
     return {
       error: null,
-      message: "Successful updated bank delivery details",
+      message:
+        locale === "sl"
+          ? "Dostavni podatki so bili uspešno posodobljeni."
+          : "Successfully updated bank delivery details.",
     };
   } catch (error) {
     return {
       error,
-      message: "Database Error: Failed to update delivery details",
+      message:
+        locale === "sl"
+          ? "Dostavni podatki niso bili uspešno posodobljeni."
+          : "Failed to update delivery details.",
     };
   }
 };
@@ -124,6 +141,7 @@ export const getUserData = async (): Promise<{
 
 export async function updateBankDetails(formData: BankDetailsProps) {
   const { error, message } = await setBankDetails(formData);
+
   if (error) {
     return { error, message: "Bank Details Update Failed" };
   } else {

@@ -47,7 +47,8 @@ export type TBranch = {
 };
 
 export type TNavigation = {
-  title: string;
+  sl_title: string;
+  en_title: string;
   slug: string;
 };
 
@@ -77,7 +78,8 @@ export type TOrderWithItems = TOrder & {
 };
 
 export type TCategory = {
-  title: string;
+  sl_title: string;
+  en_title: string;
   slug: string;
   iconUrl: string;
   slugId: string;

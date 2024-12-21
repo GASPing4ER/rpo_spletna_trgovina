@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+import { getTranslations } from "next-intl/server";
 import { categoriesData } from "@/constants";
 import { ArrowUpIcon } from "lucide-react";
 import { AnimatedCarousel, AnimatedCategory } from "@/components";
@@ -8,7 +8,8 @@ import { getProducts } from "@/actions/products";
 
 export default async function Home() {
   const { data: products } = await getProducts();
-  //console.log("Products:", products);
+  const t = await getTranslations("Home");
+
   return (
     <main className="w-full min-h-screen flex flex-col items-center justify-center">
       <section className="w-full hero-bg-color mt-20 text-white">
@@ -20,10 +21,10 @@ export default async function Home() {
             </span>
           </h1>
           <p className="text-lg text-[#909090] font-semibold">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {t("carousel_description")}
           </p>
           <button className="text-left border border-white py-4 px-14 rounded-[6px] w-fit font-medium text-lg">
-            Preveri več
+            {t("carousel_button")}
           </button>
         </div>
       </section>
@@ -31,11 +32,11 @@ export default async function Home() {
         <AnimatedCategory categories={categoriesData} initialIndex={0} />
       </section>
       <section className="flex flex-col gap-10 bg-white w-full py-20 px-40">
-        <h2 className="text-2xl font-semibold">Novo v ponudbi</h2>
+        <h2 className="text-2xl font-semibold">{t("new_offers_title")}</h2>
         {products && <AnimatedCarousel products={products} initialIndex={0} />}
       </section>
       <section className="flex flex-col gap-10 bg-white w-full pb-20 px-40">
-        <h2 className="text-2xl font-semibold">Znižanje do -50%</h2>
+        <h2 className="text-2xl font-semibold">{t("discount_title")}</h2>
         {products && <AnimatedCarousel products={products} initialIndex={0} />}
       </section>
       <section className="w-full hero-bg-color mt-20 text-white flex relative">
@@ -44,10 +45,10 @@ export default async function Home() {
             Nintendo <span className="font-bold">Switch</span>
           </h1>
           <p className="text-lg text-[#909090] font-semibold">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {t("nintendo_description")}
           </p>
           <button className="text-left border border-white py-4 px-14 rounded-[6px] w-fit font-medium text-lg">
-            Preveri več
+            {t("nintendo_button")}
           </button>
         </div>
         <Image
@@ -59,7 +60,7 @@ export default async function Home() {
         />
       </section>
       <section className="flex flex-col gap-10 bg-white w-full py-20 px-40">
-        <h2 className="text-2xl font-semibold">Odkrij naše favorite</h2>
+        <h2 className="text-2xl font-semibold">{t("favorites_title")}</h2>
         <div className="flex items-center gap-10 bg-[#F5F5F5] py-11 pl-14">
           <div className="flex-1 flex flex-col gap-6">
             <div className="flex justify-between">
@@ -68,12 +69,9 @@ export default async function Home() {
               </h3>
               <ArrowUpIcon width={32} height={32} />
             </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-            </p>
+            <p>{t("dell_xps_description")} </p>
             <button className="text-left border border-black py-4 px-14 rounded-[6px] w-fit font-medium text-lg">
-              Preveri več
+              {t("dell_xps_button")}
             </button>
             <hr className="h-[2px] bg-black" />
             <h3 className="text-3xl">
@@ -95,19 +93,20 @@ export default async function Home() {
         </div>
       </section>
       <section className="flex flex-col gap-10 bg-white w-full pb-20 px-40">
-        <h2 className="text-2xl font-semibold">Znižanje do -50%</h2>
+        <h2 className="text-2xl font-semibold">{t("discount_title")}</h2>
         {products && <AnimatedCarousel products={products} initialIndex={0} />}
       </section>
       <section className="w-full hero-bg-color mt-20 text-white flex relative">
         <div className="flex flex-col items-center justify-center gap-4 h-full w-full p-24 z-20">
           <h1 className="text-8xl font-extralight">
-            Velika <span className="font-bold">razprodaja</span>
+            {t("big_sale_main_heading-1")}{" "}
+            <span className="font-bold">{t("big_sale_main_heading-2")}</span>
           </h1>
           <p className="text-lg text-[#909090] font-semibold">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {t("big_sale_description")}
           </p>
           <button className="text-left border border-white py-4 px-14 rounded-[6px] w-fit font-medium text-lg mt-10">
-            Preveri ponudbo
+            {t("big_sale_button")}
           </button>
         </div>
         <Image

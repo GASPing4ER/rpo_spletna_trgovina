@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Menu,
@@ -11,6 +13,7 @@ import {
 } from "@headlessui/react";
 import { categoriesData } from "@/constants";
 import { Filter } from "lucide-react";
+import { useTranslations } from "next-intl";
 import * as Slider from "@radix-ui/react-slider";
 
 interface FilterDropDownProps {
@@ -32,6 +35,8 @@ const FilterDropDown = ({
   sliderValue,
   onSliderChange,
 }: FilterDropDownProps) => {
+  const t = useTranslations("Shop");
+
   return (
     <Menu>
       <MenuButton className="relative block rounded-lg bg-gray-100 py-1.5 px-1.5 text-center text-sm font-semibold text-gray-700 focus:outline-none">
@@ -42,7 +47,7 @@ const FilterDropDown = ({
         className="bg-[#F6F6F6] mt-2 p-2 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
       >
         <div className="text-sm font-medium text-gray-600 mb-1">
-          Sort by price or Availability
+          {t("sort_by")}
         </div>
         <RadioGroup
           value={sortOption}
@@ -54,7 +59,7 @@ const FilterDropDown = ({
             key={"LowToHigh"}
             className="flex items-center justify-between gap-5"
           >
-            <Label>Low To High</Label>
+            <Label>{t("low_to_high")}</Label>
             <Radio
               value={"LowToHigh"}
               className="group flex size-5 items-center justify-center rounded-full border bg-white data-[checked]:bg-[#4156D8]"
@@ -66,7 +71,7 @@ const FilterDropDown = ({
             key={"HighToLow"}
             className="flex items-center justify-between gap-5"
           >
-            <Label>High to Low</Label>
+            <Label>{t("high_to_low")}</Label>
             <Radio
               value={"HighToLow"}
               className="group flex size-5 items-center justify-center rounded-full border bg-white data-[checked]:bg-[#4156D8]"
@@ -78,7 +83,7 @@ const FilterDropDown = ({
             key={"Availability"}
             className="flex items-center justify-between gap-5"
           >
-            <Label>Availability</Label>
+            <Label>{t("availability")}</Label>
             <Radio
               value={"Availability"}
               className="group flex size-5 items-center justify-center rounded-full border bg-white data-[checked]:bg-[#4156D8]"
@@ -92,7 +97,7 @@ const FilterDropDown = ({
           <>
             <div className="h-[1px] rounded bg-[#cccbcb] my-2" />
             <div className="text-sm font-medium text-gray-600 mb-1">
-              Filter by brand
+              {t("filter_by_brand")}
             </div>
             {categoriesData
               .filter((cat) => cat.slugId === category)
@@ -128,7 +133,7 @@ const FilterDropDown = ({
         )}
         <div className="h-[1px] rounded bg-[#cccbcb] my-2" />
         <div className="text-sm font-medium text-gray-600 mb-1">
-          Filter by Price
+          {t("filter_by_price")}
         </div>
         <div className="flex flex-col items-center">
           <Slider.Root
@@ -146,7 +151,7 @@ const FilterDropDown = ({
             <Slider.Thumb className="block w-5 h-5 bg-white border border-gray-300 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75" />
           </Slider.Root>
           <div className="text-gray-700">
-            {sliderValue[0]}$ - {sliderValue[1]}$
+            {sliderValue[0]}€ - {sliderValue[1]}€
           </div>
         </div>
       </MenuItems>

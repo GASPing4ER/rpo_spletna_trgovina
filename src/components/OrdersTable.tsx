@@ -12,12 +12,14 @@ import {
 } from "@/components/ui/table";
 import { TOrderWithItems } from "@/types";
 import { formatDate } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 type OrdersTableProps = {
   orders: TOrderWithItems[] | null;
 };
 
 const OrdersTable = ({ orders }: OrdersTableProps) => {
+  const t = useTranslations("Profile");
   const [expandedOrderId, setExpandedOrderId] = useState<string | null>(null);
 
   const toggleOrderDetails = (orderId: string) => {
@@ -26,13 +28,13 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
 
   return (
     <Table className="bg-white rounded-lg">
-      <TableCaption>A list of your recent orders.</TableCaption>
+      <TableCaption>{t("order_caption")}</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead>Order</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Amount</TableHead>
-          <TableHead>Date</TableHead>
+          <TableHead>{t("order")}</TableHead>
+          <TableHead>{t("status")}</TableHead>
+          <TableHead>{t("amount")}</TableHead>
+          <TableHead>{t("date")}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -56,7 +58,7 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
                 <TableRow className="bg-gray-100">
                   <TableCell colSpan={4}>
                     <div className="p-4">
-                      <p className="font-bold mb-2">Products:</p>
+                      <p className="font-bold mb-2">{t("products_label")}</p>
                       {order.order_items.length > 0 ? (
                         <ul className="list-disc list-inside">
                           {order.order_items.map((item) => (
@@ -66,7 +68,7 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
                           ))}
                         </ul>
                       ) : (
-                        <p>No products found for this order.</p>
+                        <p>{t("no_products")}</p>
                       )}
                     </div>
                   </TableCell>

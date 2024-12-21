@@ -6,17 +6,20 @@ import { categoriesData } from "@/constants";
 import { TProduct } from "@/types";
 import { useSearchParams, useRouter } from "next/navigation";
 import { CategoryListBox, FilterDropDown } from "@/components";
-import { fetchProducts, filterAndSortProducts } from "@/actions/shop";
+import { fetchProducts } from "@/actions/shop";
 import {
   handleCategoryClick,
   handleSortChange,
   handleBrandChange,
   handleSliderChange,
-} from "@/actions/handlers";
+  filterAndSortProducts,
+} from "@/actions/shop_handlers";
 import { useCartContext } from "@/hooks";
+import { useTranslations } from "next-intl";
 import Pagination from "@mui/material/Pagination";
 
 export default function Shop() {
+  const t = useTranslations("Shop");
   const searchParams = useSearchParams();
   const router = useRouter();
   const category = searchParams.get("category");
@@ -56,17 +59,11 @@ export default function Shop() {
 
   const renderProducts = () => {
     if (!loading && products && products.length === 0) {
-      return (
-        <h1 className="text-2xl">
-          There are no products available for this category!
-        </h1>
-      );
+      return <h1 className="text-2xl">{t("no_products_category")}</h1>;
     }
 
     if (!loading && products && filteredProducts.length === 0) {
-      return (
-        <h1 className="text-2xl">No products match the selected filters!</h1>
-      );
+      return <h1 className="text-2xl">{t("no_products_filters")}</h1>;
     }
 
     const startIndex = (validPage - 1) * 9;
@@ -92,7 +89,7 @@ export default function Shop() {
           onClick={() => handleAddProduct(product)}
           className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]"
         >
-          Kupi zdaj
+          {t("buy_now")}
         </button>
       </div>
     ));

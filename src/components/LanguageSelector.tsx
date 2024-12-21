@@ -1,11 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Menu, MenuButton, MenuItems } from "@headlessui/react";
+import { useTransition } from "react";
+import { Locale } from "@/i18n/config";
+import { setUserLocale } from "../utils/lang/locale";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 
 const LanguageSelector = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("slo");
+  const [isPending, startTransition] = useTransition();
+  const locale: string = useLocale();
+  const t = useTranslations("Header");
+
+  const onlanguagechange = (value: string) => {
+    const locale = value as Locale;
+    startTransition(() => {
+      setUserLocale(locale);
+    });
+  };
 
   return (
     <Menu as="div" className="relative">
@@ -18,27 +31,27 @@ const LanguageSelector = () => {
         />
       </MenuButton>
       <MenuItems className="absolute right-0 top-full bg-[#F6F6F6] mt-2 p-2 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
-        <p className="text-sm font-medium text-gray-600 mb-1">Izberi jezik</p>
+        <p className="text-sm font-medium text-gray-600 mb-1">
+          {t("lang_select_title")}
+        </p>
         <div className="flex flex-col gap-2">
           <button
-            onClick={() => setSelectedLanguage("eng")}
+            disabled={isPending}
+            onClick={() => onlanguagechange("en")}
             className={`text-sm py-2 px-4 rounded-md w-full text-left ${
-              selectedLanguage === "eng"
-                ? "bg-[#4156D8] text-white"
-                : "hover:bg-[#e5e5e5]"
+              locale === "en" ? "bg-[#4156D8] text-white" : "hover:bg-[#e5e5e5]"
             }`}
           >
-            angleščina
+            {t("eng")}
           </button>
           <button
-            onClick={() => setSelectedLanguage("slo")}
+            disabled={isPending}
+            onClick={() => onlanguagechange("sl")}
             className={`text-sm py-2 px-4 rounded-md w-full text-left ${
-              selectedLanguage === "slo"
-                ? "bg-[#4156D8] text-white"
-                : "hover:bg-[#e5e5e5]"
+              locale === "sl" ? "bg-[#4156D8] text-white" : "hover:bg-[#e5e5e5]"
             }`}
           >
-            slovenščina
+            {t("slo")}
           </button>
         </div>
       </MenuItems>

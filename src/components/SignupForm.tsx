@@ -11,8 +11,11 @@ import {
   FormContent,
   FormFooter,
 } from "@/components/ui/form";
+import { useTranslations } from "next-intl";
 
 const RegisterForm = () => {
+  //TODO: TRANSTALTIONS FOR ERRORS
+  const t = useTranslations("SignUp");
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -29,7 +32,7 @@ const RegisterForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
+      setError(t("error_password"));
       return;
     }
     const { error } = await signup({
@@ -50,14 +53,14 @@ const RegisterForm = () => {
       className="w-full max-w-[1120px] max-h-[624] p-10"
     >
       <FormHeader className="font-bold text-xl">
-        <FormTitle>Registracija</FormTitle>
+        <FormTitle>{t("page_title")}</FormTitle>
       </FormHeader>
       <FormContent>
         <label
           htmlFor="firstLastName"
           className="text-sm font-medium text-[#545454]"
         >
-          Ime in priimek
+          {t("full_name_label")}
         </label>
         <div className="flex flex-row mb-4 gap-x-2">
           <Input
@@ -66,7 +69,7 @@ const RegisterForm = () => {
             name="first_name"
             value={formData.first_name}
             onChange={handleChange}
-            placeholder="Vpiši ime"
+            placeholder={t("name_placeholder")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
@@ -76,14 +79,14 @@ const RegisterForm = () => {
             name="last_name"
             value={formData.last_name}
             onChange={handleChange}
-            placeholder="Vpiši priimek"
+            placeholder={t("last_name_placeholder")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="text-sm font-medium text-[#545454]">
-            E-mail
+            {t("email_label")}
           </label>
           <Input
             type="text"
@@ -91,14 +94,14 @@ const RegisterForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Vpiši e-mail"
+            placeholder={t("email_placeholder")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
         <div className="mb-4">
           <label htmlFor="geslo" className="text-sm font-medium text-[#545454]">
-            Geslo
+            {t("password_label")}
           </label>
           <Input
             type="password"
@@ -106,7 +109,7 @@ const RegisterForm = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            placeholder="Vpiši geslo"
+            placeholder={t("password_placeholder")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
@@ -116,7 +119,7 @@ const RegisterForm = () => {
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChange}
-            placeholder="Ponovi geslo"
+            placeholder={t("confirm_password_placeholder")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
@@ -125,7 +128,7 @@ const RegisterForm = () => {
       </FormContent>
       <FormFooter>
         <Button type="submit" className="w-full py-7 bg-[#4156D8] mt-2">
-          Registriraj se
+          {t("signup_button")}
         </Button>
       </FormFooter>
     </Form>

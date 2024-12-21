@@ -11,9 +11,11 @@ import {
   FormContent,
   FormFooter,
 } from "@/components/ui/form";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 const LoginForm = () => {
+  const t = useTranslations("Login");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -38,7 +40,7 @@ const LoginForm = () => {
 
   const handlePasswordReset = async (email: string) => {
     if (!email) {
-      setError("Vpiši e-mail naslov.");
+      setError(t("error_email_required"));
       return;
     }
 
@@ -51,7 +53,7 @@ const LoginForm = () => {
 
     if (!error) {
       setError(null);
-      setMessage("E-mail za ponastavitev gesla je bil poslan.");
+      setMessage(t("password_reset_success"));
     }
   };
 
@@ -61,12 +63,12 @@ const LoginForm = () => {
       className="w-full max-w-[1120px] max-h-[508] p-10"
     >
       <FormHeader className="font-bold text-xl">
-        <FormTitle>Vpis</FormTitle>
+        <FormTitle>{t("page_title")}</FormTitle>
       </FormHeader>
       <FormContent>
         <div className="mb-4">
           <label htmlFor="email" className="text-sm font-medium text-[#545454]">
-            E-mail naslov
+            {t("email_label")}
           </label>
           <Input
             type="email"
@@ -74,7 +76,7 @@ const LoginForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Vpiši e-mail"
+            placeholder={t("email_placeholder")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
@@ -84,7 +86,7 @@ const LoginForm = () => {
             htmlFor="password"
             className="text-sm font-medium text-[#545454]"
           >
-            Geslo
+            {t("password_label")}
           </label>
           <Input
             type="password"
@@ -92,7 +94,7 @@ const LoginForm = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            placeholder="Vpiši geslo"
+            placeholder={t("password_placeholder")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
@@ -104,19 +106,19 @@ const LoginForm = () => {
             type="button"
             onClick={() => handlePasswordReset(formData.email)}
           >
-            <p className="text-center text-sm">Pozabljeno geslo?</p>
+            <p className="text-center text-sm">{t("forgot_password")}</p>
           </button>
           <p className="text-center text-sm">
-            Še nimaš računa?{" "}
+            {t("no_account_question")}{" "}
             <Link href="/signup" className="font-semibold">
-              Registriraj se.
+              {t("register_link")}
             </Link>
           </p>
         </div>
       </FormContent>
       <FormFooter>
-        <Button type="submit" className="w-full py-7 bg-[#4156D8] mt-8">
-          Vpiši se
+        <Button type="submit" className="w-full py-7 bg-[#4156D8] mt-5">
+          {t("login_button")}
         </Button>
       </FormFooter>
     </Form>

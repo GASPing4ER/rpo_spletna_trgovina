@@ -12,12 +12,14 @@ import {
 } from "@/components/ui/form";
 import { BankDetailsProps, TUser } from "@/types";
 import { updateBankDetails } from "@/actions/profile";
+import { useTranslations } from "next-intl";
 
 type BankFormProps = {
   bank_details: TUser["bank_details"];
 };
 
 const BankForm = ({ bank_details }: BankFormProps) => {
+  const t = useTranslations("Profile");
   const [formData, setFormData] = useState<BankDetailsProps>({
     full_name: bank_details.full_name || "",
     account_number: bank_details.account_number || "",
@@ -44,7 +46,7 @@ const BankForm = ({ bank_details }: BankFormProps) => {
       className="flex flex-col rounded-lg shadow-sm p-10"
     >
       <FormHeader className="font-bold text-xl">
-        <FormTitle>Bančni Podatki</FormTitle>
+        <FormTitle>{t("bank_form_title")}</FormTitle>
       </FormHeader>
       <FormContent className="flex flex-col gap-y-3">
         <Input
@@ -53,7 +55,7 @@ const BankForm = ({ bank_details }: BankFormProps) => {
           name="full_name"
           value={formData.full_name}
           onChange={handleChange}
-          placeholder="Ime in priimek"
+          placeholder={t("bank_placeholder_full_name")}
           required
           className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
         />
@@ -63,7 +65,7 @@ const BankForm = ({ bank_details }: BankFormProps) => {
           name="account_number"
           value={formData.account_number}
           onChange={handleChange}
-          placeholder="Številka računa"
+          placeholder={t("bank_placeholder_account_number")}
           required
           className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
         />
@@ -74,7 +76,7 @@ const BankForm = ({ bank_details }: BankFormProps) => {
             name="expiration_date"
             value={formData.expiration_date}
             onChange={handleChange}
-            placeholder="Datum Izteka"
+            placeholder={t("bank_placeholder_expiration_date")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
@@ -84,17 +86,16 @@ const BankForm = ({ bank_details }: BankFormProps) => {
             name="ccv"
             value={formData.ccv}
             onChange={handleChange}
-            placeholder="CCV"
+            placeholder={t("bank_placeholder_ccv")}
             required
             className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
           />
         </div>
       </FormContent>
-
       <FormFooter>
         <div className="w-full flex flex-col gap-y-3">
           <Button type="submit" className="py-7 bg-[#4156D8]">
-            Shrani
+            {t("save_button")}
           </Button>
           <div className="flex justify-center gap-y-3">
             {error ? (

@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-
 import { ArrowRightIcon, ArrowLeftIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedCarouselProps } from "@/types";
 import { useCartContext } from "@/hooks";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const variants = {
   enter: (direction: string) => ({
@@ -27,6 +27,7 @@ const AnimatedCarousel = ({
   products,
   initialIndex,
 }: AnimatedCarouselProps) => {
+  const t = useTranslations("Home");
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [direction, setDirection] = useState<string>("");
   const { handleAddProduct } = useCartContext();
@@ -85,7 +86,7 @@ const AnimatedCarousel = ({
                   onClick={() => handleAddProduct(product)}
                   className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]"
                 >
-                  Kupi zdaj
+                  {t("add_button")}
                 </button>
               </div>
             </div>

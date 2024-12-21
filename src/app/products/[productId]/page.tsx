@@ -21,6 +21,7 @@ export default async function ProductDetailsPage({
   if (!product) {
     return <div>Product not found!</div>;
   }
+
   return (
     <main className="flex flex-col">
       <section className="bg-muted py-12 md:py-24 lg:py-32">
