@@ -4,12 +4,14 @@ import {
   NewUserDataProps,
   LoginUserProps,
   UserDataWithoutPassword,
+  TUser,
 } from "@/types";
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { User } from "@supabase/supabase-js";
 import { getLocale } from "next-intl/server";
+import { supabase } from "@/lib/supabase";
 
 export const signup = async (formData: NewUserDataProps) => {
   const supabaseAuth = await createClient();
@@ -30,7 +32,12 @@ export const signup = async (formData: NewUserDataProps) => {
   const { password, ...rest } = formData;
 
   if (data.user) {
-    await addUser({ ...rest, id: data.user.id });
+    const { data: userData } = await getUserByEmail(data.user.email!);
+    if (userData) {
+      await updateUserAuthId(userData.id, data.user.id);
+    }
+
+    await addUser({ ...rest, user_auth_id: data.user.id });
   }
 
   if (error) {
@@ -143,14 +150,14 @@ export const forgotPassword = async (email: string) => {
 
 export const addUser = async (
   userData: UserDataWithoutPassword & {
-    id: string;
+    user_auth_id: string;
   }
 ) => {
   const supabaseAuth = await createClient();
   const { data, error } = await supabaseAuth.from("users").insert([
     {
-      id: userData.id,
       email: userData.email,
+      user_auth_id: userData.user_auth_id,
       first_name: userData.first_name,
       last_name: userData.last_name,
       bank_details: {},
@@ -163,4 +170,78 @@ export const addUser = async (
   }
 
   return data;
+};
+
+export const addUserData = async (
+  userData: Omit<TUser, "created_at" | "id">
+) => {
+  const { data, error } = await supabase
+    .from("users")
+    .insert([
+      {
+        ...userData,
+        user_auth_id: null,
+      },
+    ])
+    .select()
+    .single();
+
+  if (error) {
+    return { error: error.message, data: null };
+  }
+
+  return { data, error: null };
+};
+
+export const updateUserData = async (
+  userId: string,
+  userData: Omit<TUser, "created_at" | "id">
+) => {
+  const { data, error } = await supabase
+    .from("users")
+    .update([
+      {
+        ...userData,
+      },
+    ])
+    .eq("id", userId)
+    .select();
+
+  if (error) {
+    return { error: error.message, data: null };
+  }
+
+  return { data, error: null };
+};
+
+export const updateUserAuthId = async (userId: string, userAuthId: string) => {
+  const { data, error } = await supabase
+    .from("users")
+    .update([
+      {
+        user_auth_id: userAuthId,
+      },
+    ])
+    .eq("id", userId)
+    .select();
+
+  if (error) {
+    return { error: error.message, data: null };
+  }
+
+  return { data, error: null };
+};
+
+export const getUserByEmail = async (email: string) => {
+  const { data, error } = await supabase
+    .from("users")
+    .select()
+    .eq("email", email)
+    .single();
+
+  if (error) {
+    return { error: error.message, data: null };
+  }
+
+  return { data, error: null };
 };

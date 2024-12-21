@@ -42,7 +42,7 @@ const setBankDetails = async (
           ccv: formData.ccv,
         },
       })
-      .eq("email", user.email);
+      .eq("user_auth_id", user.id);
 
     return {
       error: null,
@@ -84,7 +84,7 @@ const setDeliveryDetails = async (
           postal: formData.postal,
         },
       })
-      .eq("email", user.email);
+      .eq("user_auth_id", user.id);
 
     return {
       error: null,
@@ -122,7 +122,7 @@ export const getUserData = async (): Promise<{
     const { data, error } = await supabase
       .from("users")
       .select("*")
-      .eq("email", user.email)
+      .eq("user_auth_id", user.id)
       .single();
 
     return {

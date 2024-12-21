@@ -40,6 +40,8 @@ export type TCartProduct = {
 
 export type TUser = {
   id: string;
+  user_auth_id?: string;
+  is_guest: boolean;
   email: string;
   first_name: string;
   last_name: string;
@@ -81,7 +83,7 @@ export type TNavigation = {
 
 export type TOrder = {
   id: string;
-  user_email: string;
+  user_id: string;
   total_price: number;
   status: "completed" | "pending" | "shipped" | "canceled";
   created_at: Date;

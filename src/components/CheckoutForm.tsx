@@ -15,6 +15,7 @@ import { TOrderItemData, TUser } from "@/types";
 import { addOrder, addOrderItems } from "@/actions/orders";
 import { useCartContext } from "@/hooks";
 import { redirect } from "next/navigation";
+import { addUserData, getUserByEmail, updateUserData } from "@/actions/auth";
 
 const CheckoutForm = ({ user }: { user: TUser | null }) => {
   const t = useTranslations("Profile");
@@ -46,18 +47,82 @@ const CheckoutForm = ({ user }: { user: TUser | null }) => {
 
   const onHandleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { data } = await addOrder({
-      total_price: totalPrice + tax + shipping,
-      user_email: user ? user.email : formData.email,
-      status: "pending",
-    });
-    if (data) {
-      const modifiedProducts: TOrderItemData[] = products.map((product) => ({
-        order_id: data.id,
-        product_id: product.id,
-        quantity: product.quantity,
-      }));
-      await addOrderItems(modifiedProducts);
+    if (user) {
+      const { data } = await addOrder({
+        total_price: totalPrice + tax + shipping,
+        user_id: user.id,
+        status: "pending",
+      });
+      if (data) {
+        const modifiedProducts: TOrderItemData[] = products.map((product) => ({
+          order_id: data.id,
+          product_id: product.id,
+          quantity: product.quantity,
+        }));
+        await addOrderItems(modifiedProducts);
+      }
+    } else {
+      const newUser: Omit<TUser, "id" | "created_at"> = {
+        is_guest: true,
+        email: formData.email,
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+        bank_details: {
+          full_name: formData.full_name,
+          account_number: formData.account_number,
+          expiration_date: formData.expiration_date,
+          ccv: formData.ccv,
+        },
+        delivery_details: {
+          first_name: formData.first_name,
+          last_name: formData.last_name,
+          address: formData.address,
+          city: formData.city,
+          postal: formData.postal,
+        },
+      };
+      const { data } = await getUserByEmail(formData.email);
+      if (data) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const [userResponse, orderResponse] = await Promise.all([
+          updateUserData(data.id, newUser),
+          addOrder({
+            total_price: totalPrice + tax + shipping,
+            user_id: data.id,
+            status: "pending",
+          }),
+        ]);
+        const { data: orderData } = orderResponse;
+        if (orderData) {
+          const modifiedProducts: TOrderItemData[] = products.map(
+            (product) => ({
+              order_id: orderData.id,
+              product_id: product.id,
+              quantity: product.quantity,
+            })
+          );
+          await addOrderItems(modifiedProducts);
+        }
+      } else {
+        const { data: userData } = await addUserData(newUser);
+        if (userData) {
+          const { data } = await addOrder({
+            total_price: totalPrice + tax + shipping,
+            user_id: userData.id,
+            status: "pending",
+          });
+          if (data) {
+            const modifiedProducts: TOrderItemData[] = products.map(
+              (product) => ({
+                order_id: data.id,
+                product_id: product.id,
+                quantity: product.quantity,
+              })
+            );
+            await addOrderItems(modifiedProducts);
+          }
+        }
+      }
     }
     setProducts([]);
     redirect("/");
