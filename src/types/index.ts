@@ -11,6 +11,33 @@ export type TProduct = {
   brand: string;
 };
 
+export type TProductWithQuantity = {
+  id: string;
+  branch_id: string;
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  category: string;
+  imgUrl: string;
+  created_at: Date;
+  brand: string;
+  quantity: number;
+};
+
+export type TCartProduct = {
+  id: string;
+  branch_id: string;
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  category: string;
+  imgUrl: string;
+  created_at: Date;
+  brand: string;
+};
+
 export type TUser = {
   id: string;
   email: string;

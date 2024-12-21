@@ -1,6 +1,6 @@
 "use client";
 
-import { TProduct } from "@/types";
+import { TProduct, TProductWithQuantity } from "@/types";
 import {
   createContext,
   Dispatch,
@@ -14,12 +14,12 @@ type CartContextProviderProps = {
 };
 
 type TCartContext = {
-  products: TProduct[];
-  setProducts: Dispatch<SetStateAction<TProduct[]>>;
+  products: TProductWithQuantity[];
+  setProducts: Dispatch<SetStateAction<TProductWithQuantity[]>>;
   handleAddProduct: (newProduct: TProduct) => Promise<void>;
   handleEditProduct: (
-    productId: TProduct["id"],
-    editedProduct: TProduct
+    productId: TProductWithQuantity["id"],
+    editedProduct: TProductWithQuantity
   ) => Promise<void>;
   handleDeleteProduct: (id: TProduct["id"]) => Promise<void>;
 };
@@ -28,12 +28,12 @@ export const CartContext = createContext<TCartContext | null>(null);
 
 const CartContextProvider = ({ children }: CartContextProviderProps) => {
   // state
-  const localCart: TProduct[] = (() => {
+  const localCart: TProductWithQuantity[] = (() => {
     const cartData = localStorage.getItem("cart");
     return cartData ? JSON.parse(cartData) : [];
   })();
 
-  const [cart, setCart] = useState<TProduct[]>(localCart);
+  const [cart, setCart] = useState<TProductWithQuantity[]>(localCart);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -41,12 +41,25 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
   // handlers
   const handleAddProduct = async (newProduct: TProduct) => {
-    setCart((prevCart) => [...prevCart, newProduct]);
+    setCart((prevCart) => {
+      const exist = prevCart.find((product) => product.id === newProduct.id);
+      if (exist) {
+        // If the product exists, increase its quantity
+        return prevCart.map((product) =>
+          product.id === newProduct.id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product
+        );
+      } else {
+        // If the product doesn't exist, add it to the cart with quantity 1
+        return [...prevCart, { ...newProduct, quantity: 1 }];
+      }
+    });
   };
 
   const handleEditProduct = async (
-    productId: TProduct["id"],
-    editedProduct: TProduct
+    productId: TProductWithQuantity["id"],
+    editedProduct: TProductWithQuantity
   ) => {
     setCart((prevCart) =>
       prevCart.map((product) =>

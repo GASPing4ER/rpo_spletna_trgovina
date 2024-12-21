@@ -9,11 +9,11 @@ import { useTranslations } from "next-intl";
 
 const CartPage = () => {
   const t = useTranslations("Cart");
-  const { products, handleDeleteProduct } = useCartContext();
+  const { products, handleDeleteProduct, handleEditProduct } = useCartContext();
 
   // derived states
   const totalPrice = products.reduce(
-    (partialSum, product) => product.price + partialSum,
+    (partialSum, product) => product.price * product.quantity + partialSum,
     0
   );
 
@@ -64,7 +64,30 @@ const CartPage = () => {
                     <h2 className="font-bold">{product.name}</h2>
                     <p>{product.description}</p>
                   </div>
-                  <p>{product.price} €</p>
+                  <div className="flex gap-4">
+                    <button
+                      onClick={() =>
+                        handleEditProduct(product.id, {
+                          ...product,
+                          quantity: product.quantity - 1,
+                        })
+                      }
+                    >
+                      -
+                    </button>
+                    <p className="bg-white px-1 border">{product.quantity}</p>
+                    <button
+                      onClick={() =>
+                        handleEditProduct(product.id, {
+                          ...product,
+                          quantity: product.quantity + 1,
+                        })
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
+                  <p>{product.price * product.quantity} €</p>
                   <TrashIcon
                     onClick={() => handleDeleteProduct(product.id)}
                     className="cursor-pointer"
@@ -75,7 +98,7 @@ const CartPage = () => {
           </div>
           <section
             // onSubmit={onHandleSubmit}
-            className="bg-white w-[600px] flex flex-col justify-center gap-4 p-8"
+            className="bg-white w-[500px] flex flex-col justify-center gap-4 p-8"
           >
             <h2 className="text-xl font-bold">{t("order_summary")}</h2>
             <div className="flex flex-col gap-4">

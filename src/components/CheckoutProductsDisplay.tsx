@@ -7,7 +7,7 @@ import Image from "next/image";
 const CheckoutProductsDisplay = () => {
   const { products } = useCartContext();
   const totalPrice = products.reduce(
-    (partialSum, product) => product.price + partialSum,
+    (partialSum, product) => product.price * product.quantity + partialSum,
     0
   );
 
@@ -20,20 +20,23 @@ const CheckoutProductsDisplay = () => {
       {products.map((product) => (
         <div key={product.id} className="flex justify-between items-center">
           <div className="flex gap-4 items-center">
-            <div className="p-1 border border-black w-fit bg-gray-300 rounded-md">
+            <div className="relative p-1 border border-black w-fit bg-gray-300 rounded-md">
               <Image
                 src="/images/product-placeholder.png"
                 alt="product placeholder"
                 width={75}
                 height={75}
               />
+              <div className="absolute -top-2 -right-4 bg-black text-white px-3 py-1 rounded-full">
+                {product.quantity}
+              </div>
             </div>
             <div>
               <p>{product.name}</p>
               <p className="text-gray-600 text-xs">{product.description}</p>
             </div>
           </div>
-          <p>€{product.price}.00</p>
+          <p>€{product.price * product.quantity}.00</p>
         </div>
       ))}
       <div className="flex flex-col gap-2">
