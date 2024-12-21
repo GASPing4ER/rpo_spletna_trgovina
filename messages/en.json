@@ -76,9 +76,9 @@
     "order_history": "Order history",
     "logout": "Log Out",
     "bank_form_title": "Bank details",
-    "bank_placeholder_full_name": "Full name",
-    "bank_placeholder_account_number": "Account number",
-    "bank_placeholder_expiration_date": "Expiration date",
+    "bank_placeholder_full_name": "Name on card",
+    "bank_placeholder_account_number": "Card number",
+    "bank_placeholder_expiration_date": "Expiration date (MM/YY)",
     "bank_placeholder_ccv": "CCV",
     "delivery_form_title": "Delivery details",
     "delivery_label_full_name": "Full name",
@@ -96,7 +96,8 @@
     "amount": "Amount",
     "date": "Date",
     "products_label": "Products:",
-    "no_products": "No products found for this order."
+    "no_products": "No products found for this order.",
+    "pay_cta": "Pay now"
   },
   "Shop": {
     "no_products_category": "There are no products available for this category.",
@@ -117,10 +118,11 @@
     "enter_code": "Enter code",
     "estimated_delivery": "Estimated delivery January 12, 2025",
     "price_without_vat_shipping": "Price without VAT and shipping",
+    "subtotal": "Subtotal",
     "tax": "Tax",
     "shipping": "Shipping",
     "total": "Total",
-    "order": "Order",
+    "order": "Contionue to Checkout",
     "add_products_to_cart": "Add products to the cart!",
     "continue_shopping": "Continue shopping"
   }

@@ -14,6 +14,8 @@ import BankForm from "./BankForm";
 import LanguageSelector from "./LanguageSelector";
 import BranchCard from "./BranchCard";
 import ProfileUserData from "./ProfileUserData";
+import CheckoutForm from "./CheckoutForm";
+import CheckoutProductsDisplay from "./CheckoutProductsDisplay";
 
 export {
   Header,
@@ -32,4 +34,6 @@ export {
   LanguageSelector,
   BranchCard,
   ProfileUserData,
+  CheckoutForm,
+  CheckoutProductsDisplay,
 };

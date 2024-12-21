@@ -77,8 +77,8 @@
     "logout": "Izpiši se",
     "bank_form_title": "Bančni Podatki",
     "bank_placeholder_full_name": "Ime in priimek",
-    "bank_placeholder_account_number": "Številka računa",
-    "bank_placeholder_expiration_date": "Datum Izteka",
+    "bank_placeholder_account_number": "Številka kartice",
+    "bank_placeholder_expiration_date": "Datum Izteka (MM/YY)",
     "bank_placeholder_ccv": "CCV",
     "delivery_form_title": "Podatki za dostavo",
     "delivery_label_full_name": "Ime in priimek",
@@ -95,7 +95,8 @@
     "amount": "Znesek",
     "date": "Datum",
     "products_label": "Izdelki:",
-    "no_products": "Za to naročilo ni najdenih izdelkov."
+    "no_products": "Za to naročilo ni najdenih izdelkov.",
+    "pay_cta": "Plačaj zdaj"
   },
   "Shop": {
     "no_products_category": "Za to kategorijo ni na voljo izdelkov.",
@@ -116,10 +117,11 @@
     "enter_code": "Vpiši kodo",
     "estimated_delivery": "Predvidena dostava 12.1.2025",
     "price_without_vat_shipping": "Cena brez DDV in dostave",
+    "subtotal": "Vmesni seštevek",
     "tax": "Davek",
     "shipping": "Poštnina",
     "total": "Skupno",
-    "order": "Naroči",
+    "order": "Nadaljuj na blagajno",
     "add_products_to_cart": "Dodajte produkte v košarico!",
     "continue_shopping": "Nadaljuj z nakupom"
   }
