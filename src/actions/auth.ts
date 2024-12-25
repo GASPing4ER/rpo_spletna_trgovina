@@ -121,6 +121,17 @@ export const getUser = async (): Promise<User> => {
   return data.user;
 };
 
+export const getUserNoRedirect = async (): Promise<User | null> => {
+  const supabaseAuth = await createClient();
+  const { data, error } = await supabaseAuth.auth.getUser();
+
+  if (!data.user || error) {
+    return null;
+  }
+
+  return data.user;
+};
+
 export const forgotPassword = async (email: string) => {
   const supabaseAuth = await createClient();
   const locale: string = await getLocale();

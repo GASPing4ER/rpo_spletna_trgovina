@@ -11,6 +11,16 @@ export type TProduct = {
   brand: string;
 };
 
+export type TProductReview = {
+  id: string;
+  user_id: string;
+  product_id: string;
+  rating: number;
+  title: string;
+  description: string;
+  created_at: Date;
+};
+
 export type TProductWithQuantity = {
   id: string;
   branch_id: string;
