@@ -16,6 +16,7 @@ import BranchCard from "./BranchCard";
 import ProfileUserData from "./ProfileUserData";
 import CheckoutForm from "./CheckoutForm";
 import CheckoutProductsDisplay from "./CheckoutProductsDisplay";
+import ShopClient from "./ShopClient";
 
 export {
   Header,
@@ -36,4 +37,5 @@ export {
   ProfileUserData,
   CheckoutForm,
   CheckoutProductsDisplay,
+  ShopClient,
 };

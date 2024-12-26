@@ -66,7 +66,11 @@
     "no_image": "Slika ni na voljo",
     "working_hours": "Delovni čas",
     "manager": "Upravitelj",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "notifications": "Obvestila",
+    "no_notifications": "Ni novih obvestil.",
+    "view_all": "Ogled vseh obvestil",
+    "all_notifications": "Vsa obvestila"
   },
   "Profile": {
     "profile_title": "Pozdravljen/a",
@@ -104,13 +108,14 @@
     "no_products_category": "Za to kategorijo ni na voljo izdelkov.",
     "no_products_filters": "Izbrani filtri ne ustrezajo nobenim izdelkom.",
     "buy_now": "Kupi zdaj",
-    "sort_by": "Razvrsti po ceni ali zalogi",
+    "sort_by": "Razvrsti po ceni, zalogi ali imenu",
     "low_to_high": "Od najnižje do najvišje",
     "high_to_low": "Od najvišje do najnižje",
     "availability": "Zaloga",
     "category_select": "Izberi kategorijo",
     "filter_by_brand": "Filtriraj po znamki",
-    "filter_by_price": "Filtriraj po ceni"
+    "filter_by_price": "Filtriraj po ceni",
+    "name": "Ime"
   },
   "Cart": {
     "cart": "Košarica",

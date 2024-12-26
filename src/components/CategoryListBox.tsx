@@ -46,7 +46,7 @@ const CategoryListBox = ({
             />
           )}
         </ListboxButton>
-        <ListboxOptions className="absolute w-full bg-gray-50 shadow-lg rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+        <ListboxOptions className="absolute z-50 w-full bg-gray-50 shadow-lg rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
           {categories.map((category) => (
             <ListboxOption
               key={category.slugId}

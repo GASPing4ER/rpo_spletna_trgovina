@@ -14,7 +14,6 @@ import {
 import { useTranslations } from "next-intl";
 
 const RegisterForm = () => {
-  //TODO: TRANSTALTIONS FOR ERRORS
   const t = useTranslations("SignUp");
   const [formData, setFormData] = useState({
     first_name: "",

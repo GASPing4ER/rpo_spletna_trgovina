@@ -1,151 +1,38 @@
-"use client";
+"use server";
 
-import React, { useEffect, useState, useMemo } from "react";
-import Image from "next/image";
+import React from "react";
+import { getProducts } from "@/actions/products";
 import { categoriesData } from "@/constants";
-import { TProduct } from "@/types";
-import { useSearchParams, useRouter } from "next/navigation";
-import { CategoryListBox, FilterDropDown } from "@/components";
-import { fetchProducts } from "@/actions/shop";
-import {
-  handleCategoryClick,
-  handleSortChange,
-  handleBrandChange,
-  handleSliderChange,
-  filterAndSortProducts,
-} from "@/actions/shop_handlers";
-import { useCartContext } from "@/hooks";
-import { useTranslations } from "next-intl";
-import Pagination from "@mui/material/Pagination";
+import { ShopClient } from "@/components";
 
-export default function Shop() {
-  const t = useTranslations("Shop");
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const category = searchParams.get("category");
-  const page = parseInt(searchParams.get("page") || "1", 10);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [products, setProducts] = useState<TProduct[] | null>(null);
-  const [sortOption, setSortOption] = useState<string>("LowToHigh");
-  const [selBrands, setSelBrands] = useState<Record<string, boolean>>({});
-  const [sliderValue, setSliderValue] = useState<[number, number]>([0, 1500]);
-  const { handleAddProduct } = useCartContext();
+export default async function Shop({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] };
+}) {
+  const params = await searchParams;
 
-  const validCategory = categoriesData.find((cat) => cat.slugId === category)
+  const category = Array.isArray(params.category)
+    ? params.category[0]
+    : params.category || "";
+
+  const page = Array.isArray(params.page)
+    ? parseInt(params.page[0], 10)
+    : parseInt(params.page || "1", 10);
+
+  const validCategory = categoriesData.some((cat) => cat.slugId === category)
     ? category
     : "";
 
   const validPage = Number.isInteger(page) && page > 0 ? page : 1;
 
-  useEffect(() => {
-    const loadProducts = async () => {
-      setLoading(true);
-      const { data } = await fetchProducts(validCategory);
-      setProducts(data);
-      setLoading(false);
-    };
-
-    loadProducts();
-  }, [validCategory, validPage]);
-
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    newPage: number
-  ) => {
-    if (validCategory)
-      router.push(`?category=${validCategory}&page=${newPage}`);
-    else router.push(`?page=${newPage}`);
-  };
-
-  const renderProducts = () => {
-    if (!loading && products && products.length === 0) {
-      return <h1 className="text-2xl">{t("no_products_category")}</h1>;
-    }
-
-    if (!loading && products && filteredProducts.length === 0) {
-      return <h1 className="text-2xl">{t("no_products_filters")}</h1>;
-    }
-
-    const startIndex = (validPage - 1) * 9;
-    const endIndex = startIndex + 9;
-    const productsToDisplay = filteredProducts.slice(startIndex, endIndex);
-
-    return productsToDisplay.map((product, index) => (
-      <div
-        key={index}
-        className="w-[390px] h-[450px] bg-[#F6F6F6] flex flex-col items-center justify-center py-4 px-2 gap-4 shadow-inner"
-      >
-        <Image
-          src="/images/product-placeholder.png"
-          alt="product"
-          width={246}
-          height={185}
-        />
-        <h3 className="text-center">
-          {product.name}, {product.description}
-        </h3>
-        <p className="text-2xl font-bold">{product.price},00 €</p>
-        <button
-          onClick={() => handleAddProduct(product)}
-          className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]"
-        >
-          {t("buy_now")}
-        </button>
-      </div>
-    ));
-  };
-
-  const filteredProducts = useMemo(() => {
-    return filterAndSortProducts(
-      products || [],
-      selBrands,
-      sliderValue,
-      sortOption
-    );
-  }, [products, selBrands, sliderValue, sortOption]);
+  const { data: products } = await getProducts(category);
 
   return (
-    <main className="min-h-screen flex flex-col items-center mt-20">
-      <section className="w-full flex justify-end py-10 px-40">
-        <FilterDropDown
-          category={validCategory || ""}
-          sortOption={sortOption}
-          onSortChange={handleSortChange(setSortOption)}
-          selBrands={selBrands}
-          onBrandChange={handleBrandChange(setSelBrands)}
-          sliderValue={sliderValue}
-          onSliderChange={handleSliderChange(setSliderValue)}
-        />
-        <CategoryListBox
-          categories={categoriesData}
-          category={validCategory}
-          onCategoryChange={handleCategoryClick(
-            router,
-            setSelBrands,
-            setSliderValue
-          )}
-        />
-      </section>
-      <section className="flex flex-wrap gap-5 justify-center w-full px-4">
-        {renderProducts()}
-      </section>
-      <section className="mt-10">
-        <Pagination
-          className="p-5"
-          count={(products && Math.ceil(products.length / 9)) || 1}
-          page={validPage}
-          onChange={handlePageChange}
-          sx={{
-            "& .MuiPaginationItem-root": {
-              color: "#111",
-              "&.Mui-selected": {
-                backgroundColor: "#4156D8",
-                color: "#fff",
-              },
-            },
-          }}
-        />
-      </section>
-    </main>
+    <ShopClient
+      products={products || []}
+      category={validCategory}
+      page={validPage}
+    />
   );
 }

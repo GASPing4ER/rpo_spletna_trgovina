@@ -67,7 +67,7 @@ const AnimatedCarousel = ({
           return (
             <div
               key={index}
-              className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4"
+              className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4 transition-all transform hover:scale-105 hover:shadow-lg"
             >
               <div className="flex flex-col gap-2 items-center">
                 <Image

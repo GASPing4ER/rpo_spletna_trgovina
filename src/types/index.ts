@@ -85,6 +85,14 @@ export type TBranch = {
   contact: string;
 };
 
+export type TBranchNotification = {
+  id: number;
+  name: string;
+  created_at: Date;
+  en_description: string;
+  sl_description: string;
+};
+
 export type TNavigation = {
   sl_title: string;
   en_title: string;
@@ -165,4 +173,10 @@ export type DeliveryDetailsProps = {
   address: string;
   city: string;
   postal: string;
+};
+
+export type ShopClientProps = {
+  products: TProduct[];
+  category: string;
+  page: number;
 };

@@ -91,6 +91,18 @@ const FilterDropDown = ({
               <span className="invisible size-2 rounded-full bg-white group-data-[checked]:visible" />
             </Radio>
           </Field>
+          <Field
+            key={"Name"}
+            className="flex items-center justify-between gap-5"
+          >
+            <Label>{t("name")}</Label>
+            <Radio
+              value={"Name"}
+              className="group flex size-5 items-center justify-center rounded-full border bg-white data-[checked]:bg-[#4156D8]"
+            >
+              <span className="invisible size-2 rounded-full bg-white group-data-[checked]:visible" />
+            </Radio>
+          </Field>
         </RadioGroup>
 
         {category && (

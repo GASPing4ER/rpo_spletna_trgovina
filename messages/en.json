@@ -66,7 +66,11 @@
     "no_image": "No image available",
     "working_hours": "Working hours",
     "manager": "Manager",
-    "contact": "Contact"
+    "contact": "Contact",
+    "notifications": "Notifications",
+    "no_notifications": "No notifications available.",
+    "view_all": "View all notfications",
+    "all_notifications": "All notifications"
   },
   "Profile": {
     "profile_title": "Hello",
@@ -105,13 +109,14 @@
     "no_products_category": "There are no products available for this category.",
     "no_products_filters": "No products match the selected filters.",
     "buy_now": "Buy Now",
-    "sort_by": "Sort by price or Availability",
+    "sort_by": "Sort by price, Availability or name",
     "low_to_high": "Low to High",
     "high_to_low": "High to Low",
     "availability": "Availability",
     "category_select": "Select a category",
     "filter_by_brand": "Filter by brand",
-    "filter_by_price": "Filter by price"
+    "filter_by_price": "Filter by price",
+    "name": "Name"
   },
   "Cart": {
     "cart": "Cart",
