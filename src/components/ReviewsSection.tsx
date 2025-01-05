@@ -125,10 +125,10 @@ const RatingDisplay = ({ rating }: { rating: number }) => {
   const stars = Array.from({ length: 5 }, (_, index) => (
     <StarIcon
       key={index}
-      className={`w-5 h-5 ${
+      className={`w-6 h-6 ${
         index < Math.round(rating)
-          ? "fill-yellow-400"
-          : "fill-muted stroke-muted-foreground"
+          ? "fill-accent stroke-accent"
+          : "fill-gray stroke-accent"
       }`}
     />
   ));

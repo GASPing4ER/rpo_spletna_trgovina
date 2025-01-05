@@ -33,6 +33,8 @@ export default {
         separator: "var(--separator)",
         border: "var(--border)",
         onHover: "var(--onHover)",
+        gray: "#F5F5F5",
+        accent: "#4156D8"
       },
       borderRadius: {
         lg: "var(--radius)",
