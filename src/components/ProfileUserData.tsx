@@ -12,15 +12,15 @@ const ProfileUserData = async ({ currentTab }: { currentTab: string }) => {
   const t = await getTranslations("Profile");
 
   return (
-    <Card className="w-full lg:w-1/3 bg-white shadow-sm rounded-lg p-10 self-start">
-      <Text size="custom" className="mb-5">
+    <Card className="w-full lg:w-1/3 bg-surface shadow-sm rounded-lg p-10 self-start text-textPrimary">
+      <Text size="custom" className="mb-5 text-textPrimary">
         {t("personal_data")}
       </Text>
       <Link href="/profile/delivery">
         <Button
           variant="ghost"
           className={`w-full flex flex-wrap justify-between ${
-            currentTab === "delivery" ? "bg-[#F6F6F6]" : ""
+            currentTab === "delivery" ? "bg-onSurface" : ""
           }`}
         >
           {t("delivery_info")}
@@ -32,7 +32,7 @@ const ProfileUserData = async ({ currentTab }: { currentTab: string }) => {
         <Button
           variant="ghost"
           className={`w-full flex flex-wrap justify-between ${
-            currentTab === "bank" ? "bg-[#F6F6F6]" : ""
+            currentTab === "bank" ? "bg-onSurface" : ""
           }`}
         >
           {t("bank_info")}
@@ -44,7 +44,7 @@ const ProfileUserData = async ({ currentTab }: { currentTab: string }) => {
         <Button
           variant="ghost"
           className={`w-full flex flex-wrap justify-between ${
-            currentTab === "order-history" ? "bg-[#F6F6F6]" : ""
+            currentTab === "order-history" ? "bg-onSurface" : ""
           }`}
         >
           {t("order_history")}
@@ -55,7 +55,7 @@ const ProfileUserData = async ({ currentTab }: { currentTab: string }) => {
       <Button
         variant="outline"
         type="submit"
-        className="w-full border-[#4156D8] text-[#4156D8] hover:bg-[#4156D8] hover:text-white"
+        className="w-full border border-primary text-primary bg-surface hover:bg-onSurface"
         onClick={logout}
       >
         {t("logout")}

@@ -5,6 +5,7 @@ import { Footer, Header } from "@/components";
 import CartContextProvider from "@/contexts/cart-context-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,13 +36,28 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider messages={messages}>
-          <CartContextProvider>
-            <Header />
-            {children}
-            <Footer />
-          </CartContextProvider>
-        </NextIntlClientProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="default"
+          value={{
+            default: "default",
+            greenOnBlack: "greenOnBlack",
+            whiteOnBlack: "whiteOnBlack",
+            blackOnWhite: "blackOnWhite",
+            yellowOnBlue: "yellowOnBlue",
+            blackOnBeige: "blackOnBeige",
+          }}
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextIntlClientProvider messages={messages}>
+            <CartContextProvider>
+              <Header />
+              {children}
+              <Footer />
+            </CartContextProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

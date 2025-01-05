@@ -35,7 +35,7 @@ const BranchCard = ({ branch, notifications = [] }: BranchCardProps) => {
   if (!isLoaded) return <div>{t("loading")}</div>;
 
   return (
-    <Card className="w-[360px] h-[600px] space-y-4 overflow-auto">
+    <Card className="w-[360px] h-[600px] space-y-4 overflow-auto border border-border bg-onBackground">
       {branch.location ? (
         <GoogleMap
           mapContainerClassName="w-full h-[300px]"
@@ -45,13 +45,13 @@ const BranchCard = ({ branch, notifications = [] }: BranchCardProps) => {
           <Marker position={branch.location} />
         </GoogleMap>
       ) : (
-        <div className="w-full h-[300px] bg-gray-200">
+        <div className="w-full h-[300px] bg-onBackground">
           <div className="w-full h-full flex justify-center items-center">
             <p>{t("no_image")}</p>
           </div>
         </div>
       )}
-      <CardContent className="flex flex-col">
+      <CardContent className="flex flex-col text-textPrimary">
         {/* Branch Info */}
         <h1 className="text-xl font-bold mb-1.5">
           {t("branch_name")} {branch.name}
@@ -84,7 +84,7 @@ const BranchCard = ({ branch, notifications = [] }: BranchCardProps) => {
               <Popover>
                 {({ open }) => (
                   <>
-                    <PopoverButton className="text-[#4156D8] text-sm">
+                    <PopoverButton className="text-primary text-sm">
                       {t("view_all")}
                     </PopoverButton>
                     <PopoverBackdrop className="fixed inset-0 bg-black/15" />
@@ -96,7 +96,7 @@ const BranchCard = ({ branch, notifications = [] }: BranchCardProps) => {
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
                           exit={{ opacity: 0, scale: 0.95 }}
-                          className="absolute bg-white shadow-lg rounded-md p-4 w-[360px] z-10"
+                          className="absolute bg-onBackground shadow-lg rounded-md p-4 w-[360px] z-10"
                         >
                           <h3 className="font-bold mb-2">
                             {t("all_notifications")}
@@ -130,7 +130,7 @@ const BranchCard = ({ branch, notifications = [] }: BranchCardProps) => {
             )}
           </div>
         ) : (
-          <div className="flex items-center gap-4 overflow-hidden">
+          <div className="flex items-center gap-4 overflow-hidden text-textPrimary">
             <h3 className="font-bold text-base">{t("notifications")}:</h3>
             <p>{t("no_notifications")}</p>
           </div>

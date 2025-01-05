@@ -48,9 +48,9 @@ const AnimatedCategory = ({
   return (
     <>
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl">{t("category_title")}</h2>
+        <h2 className="text-2xl text-textPrimary">{t("category_title")}</h2>
         <button onClick={handleNext}>
-          <ArrowRightIcon />
+          <ArrowRightIcon className="text-textPrimary" />
         </button>
       </div>
       <ul className="flex gap-8">
@@ -62,7 +62,7 @@ const AnimatedCategory = ({
             return (
               <motion.li
                 key={`${category.slug}-${index}`}
-                className="flex-1 flex flex-col items-center justify-center h-[128px] bg-white rounded-[15px]"
+                className="flex-1 flex flex-col items-center justify-center h-[128px] bg-onBackground rounded-[15px]"
                 initial={isLast ? "enter" : undefined}
                 animate="center"
                 exit={isFirst ? "exit" : undefined}
@@ -79,8 +79,9 @@ const AnimatedCategory = ({
                     alt="category icon"
                     width={25}
                     height={25}
+                    className="invert"
                   />
-                  <h3>
+                  <h3 className="text-textPrimary">
                     {locale === "sl" ? category.sl_title : category.en_title}
                   </h3>
                 </Link>

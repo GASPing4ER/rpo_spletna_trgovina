@@ -8,7 +8,7 @@ const Form = React.forwardRef<
   <form
     ref={ref}
     className={cn(
-      "rounded-xl border border-neutral-200 bg-white  pt-12 px-8",
+      "rounded-xl border border-border bg-surface  pt-12 px-8",
       className
     )}
     {...props}

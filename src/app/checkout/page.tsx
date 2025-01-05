@@ -9,7 +9,7 @@ const CheckoutPage = async () => {
       <div className="flex-1">
         <CheckoutForm user={user.data || null} />
       </div>
-      <div className="flex-1 bg-gray-200">
+      <div className="flex-1 bg-background">
         <CheckoutProductsDisplay />
       </div>
     </div>

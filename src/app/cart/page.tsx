@@ -21,8 +21,8 @@ const CartPage = () => {
   const shipping = 15;
 
   return (
-    <div className="min-h-screen mx-auto py-28 px-24 bg-gray-100">
-      <h1 className="text-xl pb-4">{t("cart")}</h1>
+    <div className="min-h-screen mx-auto py-28 px-24 bg-background">
+      <h1 className="text-xl pb-4 text-textPrimary">{t("cart")}</h1>
       {products.length > 0 ? (
         <div className="flex h-[450px]">
           <div className="flex-1 flex flex-col gap-4 overflow-y-scroll pr-10">
@@ -30,7 +30,7 @@ const CartPage = () => {
               return (
                 <div
                   key={product.id + index}
-                  className="flex gap-10 py-4 items-center border-b border-gray-500"
+                  className="flex gap-10 py-4 items-center border-b border-border text-textPrimary"
                 >
                   <Image
                     src="/images/product-placeholder.png"
@@ -53,7 +53,9 @@ const CartPage = () => {
                     >
                       -
                     </button>
-                    <p className="bg-white px-1 border">{product.quantity}</p>
+                    <p className="bg-surface px-1 border border-border">
+                      {product.quantity}
+                    </p>
                     <button
                       onClick={() =>
                         handleEditProduct(product.id, {
@@ -76,17 +78,19 @@ const CartPage = () => {
           </div>
           <section
             // onSubmit={onHandleSubmit}
-            className="bg-white w-[500px] flex flex-col justify-center gap-4 p-8"
+            className="bg-surface w-[500px] flex flex-col justify-center gap-4 p-8 text-textPrimary"
           >
             <h2 className="text-xl font-bold">{t("order_summary")}</h2>
             <div className="flex flex-col gap-4">
               <Label>{t("promo_code")}</Label>
               <input
                 placeholder={t("enter_code")}
-                className="border border-gray p-2"
+                className="border border-border bg-surface p-2 placeholder:text-textTertiary"
               />
             </div>
-            <p className="text-gray-500 text-sm">{t("estimated_delivery")}</p>
+            <p className="text-sm text-textTertiary">
+              {t("estimated_delivery")}
+            </p>
             <div className="flex items-center justify-between">
               <p className="font-semibold">{t("price_without_vat_shipping")}</p>
               <p className="font-semibold">{totalPrice} €</p>
@@ -105,7 +109,7 @@ const CartPage = () => {
             </div>
             <Link
               href="/checkout"
-              className="text-white font-semibold bg-blue-600 py-3 rounded-sm text-center"
+              className="text-textOnPrimary font-semibold bg-primary py-3 rounded-sm text-center"
             >
               {t("order")}
             </Link>
@@ -113,8 +117,11 @@ const CartPage = () => {
         </div>
       ) : (
         <div className="flex flex-col gap-4">
-          <p>{t("add_products_to_cart")}</p>
-          <Link href="/shop" className="px-8 py-2 text-white bg-blue-600 w-fit">
+          <p className="text-textOnPrimary">{t("add_products_to_cart")}</p>
+          <Link
+            href="/shop"
+            className="px-8 py-2 text-textOnPrimary bg-primary w-fit"
+          >
             {t("continue_shopping")}
           </Link>
         </div>

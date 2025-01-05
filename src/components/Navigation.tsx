@@ -7,7 +7,7 @@ const Navigation = async () => {
 
   return (
     <nav>
-      <ul className="flex gap-6 font-semibold">
+      <ul className="flex gap-6 font-semibold text-textPrimary">
         {navigationData.map((navItem) => (
           <li key={navItem.slug}>
             {locale === "sl" ? (

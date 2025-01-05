@@ -17,6 +17,7 @@ import ProfileUserData from "./ProfileUserData";
 import CheckoutForm from "./CheckoutForm";
 import CheckoutProductsDisplay from "./CheckoutProductsDisplay";
 import ShopClient from "./ShopClient";
+import ThemeSelector from "./ThemeSelector";
 
 export {
   Header,
@@ -38,4 +39,5 @@ export {
   CheckoutForm,
   CheckoutProductsDisplay,
   ShopClient,
+  ThemeSelector,
 };

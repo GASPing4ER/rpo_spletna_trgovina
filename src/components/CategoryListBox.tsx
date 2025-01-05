@@ -31,7 +31,7 @@ const CategoryListBox = ({
         <ListboxButton
           className={`flex items-center pl-2 pr-1 ${
             category ? "justify-between" : "justify-center"
-          } w-full rounded-lg bg-gray-100 py-1.5 text-sm font-semibold text-gray-700 focus:outline-none`}
+          } w-full rounded-lg bg-onSurface py-1.5 text-sm font-semibold text-textPrimary focus:outline-none`}
         >
           {category
             ? categories.find((cat) => cat.slugId === category)?.[
@@ -46,14 +46,16 @@ const CategoryListBox = ({
             />
           )}
         </ListboxButton>
-        <ListboxOptions className="absolute z-50 w-full bg-gray-50 shadow-lg rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+        <ListboxOptions className="absolute z-50 w-full bg-onSurface shadow-lg rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
           {categories.map((category) => (
             <ListboxOption
               key={category.slugId}
               value={category.slugId}
               className={({ selected }) =>
                 `cursor-default select-none relative py-2 pl-3 pr-4 ${
-                  selected ? "text-white bg-[#4156D8]" : "text-gray-900"
+                  selected
+                    ? "text-textOnPrimary bg-primary"
+                    : "text-textPrimary"
                 } ${selected ? "font-medium" : "font-normal"}`
               }
             >
@@ -69,7 +71,7 @@ const CategoryListBox = ({
                   {selected ? (
                     <span
                       className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                        selected ? "text-white" : "text-[#4156D8]"
+                        selected ? "text-textPrimary" : "text-primary"
                       }`}
                     ></span>
                   ) : null}

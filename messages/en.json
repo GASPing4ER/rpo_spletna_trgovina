@@ -2,7 +2,14 @@
   "Header": {
     "lang_select_title": "Choose language",
     "slo": "Slovenian",
-    "eng": "English"
+    "eng": "English",
+    "theme_select_title": "Choose theme",
+    "default": "Default",
+    "whiteOnBlack": "White on black",
+    "blackOnWhite": "Black on white",
+    "yellowOnBlue": "Yellow on blue",
+    "blackOnBeige": "Black on beige",
+    "greenOnBlack": "Green on black"
   },
   "Footer": {
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore."

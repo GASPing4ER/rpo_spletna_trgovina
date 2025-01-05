@@ -22,7 +22,7 @@ const LanguageSelector = () => {
 
   return (
     <Menu as="div" className="relative">
-      <MenuButton className="relative py-1.5 px-1.5 text-center text-sm font-semibold text-gray-700 focus:outline-none">
+      <MenuButton className="relative py-1.5 px-1.5 text-sm font-semibold text-textSecondary focus:outline-none">
         <Image
           src="/icons/slovene-flag.svg"
           alt="slovene language"
@@ -30,8 +30,8 @@ const LanguageSelector = () => {
           height={24}
         />
       </MenuButton>
-      <MenuItems className="absolute right-0 top-full bg-[#F6F6F6] mt-2 p-2 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
-        <p className="text-sm font-medium text-gray-600 mb-1">
+      <MenuItems className="absolute right-0 top-full bg-surface w-36 mt-2 p-2 rounded-md shadow-lg focus:outline-none z-50">
+        <p className="text-sm font-medium text-textSecondary mb-1">
           {t("lang_select_title")}
         </p>
         <div className="flex flex-col gap-2">
@@ -39,7 +39,9 @@ const LanguageSelector = () => {
             disabled={isPending}
             onClick={() => onlanguagechange("en")}
             className={`text-sm py-2 px-4 rounded-md w-full text-left ${
-              locale === "en" ? "bg-[#4156D8] text-white" : "hover:bg-[#e5e5e5]"
+              locale === "en"
+                ? "bg-primary text-textOnPrimary"
+                : "text-textPrimary hover:text-primary"
             }`}
           >
             {t("eng")}
@@ -48,7 +50,9 @@ const LanguageSelector = () => {
             disabled={isPending}
             onClick={() => onlanguagechange("sl")}
             className={`text-sm py-2 px-4 rounded-md w-full text-left ${
-              locale === "sl" ? "bg-[#4156D8] text-white" : "hover:bg-[#e5e5e5]"
+              locale === "sl"
+                ? "bg-primary text-textOnPrimary"
+                : "text-textPrimary hover:text-primary"
             }`}
           >
             {t("slo")}

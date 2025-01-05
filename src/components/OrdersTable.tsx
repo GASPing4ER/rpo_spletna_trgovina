@@ -27,14 +27,14 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
   };
 
   return (
-    <Table className="bg-white rounded-lg">
+    <Table className="bg-surface rounded-lg">
       <TableCaption>{t("order_caption")}</TableCaption>
       <TableHeader>
-        <TableRow>
-          <TableHead>{t("order")}</TableHead>
-          <TableHead>{t("status")}</TableHead>
-          <TableHead>{t("amount")}</TableHead>
-          <TableHead>{t("date")}</TableHead>
+        <TableRow className="border-b border-border">
+          <TableHead className="text-textSecondary">{t("order")}</TableHead>
+          <TableHead className="text-textSecondary">{t("status")}</TableHead>
+          <TableHead className="text-textSecondary">{t("amount")}</TableHead>
+          <TableHead className="text-textSecondary">{t("date")}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -45,7 +45,7 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
               {/* Main Order Row */}
               <TableRow
                 onClick={() => toggleOrderDetails(order.id)}
-                className="cursor-pointer"
+                className="cursor-pointer text-textPrimary border-b border-border"
               >
                 <TableCell>#{index + 1}</TableCell>
                 <TableCell>{order.status}</TableCell>
@@ -55,8 +55,8 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
 
               {/* Order Details Row */}
               {expandedOrderId === order.id && (
-                <TableRow className="bg-gray-100">
-                  <TableCell colSpan={4}>
+                <TableRow className="bg-surface">
+                  <TableCell colSpan={4} className="text-textPrimary">
                     <div className="p-4">
                       <p className="font-bold mb-2">{t("products_label")}</p>
                       {order.order_items.length > 0 ? (
@@ -68,7 +68,7 @@ const OrdersTable = ({ orders }: OrdersTableProps) => {
                           ))}
                         </ul>
                       ) : (
-                        <p>{t("no_products")}</p>
+                        <p className="text-textPrimary">{t("no_products")}</p>
                       )}
                     </div>
                   </TableCell>
