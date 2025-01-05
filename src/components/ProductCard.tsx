@@ -13,7 +13,7 @@ type ProductCardProps = {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <Card className="w-[300px] group relative space-y-4 overflow-hidden">
+    <Card className="w-[300px] group relative space-y-4 overflow-hidden shadow-[0px_6px_10px_rgba(0,0,0,0.06)]">
       <Image
         className="aspect-square w-full"
         src={product.imgUrl}

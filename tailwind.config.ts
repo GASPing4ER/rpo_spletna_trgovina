@@ -12,6 +12,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        gray: "#F5F5F5",
+        accent: "#4156D8"
       },
       borderRadius: {
         lg: "var(--radius)",
