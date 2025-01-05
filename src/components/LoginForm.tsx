@@ -60,14 +60,17 @@ const LoginForm = () => {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="w-full max-w-[1120px] max-h-[508] p-10"
+      className="w-full max-w-[1120px] max-h-[508] p-10 bg-surface border-border"
     >
-      <FormHeader className="font-bold text-xl">
+      <FormHeader className="font-bold text-xl text-textPrimary">
         <FormTitle>{t("page_title")}</FormTitle>
       </FormHeader>
       <FormContent>
         <div className="mb-4">
-          <label htmlFor="email" className="text-sm font-medium text-[#545454]">
+          <label
+            htmlFor="email"
+            className="text-sm font-medium text-textSecondary"
+          >
             {t("email_label")}
           </label>
           <Input
@@ -78,13 +81,13 @@ const LoginForm = () => {
             onChange={handleChange}
             placeholder={t("email_placeholder")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="password"
-            className="text-sm font-medium text-[#545454]"
+            className="text-sm font-medium text-textSecondary"
           >
             {t("password_label")}
           </label>
@@ -96,7 +99,7 @@ const LoginForm = () => {
             onChange={handleChange}
             placeholder={t("password_placeholder")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
@@ -106,9 +109,11 @@ const LoginForm = () => {
             type="button"
             onClick={() => handlePasswordReset(formData.email)}
           >
-            <p className="text-center text-sm">{t("forgot_password")}</p>
+            <p className="text-center text-sm text-textPrimary">
+              {t("forgot_password")}
+            </p>
           </button>
-          <p className="text-center text-sm">
+          <p className="text-center text-sm text-textPrimary">
             {t("no_account_question")}{" "}
             <Link href="/signup" className="font-semibold">
               {t("register_link")}
@@ -117,7 +122,10 @@ const LoginForm = () => {
         </div>
       </FormContent>
       <FormFooter>
-        <Button type="submit" className="w-full py-7 bg-[#4156D8] mt-5">
+        <Button
+          type="submit"
+          className="w-full py-7 bg-primary mt-5 hover:bg-onHover"
+        >
           {t("login_button")}
         </Button>
       </FormFooter>

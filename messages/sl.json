@@ -2,7 +2,14 @@
   "Header": {
     "lang_select_title": "Izberi jezik",
     "slo": "slovenščina",
-    "eng": "angleščina"
+    "eng": "angleščina",
+    "theme_select_title": "Izberi temo",
+    "default": "Privzeta",
+    "whiteOnBlack": "Bela na črni",
+    "blackOnWhite": "Črna na beli",
+    "yellowOnBlue": "Rumena na modri",
+    "blackOnBeige": "Črna na bež",
+    "greenOnBlack": "Zelena na črni"
   },
   "Footer": {
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore."

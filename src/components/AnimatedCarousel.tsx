@@ -57,8 +57,11 @@ const AnimatedCarousel = ({
         transition={{ duration: 0.5 }}
       >
         <div className="flex justify-center items-center absolute top-[50%] -left-20">
-          <button className="bg-gray-200 rounded-full p-2" onClick={handlePrev}>
-            <ArrowLeftIcon className="w-6 h-6" />
+          <button
+            className="bg-onSurface rounded-full p-2"
+            onClick={handlePrev}
+          >
+            <ArrowLeftIcon className="w-6 h-6 text-textPrimary" />
           </button>
         </div>
         {Array.from({ length: 4 }).map((_, index) => {
@@ -67,7 +70,7 @@ const AnimatedCarousel = ({
           return (
             <div
               key={index}
-              className="bg-[#F6F6F6] flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4 transition-all transform hover:scale-105 hover:shadow-lg"
+              className="bg-onSurface flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4 transition-all transform hover:scale-105 hover:shadow-lg"
             >
               <div className="flex flex-col gap-2 items-center">
                 <Image
@@ -76,15 +79,17 @@ const AnimatedCarousel = ({
                   width={246}
                   height={185}
                 />
-                <h3 className="text-center">
+                <h2 className="text-center text-textPrimary">
                   {product.name}, {product.description}
-                </h3>
+                </h2>
               </div>
               <div className="flex flex-col gap-2 items-center">
-                <p className="text-2xl font-bold">{product.price},00 €</p>
+                <h3 className="text-2xl font-bold text-textPrimary">
+                  {product.price},00 €
+                </h3>
                 <button
                   onClick={() => handleAddProduct(product)}
-                  className="px-8 py-3 bg-[#4156D8] text-white rounded-[8px]"
+                  className="px-8 py-3 bg-primary text-textOnPrimary rounded-[8px]"
                 >
                   {t("add_button")}
                 </button>
@@ -93,8 +98,11 @@ const AnimatedCarousel = ({
           );
         })}
         <div className="flex justify-center items-center absolute top-[50%] -right-20">
-          <button className="bg-gray-200 rounded-full p-2" onClick={handleNext}>
-            <ArrowRightIcon className="w-6 h-6" />
+          <button
+            className="bg-onSurface rounded-full p-2"
+            onClick={handleNext}
+          >
+            <ArrowRightIcon className="w-6 h-6 text-textPrimary" />
           </button>
         </div>
       </motion.div>

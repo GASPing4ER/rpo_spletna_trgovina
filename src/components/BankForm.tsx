@@ -43,9 +43,9 @@ const BankForm = ({ bank_details }: BankFormProps) => {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="flex flex-col rounded-lg shadow-sm p-10"
+      className="flex flex-col rounded-lg shadow-sm bg-surface border border-border p-10"
     >
-      <FormHeader className="font-bold text-xl">
+      <FormHeader className="font-bold text-xl text-textPrimary">
         <FormTitle>{t("bank_form_title")}</FormTitle>
       </FormHeader>
       <FormContent className="flex flex-col gap-y-3">
@@ -57,7 +57,7 @@ const BankForm = ({ bank_details }: BankFormProps) => {
           onChange={handleChange}
           placeholder={t("bank_placeholder_full_name")}
           required
-          className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+          className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
         />
         <Input
           type="text"
@@ -67,7 +67,7 @@ const BankForm = ({ bank_details }: BankFormProps) => {
           onChange={handleChange}
           placeholder={t("bank_placeholder_account_number")}
           required
-          className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+          className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
         />
         <div className="flex mb-4 gap-x-4">
           <Input
@@ -78,7 +78,7 @@ const BankForm = ({ bank_details }: BankFormProps) => {
             onChange={handleChange}
             placeholder={t("bank_placeholder_expiration_date")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
           <Input
             type="text"
@@ -88,13 +88,16 @@ const BankForm = ({ bank_details }: BankFormProps) => {
             onChange={handleChange}
             placeholder={t("bank_placeholder_ccv")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
         </div>
       </FormContent>
       <FormFooter>
         <div className="w-full flex flex-col gap-y-3">
-          <Button type="submit" className="py-7 bg-[#4156D8]">
+          <Button
+            type="submit"
+            className="py-7 bg-primary text-textOnPrimary hover:text-textPrimary"
+          >
             {t("save_button")}
           </Button>
           <div className="flex justify-center gap-y-3">

@@ -44,15 +44,15 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="flex flex-col rounded-lg shadow-sm p-10"
+      className="flex flex-col rounded-lg shadow-sm p-10 bg-surface border-border"
     >
-      <FormHeader className="font-bold text-xl">
+      <FormHeader className="font-bold text-xl text-textPrimary">
         <FormTitle>{t("delivery_form_title")}</FormTitle>
       </FormHeader>
       <FormContent>
         <label
           htmlFor="firstLastName"
-          className="text-sm font-medium text-[#545454]"
+          className="text-sm font-medium text-textSecondary"
         >
           {t("delivery_label_full_name")}
         </label>
@@ -65,7 +65,7 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
             onChange={handleChange}
             placeholder={t("delivery_placeholder_first_name")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
           <Input
             type="text"
@@ -75,10 +75,13 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
             onChange={handleChange}
             placeholder={t("delivery_placeholder_last_name")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
         </div>
-        <label htmlFor="email" className="text-sm font-medium text-[#545454]">
+        <label
+          htmlFor="email"
+          className="text-sm font-medium text-textSecondary"
+        >
           {t("delivery_label_address")}
         </label>
         <Input
@@ -89,7 +92,7 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
           onChange={handleChange}
           placeholder={t("delivery_placeholder_address")}
           required
-          className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+          className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
         />
         <Input
           type="text"
@@ -99,7 +102,7 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
           onChange={handleChange}
           placeholder={t("delivery_placeholder_city")}
           required
-          className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+          className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
         />
         <Input
           type="text"
@@ -109,12 +112,15 @@ const DeliveryForm = ({ delivery_details }: DeliveryFormProps) => {
           onChange={handleChange}
           placeholder={t("delivery_placeholder_postal")}
           required
-          className="mt-1.5 mb-4 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+          className="mt-1.5 mb-4 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
         />
       </FormContent>
       <FormFooter>
         <div className="w-full flex flex-col gap-y-3">
-          <Button type="submit" className="py-7 bg-[#4156D8]">
+          <Button
+            type="submit"
+            className="py-7 bg-primary hover:text-textPrimary"
+          >
             {t("save_button")}
           </Button>
           <div className="flex justify-center gap-y-3">

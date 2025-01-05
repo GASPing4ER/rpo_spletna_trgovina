@@ -14,3 +14,159 @@
 .hero-bg {
   background: url("/images/hero.png") no-repeat;
 }
+
+.default {
+  --background: #ededed;
+  --footer: #000000;
+  --navbar: #ffffff;
+  --onBackground: #ffffff;
+  --surface: #ffffff;
+  --onSurface: #f6f6f6;
+  --surfaceBorder: #111111;
+  --hero: #222222;
+  --heroTitle: #ffffff;
+  --heroSubTitle: #909090;
+  --heroBorder: #ffffff;
+  --primary: #4156d8;
+  --secondary: #6776d8;
+  --textOnPrimary: #ffffff;
+  --textPrimary: #111111;
+  --textFooter: #ffffff;
+  --textSecondary: #3d3d3d;
+  --textTertiary: rgb(167, 167, 167);
+  --iconColor: #111111;
+  --footerIcon: #ffffff;
+  --separator: #cccbcb;
+  --border: #e0e0e0;
+  --onHover: #909090;
+}
+
+.greenOnBlack {
+  --background: #000000;
+  --footer: #111111;
+  --navbar: #111111;
+  --onBackground: #111111;
+  --surface: #111111;
+  --onSurface: #222222;
+  --surfaceBorder: #00f800;
+  --hero: #222222;
+  --heroTitle: #00ff00;
+  --heroSubTitle: #a5d6a7;
+  --heroBorder: #00ff00;
+  --primary: #4caf50;
+  --secondary: #a5d6a7;
+  --textOnPrimary: #000000;
+  --textPrimary: #06b606;
+  --textFooter: #06b606;
+  --textSecondary: #a5d6a7;
+  --textTertiary: rgb(158, 179, 158);
+  --iconColor: #00ff00;
+  --footerIcon: #00ff00;
+  --separator: #00ff00;
+  --border: #00ff00;
+  --onHover: #424242;
+}
+
+.whiteOnBlack {
+  --background: #000000;
+  --footer: #000000;
+  --navbar: #111111;
+  --onBackground: #111111;
+  --surface: #111111;
+  --onSurface: #222222;
+  --surfaceBorder: #ffffff;
+  --hero: #222222;
+  --heroTitle: #ffffff;
+  --heroSubTitle: #d3d3d3;
+  --heroBorder: #ffffff;
+  --primary: #ffffff;
+  --secondary: #e0e0e0;
+  --textOnPrimary: #000000;
+  --textPrimary: #ffffff;
+  --textFooter: #ffffff;
+  --textSecondary: #d3d3d3;
+  --textTertiary: rgb(128, 128, 128);
+  --iconColor: #ffffff;
+  --footerIcon: #ffffff;
+  --separator: #ffffff;
+  --border: #ffffff;
+  --onHover: #424242;
+}
+
+.blackOnWhite {
+  --background: #ffffff;
+  --navbar: #ebebeb;
+  --footer: #ebebeb;
+  --onBackground: #f6f6f6;
+  --surface: #f6f6f6;
+  --onSurface: #ededed;
+  --surfaceBorder: #000000;
+  --hero: #f6f6f6;
+  --heroTitle: #000000;
+  --heroSubTitle: #4d4d4d;
+  --heroBorder: #000000;
+  --primary: #000000;
+  --secondary: #4d4d4d;
+  --textOnPrimary: #ffffff;
+  --textPrimary: #000000;
+  --textFooter: #000000;
+  --textSecondary: #4d4d4d;
+  --textTertiary: rgb(128, 128, 128);
+  --iconColor: #000000;
+  --footerIcon: #000000;
+  --separator: #000000;
+  --border: #000000;
+  --onHover: #e0e0e0;
+}
+
+.yellowOnBlue {
+  --background: #0626dd;
+  --footer: #001f80;
+  --navbar: #001f80;
+  --onBackground: #001f80;
+  --surface: #001f80;
+  --onSurface: #003366;
+  --surfaceBorder: #ffff00;
+  --hero: #003366;
+  --heroTitle: #ffff00;
+  --heroSubTitle: #ffcc00;
+  --heroBorder: #ffff00;
+  --primary: #ffcc00;
+  --secondary: #ffff00;
+  --textOnPrimary: #000000;
+  --textPrimary: #ffff00;
+  --textFooter: #ffff00;
+  --textSecondary: #ffcc00;
+  --textTertiary: #ffdd33;
+  --iconColor: #ffff00;
+  --footerIcon: #ffff00;
+  --separator: #ffff00;
+  --border: #ffff00;
+  --onHover: #003366;
+}
+
+.blackOnBeige {
+  --background: #fafaf2;
+  --footer: #e6e6d0;
+  --navbar: #e6e6d0;
+  --onBackground: #f5f5dc;
+  --surface: #e6e6d0;
+  --onSurface: #ececdd;
+  --surfaceBorder: #000000;
+  --hero: #e6e6d0;
+  --heroTitle: #000000;
+  --heroSubTitle: #666666;
+  --heroBorder: #000000;
+  --primary: #333333;
+  --secondary: #666666;
+  --textOnPrimary: #f5f5dc;
+  --textPrimary: #000000;
+  --textFooter: #000000;
+  --textSecondary: #666666;
+  --textTertiary: #999999;
+  --iconColor: #000000;
+  --footerIcon: #000000;
+  --separator: #000000;
+  --border: #000000;
+  --onHover: #e0e0cc;
+}

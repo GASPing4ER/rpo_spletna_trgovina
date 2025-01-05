@@ -16,6 +16,13 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["www.bigbang.si"], // Add external image domain here
   },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+    return config;
+  },
 };
 
 export default withNextIntl(nextConfig);

@@ -1,18 +1,18 @@
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = async () => {
   const t = await getTranslations("Footer");
 
   return (
-    <footer className="bg-black text-white flex justify-between items-center py-28 px-40">
+    <footer className="bg-footer flex justify-between items-center border-t py-28 px-40 text-textFooter">
       <div className="flex flex-col gap-6">
         {" "}
         <h1>
           <Link
             href="/"
-            className="text-xs bg-gray-400 py-2 px-4 text-black font-bold"
+            className="text-xs bg-primary py-2 px-4 text-black font-bold"
           >
             LOGO
           </Link>
@@ -26,6 +26,7 @@ const Footer = async () => {
           alt="facebook"
           width={16}
           height={16}
+          className="invert-[green]"
         />
         <Image src="/icons/tiktok.svg" alt="tiktok" width={16} height={16} />
         <Image

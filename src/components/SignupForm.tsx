@@ -49,15 +49,15 @@ const RegisterForm = () => {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="w-full max-w-[1120px] max-h-[624] p-10"
+      className="w-full max-w-[1120px] max-h-[624] p-10 bg-surface"
     >
-      <FormHeader className="font-bold text-xl">
+      <FormHeader className="font-bold text-xl text-textPrimary">
         <FormTitle>{t("page_title")}</FormTitle>
       </FormHeader>
       <FormContent>
         <label
           htmlFor="firstLastName"
-          className="text-sm font-medium text-[#545454]"
+          className="text-sm font-medium text-textSecondary"
         >
           {t("full_name_label")}
         </label>
@@ -70,7 +70,7 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder={t("name_placeholder")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
           <Input
             type="text"
@@ -80,11 +80,14 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder={t("last_name_placeholder")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="text-sm font-medium text-[#545454]">
+          <label
+            htmlFor="email"
+            className="text-sm font-medium text-textSecondary"
+          >
             {t("email_label")}
           </label>
           <Input
@@ -95,11 +98,14 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder={t("email_placeholder")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary] focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="geslo" className="text-sm font-medium text-[#545454]">
+          <label
+            htmlFor="geslo"
+            className="text-sm font-medium text-textSecondary"
+          >
             {t("password_label")}
           </label>
           <Input
@@ -110,7 +116,7 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder={t("password_placeholder")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
           <Input
             type="password"
@@ -120,13 +126,13 @@ const RegisterForm = () => {
             onChange={handleChange}
             placeholder={t("confirm_password_placeholder")}
             required
-            className="mt-1.5 py-7 border-gray-300 focus:ring-[#4156D8] focus:border-[#4156D8] sm:text-sm"
+            className="mt-1.5 py-7 border-border focus:ring-primary focus:border-primary sm:text-sm text-textPrimary placeholder:text-textTertiary"
           />
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
       </FormContent>
       <FormFooter>
-        <Button type="submit" className="w-full py-7 bg-[#4156D8] mt-2">
+        <Button type="submit" className="w-full py-7 mt-2">
           {t("signup_button")}
         </Button>
       </FormFooter>

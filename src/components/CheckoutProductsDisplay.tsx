@@ -18,28 +18,33 @@ const CheckoutProductsDisplay = () => {
   return (
     <div className="p-10 flex flex-col gap-8 w-[600px]">
       {products.map((product) => (
-        <div key={product.id} className="flex justify-between items-center">
+        <div
+          key={product.id}
+          className="flex justify-between items-center text-textPrimary"
+        >
           <div className="flex gap-4 items-center">
-            <div className="relative p-1 border border-black w-fit bg-gray-300 rounded-md">
+            <div className="relative p-1 border border-border w-fit bg-surface rounded-md">
               <Image
                 src="/images/product-placeholder.png"
                 alt="product placeholder"
                 width={75}
                 height={75}
               />
-              <div className="absolute -top-2 -right-4 bg-black text-white px-3 py-1 rounded-full">
+              <div className="absolute -top-2 -right-4 bg-surface border border-border text-textPrimary px-3 py-1 rounded-full">
                 {product.quantity}
               </div>
             </div>
             <div>
               <p>{product.name}</p>
-              <p className="text-gray-600 text-xs">{product.description}</p>
+              <p className="text-textSecondary text-xs">
+                {product.description}
+              </p>
             </div>
           </div>
           <p>€{product.price * product.quantity}.00</p>
         </div>
       ))}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 text-textPrimary">
         <div className="flex justify-between items-center">
           <p>{t("subtotal")}</p>
           <p>€{totalPrice}.00</p>
@@ -53,7 +58,7 @@ const CheckoutProductsDisplay = () => {
           <p>€{shipping}.00</p>
         </div>
       </div>
-      <div className="flex justify-between items-center font-bold text-xl">
+      <div className="flex justify-between items-center font-bold text-xl text-textPrimary">
         <p>{t("total")}</p>
         <p>€{totalPrice + tax + shipping}.00</p>
       </div>
