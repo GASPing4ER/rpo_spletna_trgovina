@@ -78,8 +78,8 @@ const AnimatedCarousel = ({
                   <Image
                     src={product.imgUrl}
                     alt={product.name}
-                    width={246}
-                    height={185}
+                    width={200}
+                    height={200}
                   />
                 </Link>
                 <h2 className="text-center text-textPrimary">{product.name}</h2>

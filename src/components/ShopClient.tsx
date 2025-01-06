@@ -105,8 +105,8 @@ const ShopClient = ({ products, category, page }: ShopClientProps) => {
           <Image
             src={product.imgUrl}
             alt={product.name}
-            width={246}
-            height={185}
+            width={200}
+            height={200}
           />
         </Link>
         <h3 className="text-center">{product.name}</h3>

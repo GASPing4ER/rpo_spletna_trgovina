@@ -35,8 +35,8 @@ const CartPage = () => {
                 >
                   <Image
                     src={product.imgUrl}
-                    width={150}
-                    height={150}
+                    width={100}
+                    height={100}
                     alt="product placeholder"
                   />
                   <div className="flex flex-1 flex-col justify-center">

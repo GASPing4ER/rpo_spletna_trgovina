@@ -19,8 +19,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <Image
         className="aspect-square w-full"
         src={product.imgUrl}
-        width={300}
-        height={500}
+        width={200}
+        height={200}
         alt={product.name}
       />
       <CardContent className="px-4 py-0">
