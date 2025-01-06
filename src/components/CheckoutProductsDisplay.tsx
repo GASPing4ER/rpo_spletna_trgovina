@@ -25,7 +25,7 @@ const CheckoutProductsDisplay = () => {
           <div className="flex gap-4 items-center">
             <div className="relative p-1 border border-border w-fit bg-surface rounded-md">
               <Image
-                src="/images/product-placeholder.png"
+                src={product.imgUrl}
                 alt="product placeholder"
                 width={75}
                 height={75}
@@ -36,9 +36,9 @@ const CheckoutProductsDisplay = () => {
             </div>
             <div>
               <p>{product.name}</p>
-              <p className="text-textSecondary text-xs">
+              {/* <p className="text-textSecondary text-xs">
                 {product.description}
-              </p>
+              </p> */}
             </div>
           </div>
           <p>€{product.price * product.quantity}.00</p>

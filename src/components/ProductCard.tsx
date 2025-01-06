@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button";
 import { PlusIcon } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { TProduct } from "@/types";
+import { useCartContext } from "@/hooks";
 
 type ProductCardProps = {
   product: TProduct;
 };
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const { handleAddProduct } = useCartContext();
   return (
     <Card className="w-[300px] group relative space-y-4 overflow-hidden shadow-[0px_6px_10px_rgba(0,0,0,0.06)]">
       <Image
@@ -36,7 +38,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       </CardContent>
       <CardFooter className="p-0 border-t">
-        <Button variant="ghost" className="w-full">
+        <Button
+          onClick={() => handleAddProduct(product)}
+          variant="ghost"
+          className="w-full"
+        >
           <PlusIcon className="size-4 me-1" /> Add to Cart
         </Button>
       </CardFooter>

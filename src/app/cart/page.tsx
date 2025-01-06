@@ -27,20 +27,21 @@ const CartPage = () => {
         <div className="flex h-[450px]">
           <div className="flex-1 flex flex-col gap-4 overflow-y-scroll pr-10">
             {products.map((product, index) => {
+              console.log(product);
               return (
                 <div
                   key={product.id + index}
                   className="flex gap-10 py-4 items-center border-b border-border text-textPrimary"
                 >
                   <Image
-                    src="/images/product-placeholder.png"
+                    src={product.imgUrl}
                     width={150}
                     height={150}
                     alt="product placeholder"
                   />
                   <div className="flex flex-1 flex-col justify-center">
                     <h2 className="font-bold">{product.name}</h2>
-                    <p>{product.description}</p>
+                    {/* <p>{product.description}</p> */}
                   </div>
                   <div className="flex gap-4">
                     <button
