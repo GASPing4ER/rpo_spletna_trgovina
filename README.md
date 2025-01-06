@@ -199,9 +199,43 @@ The primary goal of Sprint 3 is to implement advanced features and functionaliti
    - Add feedback mechanisms (e.g., success/error messages for profile updates and order placement).  
    - Introduce tooltips and additional guidance for sensitive fields like banking information.  
 
+## Sprint 4
+
+### Sprint Goal  
+Enhance the application's usability by implementing key features, including multilingual support, business listing, and user-friendly design updates.
+
+### Objectives  
+
+1. **Details Screen Design (5P):**  
+   - Design an intuitive and visually appealing details screen.  
+
+2. **Language Selection Implementation (8P):**  
+   - Add functionality to select and switch between languages.  
+   - Ensure proper localization of UI elements.  
+
+3. **Business Directory (3P):**  
+   - Display a list of businesses with relevant details.  
+
+4. **Language Selection Update (1P):**  
+   - Finalize UI for language selection.  
+
+5. **Cart - Delivery & Payment Info (8P):**  
+   - Include fields for delivery address and banking information.  
+   - Validate inputs for a seamless checkout experience.  
+
+6. **Documentation (3P):**  
+   - Document features and functionalities for Sprint 4 tasks.  
+
+## Key Achievements  
+- Designed a user-friendly details screen.  
+- Implemented multilingual support with localization.  
+- Completed a functional business directory.  
+- Enhanced cart functionality with delivery and payment details.  
+- Finalized and updated project documentation.  
+
 ## Sprint 5
 
-## Sprint Goal  
+### Sprint Goal  
 Refine usability and enhance features for product pages, including theme customization and improved user interactions.
 
 ### Objectives  
