@@ -103,8 +103,8 @@ const ShopClient = ({ products, category, page }: ShopClientProps) => {
       >
         <Link href="/products/[id]" as={`/products/${product.id}`}>
           <Image
-            src="/images/product-placeholder.png"
-            alt="product"
+            src={product.imgUrl}
+            alt={product.name}
             width={246}
             height={185}
           />

@@ -76,8 +76,8 @@ const AnimatedCarousel = ({
               <div className="flex flex-col gap-2 items-center">
                 <Link href="/products/[id]" as={`/products/${product.id}`}>
                   <Image
-                    src="/images/product-placeholder.png"
-                    alt="product"
+                    src={product.imgUrl}
+                    alt={product.name}
                     width={246}
                     height={185}
                   />
