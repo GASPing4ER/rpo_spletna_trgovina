@@ -9,7 +9,7 @@ import { getProducts } from "@/actions/products";
 export default async function Home() {
   const { data: products } = await getProducts();
   const t = await getTranslations("Home");
-  // console.log(products);
+  //console.log(products);
 
   return (
     <main className="w-full min-h-screen flex flex-col items-center justify-center">
@@ -87,11 +87,11 @@ export default async function Home() {
             <button className="text-left border border-surfaceBorder py-4 px-14 rounded-[6px] w-fit font-medium text-lg">
               {t("dell_xps_button")}
             </button>
-            <hr className="border-t-1 border-primary" />
+            <hr className="border-t-1 border-border" />
             <h3 className="text-3xl">
               MacBook <span className="font-semibold">Pro</span>
             </h3>
-            <hr className="border-t-1 border-primary" />
+            <hr className="border-t-1 border-border" />
             <h3 className="text-3xl">
               Sony <span className="font-semibold">CH-520</span>
             </h3>

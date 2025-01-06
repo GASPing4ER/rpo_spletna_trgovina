@@ -9,6 +9,7 @@ import { useCartContext } from "@/hooks";
 import { useTranslations } from "next-intl";
 import Pagination from "@mui/material/Pagination";
 import Image from "next/image";
+import Link from "next/link";
 
 const ShopClient = ({ products, category, page }: ShopClientProps) => {
   const t = useTranslations("Shop");
@@ -100,12 +101,14 @@ const ShopClient = ({ products, category, page }: ShopClientProps) => {
         key={index}
         className="w-[360px] h-[450px] bg-onSurface text-textPrimary flex flex-col items-center justify-center py-4 px-2 gap-4 shadow-inner transition-all transform hover:scale-105 hover:shadow-lg"
       >
-        <Image
-          src="/images/product-placeholder.png"
-          alt="product"
-          width={246}
-          height={185}
-        />
+        <Link href="/products/[id]" as={`/products/${product.id}`}>
+          <Image
+            src="/images/product-placeholder.png"
+            alt="product"
+            width={246}
+            height={185}
+          />
+        </Link>
         <h3 className="text-center">{product.name}</h3>
         <p className="text-2xl font-bold">{product.price},00 €</p>
         <button

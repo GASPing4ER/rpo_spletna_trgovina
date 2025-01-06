@@ -7,6 +7,7 @@ import { AnimatedCarouselProps } from "@/types";
 import { useCartContext } from "@/hooks";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 
 const variants = {
   enter: (direction: string) => ({
@@ -73,15 +74,15 @@ const AnimatedCarousel = ({
               className="bg-onSurface flex-1 h-[438px] flex flex-col items-center justify-between py-14 px-4 gap-4 transition-all transform hover:scale-105 hover:shadow-lg"
             >
               <div className="flex flex-col gap-2 items-center">
-                <Image
-                  src="/images/product-placeholder.png"
-                  alt="product"
-                  width={246}
-                  height={185}
-                />
-                <h2 className="text-center text-textPrimary">
-                  {product.name}, {product.description}
-                </h2>
+                <Link href="/products/[id]" as={`/products/${product.id}`}>
+                  <Image
+                    src="/images/product-placeholder.png"
+                    alt="product"
+                    width={246}
+                    height={185}
+                  />
+                </Link>
+                <h2 className="text-center text-textPrimary">{product.name}</h2>
               </div>
               <div className="flex flex-col gap-2 items-center">
                 <h3 className="text-2xl font-bold text-textPrimary">

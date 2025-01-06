@@ -1,11 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRightIcon } from "lucide-react";
+import {
+  ArrowRightIcon,
+  Laptop,
+  Smartphone,
+  Headset,
+  Watch,
+  Tablet,
+  Keyboard,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedCategoryProps } from "@/types";
 import { useTranslations, useLocale } from "next-intl";
-import Image from "next/image";
 import Link from "next/link";
 
 const variants = {
@@ -74,13 +81,19 @@ const AnimatedCategory = ({
                   href={category.slug}
                   className="flex flex-col items-center gap-1"
                 >
-                  <Image
-                    src={category.iconUrl}
-                    alt="category icon"
-                    width={25}
-                    height={25}
-                    className="invert"
-                  />
+                  {category.slugId === "racunalniki" ? (
+                    <Laptop className="w-6 h-6 text-iconColor" />
+                  ) : category.slugId === "telefoni" ? (
+                    <Smartphone className="w-6 h-6 text-iconColor" />
+                  ) : category.slugId === "slusalke" ? (
+                    <Headset className="w-6 h-6 text-iconColor" />
+                  ) : category.slugId === "pametne-ure" ? (
+                    <Watch className="w-6 h-6 text-iconColor" />
+                  ) : category.slugId === "tablice" ? (
+                    <Tablet className="w-6 h-6 text-iconColor" />
+                  ) : (
+                    <Keyboard className="w-6 h-6 text-iconColor" />
+                  )}
                   <h3 className="text-textPrimary">
                     {locale === "sl" ? category.sl_title : category.en_title}
                   </h3>
