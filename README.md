@@ -198,3 +198,30 @@ The primary goal of Sprint 3 is to implement advanced features and functionaliti
 3. **UI/UX Improvements:**  
    - Add feedback mechanisms (e.g., success/error messages for profile updates and order placement).  
    - Introduce tooltips and additional guidance for sensitive fields like banking information.  
+
+## Sprint 5
+
+## Sprint Goal  
+Refine usability and enhance features for product pages, including theme customization and improved user interactions.
+
+### Objectives  
+
+1. **Product Comments (5P):**  
+   - Allow users to leave and view comments on products.  
+   - Add moderation tools for administrators.  
+
+2. **Theme Selection (8P):**  
+   - Enable users to select and preview themes.  
+   - Ensure themes are responsive and accessible.  
+
+3. **Product Images (1P):**  
+   - Integrate high-quality product images with zoom functionality.  
+
+4. **Details Page Update (4P):**  
+   - Redesign product details with features, specs, and social sharing.  
+
+### Key Achievements  
+- Implemented product comments with moderation.  
+- Added theme selection and preview functionality.  
+- Integrated product images with zoom.  
+- Redesigned details page for better engagement.  
