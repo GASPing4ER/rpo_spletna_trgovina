@@ -5,6 +5,7 @@ import { StarIcon } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { Button } from "./ui/button";
 import { addProductReviews } from "@/actions/product_reviews";
+import { useRouter } from "next/navigation";
 
 const ReviewsSection = ({
   productId,
@@ -21,6 +22,7 @@ const ReviewsSection = ({
   const [reviewTitle, setReviewTitle] = useState("");
   const [reviewDescription, setReviewDescription] = useState("");
   const [reviewRating, setReviewRating] = useState(0);
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -45,6 +47,7 @@ const ReviewsSection = ({
           setReviewDescription("");
           setReviewRating(0);
         }
+        router.refresh();
       } catch (error) {
         console.error("Failed to submit review:", error);
       }

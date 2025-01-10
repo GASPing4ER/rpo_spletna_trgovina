@@ -110,7 +110,8 @@
     "date": "Date",
     "products_label": "Products:",
     "no_products": "No products found for this order.",
-    "pay_cta": "Pay now"
+    "pay_cta": "Pay now",
+    "profile_tooltip": "Profile"
   },
   "Shop": {
     "no_products_category": "There are no products available for this category.",

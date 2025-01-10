@@ -118,7 +118,6 @@ const CartPage = () => {
         </div>
       ) : (
         <div className="flex flex-col gap-4">
-          <p className="text-textOnPrimary">{t("add_products_to_cart")}</p>
           <Link
             href="/shop"
             className="px-8 py-2 text-textOnPrimary bg-primary w-fit"

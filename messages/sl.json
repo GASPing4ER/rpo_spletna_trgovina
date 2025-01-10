@@ -109,7 +109,8 @@
     "date": "Datum",
     "products_label": "Izdelki:",
     "no_products": "Za to naročilo ni najdenih izdelkov.",
-    "pay_cta": "Plačaj zdaj"
+    "pay_cta": "Plačaj zdaj",
+    "profile_tooltip": "Profil"
   },
   "Shop": {
     "no_products_category": "Za to kategorijo ni na voljo izdelkov.",

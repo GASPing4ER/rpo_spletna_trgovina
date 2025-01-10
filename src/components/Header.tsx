@@ -1,9 +1,9 @@
 // Header Component
 import { Navigation } from "@/components";
 import { LanguageSelector, ThemeSelector } from "@/components";
-import { User } from "lucide-react";
 import Link from "next/link";
 import Cart from "./Cart";
+import UserProfile from "./User";
 
 const Header = () => {
   return (
@@ -20,9 +20,7 @@ const Header = () => {
       <Navigation />
       <div className="flex items-center gap-4">
         <Cart />
-        <Link href="/profile">
-          <User className="h-6 w-6 text-textPrimary" />
-        </Link>
+        <UserProfile />
         <ThemeSelector />
         <LanguageSelector />
       </div>

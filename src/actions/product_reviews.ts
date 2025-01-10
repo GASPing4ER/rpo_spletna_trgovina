@@ -1,6 +1,9 @@
+"use server";
+
 import { supabase } from "@/lib/supabase";
 import { TProductReview } from "@/types";
 import { PostgrestError } from "@supabase/supabase-js";
+import { revalidatePath } from "next/cache";
 
 export const getProductReviews = async (
   productId: string
@@ -43,6 +46,7 @@ export const addProductReviews = async (
       .select()
       .single();
 
+    revalidatePath("/", "layout");
     return {
       data: data,
       error,
