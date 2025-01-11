@@ -69,7 +69,7 @@ export default async function ProductDetailsPage({
               title="Product Details"
               content={product.description}
             />
-            <Specifications />
+            <Specifications product={product} />
             <ReviewsSection
               user={user}
               productId={productId}
@@ -209,31 +209,17 @@ const ProductInfo = ({
   </div>
 );
 
-const Specifications = () => (
+const Specifications = ({ product }: { product: TProduct }) => (
   <div className="bg-white grid gap-6 rounded-md py-6 px-10">
     <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
       Product Specifications
     </h2>
     <div className="grid gap-4">
       {[
-        {
-          label: "Diagonala zaslona",
-          value: "43,9 cm (17,3in)",
-        },
-        { label: "Družina procesorja", value: "AMD Ryzen 7 7730U procesor" },
-        {
-          label: "Ločljivost zaslona",
-          value: "1920x1080",
-        },
-        { label: "Kapaciteta RAM pomnilnika [GB]", value: "16" },
-        {
-          label: "Link to original page",
-          value: (
-            <Link href="/" className="text-muted-foreground">
-              www.originalpage.com
-            </Link>
-          ),
-        },
+        { label: product.details_Label, value: product.details_Value },
+        { label: product.details_Label_2, value: product.details_Value_2 },
+        { label: product.details_Label_3, value: product.details_Value_3 },
+        { label: product.details_Label_4, value: product.details_Value_4 },
       ].map(({ label, value }, idx) => (
         <div
           className="flex justify-between border-b last:border-b-0 py-2"

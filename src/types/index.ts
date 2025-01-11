@@ -9,6 +9,14 @@ export type TProduct = {
   imgUrl: string;
   imgUrl_2: string;
   imgUrl_3: string;
+  details_Label: string;
+  details_Label_2: string;
+  details_Label_3: string;
+  details_Label_4: string;
+  details_Value: string;
+  details_Value_2: string;
+  details_Value_3: string;
+  details_Value_4: string;
   created_at: Date;
   brand: string;
 };
