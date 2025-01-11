@@ -109,7 +109,7 @@ const ShopClient = ({ products, category, page }: ShopClientProps) => {
             height={200}
           />
         </Link>
-        <h3 className="text-center">{product.name}</h3>
+        <h3 className="text-center text-sm">{product.name}</h3>
         <p className="text-2xl font-bold">{product.price},00 €</p>
         <button
           onClick={() => handleAddProduct(product)}

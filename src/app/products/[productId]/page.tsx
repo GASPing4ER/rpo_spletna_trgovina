@@ -50,7 +50,7 @@ export default async function ProductDetailsPage({
     return (
       <main className="flex flex-col">
         {/* Product Details */}
-        <section className="bg-muted md:py-24 lg:py-32 py-6 px-20">
+        <section className="bg-muted py-24 lg:py-32 md:px-20">
           <div className="container grid md:grid-cols-2 gap-8 px-4 md:px-6">
             <ImageSection product={product} />
             <DetailsSection
@@ -231,7 +231,7 @@ const ProductInfo = ({
     className="bg-white grid gap-6 rounded-md py-6 px-10"
   >
     <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">{title}</h2>
-    <div className="grid gap-4 text-muted-foreground">
+    <div className="grid gap-4 text-muted-foreground text-xs sm:text-sm md:text-base">
       <p>{content}</p>
     </div>
   </div>
@@ -277,14 +277,16 @@ const Specifications = () => (
 );
 
 const RelatedProducts = ({ products }: { products: TProduct[] }) => (
-  <div className="grid gap-6">
-    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-      Related Products
-    </h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {products.map((product) => (
-        <ProductCard product={product} key={product.id} />
-      ))}
+  <div className="flex justify-center items-center">
+    <div className="grid gap-6">
+      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+        Related Products
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {products.map((product) => (
+          <ProductCard product={product} key={product.id} />
+        ))}
+      </div>
     </div>
   </div>
 );

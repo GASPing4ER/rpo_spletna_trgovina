@@ -106,7 +106,7 @@ const AnimatedCarousel = ({
                     className="w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] object-cover"
                   />
                 </Link>
-                <h2 className="text-center text-sm sm:text-base text-textPrimary">
+                <h2 className="text-center text-sm text-textPrimary">
                   {product.name}
                 </h2>
               </div>

@@ -15,7 +15,7 @@ type ProductCardProps = {
 const ProductCard = ({ product }: ProductCardProps) => {
   const { handleAddProduct } = useCartContext();
   return (
-    <Card className="w-[300px] group relative space-y-4 overflow-hidden shadow-[0px_6px_10px_rgba(0,0,0,0.06)]">
+    <Card className="w-full max-w-[350px] group relative space-y-4 overflow-hidden shadow-[0px_6px_10px_rgba(0,0,0,0.06)]">
       <Image
         className="aspect-square w-full"
         src={product.imgUrl}
@@ -24,15 +24,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
         alt={product.name}
       />
       <CardContent className="px-4 py-0">
-        <div className="flex justify-between">
-          <div>
-            <h3 className="text-lg">
+        <div className="flex justify-between gap-4">
+          <div className="flex-1 flex flex-col gap-2">
+            <h3 className="text-sm">
               <Link href={`/products/${product.id}`}>
                 <span aria-hidden="true" className="absolute inset-0" />
                 {product.name}
               </Link>
             </h3>
-            <p className="text-sm text-muted-foreground">{product.category}</p>
+            <p className="text-sm text-muted-foreground font-bold">
+              {product.category}
+            </p>
           </div>
           <p className="text-lg font-semibold">{product.price} €</p>
         </div>

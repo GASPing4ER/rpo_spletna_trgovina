@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    domains: ["www.bigbang.si"],
+    domains: ["www.bigbang.si", "ekbrncrkenlgcayytdwf.supabase.co"],
   },
 };
 
