@@ -50,7 +50,7 @@ export default async function Home() {
       </section>
 
       {/* Second Hero */}
-      <section className="w-full bg-hero pt-20 flex relative text-heroTitle">
+      <section className="w-full bg-hero pt-20 flex flex-col relative text-heroTitle">
         <div className="flex flex-col gap-4 h-full w-full p-24">
           <h1 className="text-8xl font-extralight">
             Nintendo <span className="font-bold">Switch</span>
@@ -67,14 +67,14 @@ export default async function Home() {
           alt="nintendo switch"
           width={800}
           height={400}
-          className="absolute object-cover right-0"
+          className="lg:absolute object-cover lg:right-0 block"
         />
       </section>
 
       {/* Favorites */}
-      <section className="flex flex-col gap-10 bg-surface w-full py-20 px-40 text-textPrimary">
+      <section className="flex flex-col gap-10 bg-surface w-full py-20 px-8 md:px-20 lg:px-40 text-textPrimary">
         <h2 className="text-2xl font-semibold">{t("favorites_title")}</h2>
-        <div className="flex items-center gap-10 bg-onSurface py-11 pl-14">
+        <div className="flex flex-col sm:flex-row items-center gap-10 bg-onSurface py-11 pl-14">
           <div className="flex-1 flex flex-col gap-6">
             <div className="flex justify-between">
               <h3 className="text-3xl">
@@ -116,7 +116,7 @@ export default async function Home() {
 
       {/* Big Sale */}
       <section className="w-full bg-hero pt-20 text-heroTitle flex relative">
-        <div className="flex flex-col items-center justify-center gap-4 h-full w-full p-24 z-20">
+        <div className="flex flex-col items-center justify-center gap-4 h-full w-full px-8 py-24 md:p-24 z-20">
           <h1 className="text-8xl font-extralight">
             {t("big_sale_main_heading-1")}{" "}
             <span className="font-bold">{t("big_sale_main_heading-2")}</span>
@@ -167,4 +167,3 @@ export default async function Home() {
     </main>
   );
 }
-//<AnimatedCategory categories={categoriesData} initialIndex={1} />

@@ -21,11 +21,11 @@ const CartPage = () => {
   const shipping = 15;
 
   return (
-    <div className="min-h-screen mx-auto py-28 px-24 bg-background">
+    <div className="min-h-screen mx-auto py-28 px-8 sm:px-12 md:px-24 bg-background">
       <h1 className="text-xl pb-4 text-textPrimary">{t("cart")}</h1>
       {products.length > 0 ? (
-        <div className="flex h-[450px]">
-          <div className="flex-1 flex flex-col gap-4 overflow-y-scroll pr-10">
+        <div className="flex flex-col-reverse xl:flex-row xl:h-[450px]">
+          <div className="w-full xl:flex-1 flex flex-col gap-4 overflow-y-scroll pr-10">
             {products.map((product, index) => {
               console.log(product);
               return (
@@ -37,10 +37,13 @@ const CartPage = () => {
                     src={product.imgUrl}
                     width={100}
                     height={100}
-                    alt="product placeholder"
+                    className="w-[50px] h-[50px] sm:w-[100px] sm:h-[100px] product placeholder"
+                    alt="img"
                   />
                   <div className="flex flex-1 flex-col justify-center">
-                    <h2 className="font-bold">{product.name}</h2>
+                    <h2 className="font-bold text-xs sm:text-base">
+                      {product.name}
+                    </h2>
                     {/* <p>{product.description}</p> */}
                   </div>
                   <div className="flex gap-4">
@@ -77,10 +80,7 @@ const CartPage = () => {
               );
             })}
           </div>
-          <section
-            // onSubmit={onHandleSubmit}
-            className="bg-surface w-[500px] flex flex-col justify-center gap-4 p-8 text-textPrimary"
-          >
+          <section className="bg-surface xl:w-[500px] flex flex-col justify-center gap-4 p-8 text-textPrimary">
             <h2 className="text-xl font-bold">{t("order_summary")}</h2>
             <div className="flex flex-col gap-4">
               <Label>{t("promo_code")}</Label>

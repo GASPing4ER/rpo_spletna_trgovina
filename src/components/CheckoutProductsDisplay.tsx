@@ -16,7 +16,7 @@ const CheckoutProductsDisplay = () => {
   const shipping = 15;
 
   return (
-    <div className="p-10 flex flex-col gap-8 w-[600px]">
+    <div className="p-10 flex flex-col gap-8 lg:w-[600px]">
       {products.map((product) => (
         <div
           key={product.id}

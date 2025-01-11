@@ -35,7 +35,7 @@ const BranchCard = ({ branch, notifications = [] }: BranchCardProps) => {
   if (!isLoaded) return <div>{t("loading")}</div>;
 
   return (
-    <Card className="w-[360px] h-[600px] space-y-4 overflow-auto border border-border bg-onBackground">
+    <Card className="w-full sm:w-[360px] h-[600px] space-y-4 overflow-auto border border-border bg-onBackground">
       {branch.location ? (
         <GoogleMap
           mapContainerClassName="w-full h-[300px]"

@@ -6,9 +6,8 @@ const Footer = async () => {
   const t = await getTranslations("Footer");
 
   return (
-    <footer className="bg-footer flex justify-between items-center border-t py-28 px-40 text-textFooter">
-      <div className="flex flex-col gap-6">
-        {" "}
+    <footer className="bg-footer flex flex-col sm:flex-row gap-8 justify-between items-center border-t py-12 px-20 text-textFooter">
+      <div className="flex flex-col items-center sm:items-start gap-6">
         <h1>
           <Link
             href="/"

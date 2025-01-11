@@ -1,10 +1,7 @@
 import { navigationData } from "@/constants";
-import { getUserLocale } from "../utils/lang/locale";
 import Link from "next/link";
 
-const Navigation = async () => {
-  const locale = await getUserLocale();
-
+const Navigation = ({ locale }: { locale: string }) => {
   return (
     <nav>
       <ul className="flex gap-6 font-semibold text-textPrimary">

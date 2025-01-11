@@ -9,7 +9,7 @@ export default async function Contact() {
 
   if (!branches)
     return (
-      <main className="min-h-screen w-full flex flex-col items-center py-28 px-20 mt-20">
+      <main className="min-h-screen w-full flex flex-col items-center py-28 px-8 sm:px-20 mt-20">
         <div className="w-full max-w-[1120px]">
           <h1 className="font-semibold text-2xl mb-10">{t("title")}</h1>
           <div className="bg-white rounded-lg shadow-sm py-12 px-16 mt-4">
@@ -21,11 +21,11 @@ export default async function Contact() {
               <p className="text-base">{t("working_days")}</p>
               <p className="text-base">{t("weekend")}</p>
             </div>
-            <div className="flex gap-4 mt-5">
+            <div className="flex flex-col sm:flex-row gap-4 mt-5">
               <h3 className="font-bold text-base">{t("phone_number_title")}</h3>
               <p className="text-base underline">+386 59 100 9000</p>
             </div>
-            <div className="flex gap-4 mt-5">
+            <div className="flex flex-col sm:flex-row gap-4 mt-5">
               <h3 className="font-bold text-base">
                 {t("email_address_title")}
               </h3>
@@ -45,7 +45,7 @@ export default async function Contact() {
   const { data: notifications } = await getNotifications(branchIds);
 
   return (
-    <main className="min-h-screen w-full flex flex-col items-center bg-background py-28 px-20 mt-20 text-textPrimary">
+    <main className="min-h-screen w-full flex flex-col items-center bg-background py-28 px-8 sm:px-20 mt-20 text-textPrimary">
       <div className="w-full max-w-[1120px]">
         <h1 className="font-semibold text-2xl mb-10">{t("title")}</h1>
         <div className="bg-onBackground rounded-lg shadow-sm py-12 px-16 mt-4">
@@ -55,17 +55,17 @@ export default async function Contact() {
             <p className="text-base">{t("working_days")}</p>
             <p className="text-base">{t("weekend")}</p>
           </div>
-          <div className="flex gap-4 mt-5">
+          <div className="flex flex-col sm:flex-row gap-4 mt-5">
             <h3 className="font-bold text-base">{t("phone_number_title")}</h3>
             <p className="text-base underline">+386 59 100 900</p>
           </div>
-          <div className="flex gap-4 mt-5">
+          <div className="flex flex-col sm:flex-row gap-4 mt-5">
             <h3 className="font-bold text-base">{t("email_address_title")}</h3>
             <p className="text-base underline">info-slo@shoppster.com</p>
           </div>
         </div>
       </div>
-      <div className="w-full max-w-[1120px] bg-onBackground rounded-lg shadow-sm py-12 px-16 mt-4 text-textPrimary">
+      <div className="w-full max-w-[1120px] bg-onBackground rounded-lg shadow-sm py-12 px-8 sm:px-16 mt-4 text-textPrimary">
         <h1 className="font-semibold text-2xl mb-10">{t("branches_title")}</h1>
         <div className="flex flex-wrap items-center justify-center gap-4">
           {branches &&
