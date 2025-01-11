@@ -7,6 +7,8 @@ export type TProduct = {
   stock: number;
   category: string;
   imgUrl: string;
+  imgUrl_2: string;
+  imgUrl_3: string;
   created_at: Date;
   brand: string;
 };

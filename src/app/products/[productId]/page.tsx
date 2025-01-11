@@ -3,6 +3,7 @@ import { getProduct, getProducts } from "@/actions/products";
 import { getUserData } from "@/actions/profile";
 import { ProductCard } from "@/components";
 import AddToCartButton from "@/components/AddToCartButton";
+import ImageSection from "@/components/ImageSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import { TProduct } from "@/types";
 import { StarIcon } from "lucide-react";
@@ -84,35 +85,6 @@ export default async function ProductDetailsPage({
     return <div>Failed to load product details. Please try again later.</div>;
   }
 }
-
-const ImageSection = ({ product }: { product: TProduct }) => (
-  <div className="flex gap-4">
-    {/* Thumbnails Section */}
-    <div className="flex flex-col gap-2">
-      {[product.imgUrl, product.imgUrl, product.imgUrl].map((url, idx) => (
-        <Image
-          key={idx}
-          src={url}
-          alt={`${product.name} thumbnail ${idx + 1}`}
-          width={100}
-          height={100}
-          className="rounded-lg object-cover cursor-pointer hover:opacity-80"
-        />
-      ))}
-    </div>
-
-    {/* Main Image Section */}
-    <div>
-      <Image
-        src={product.imgUrl}
-        alt={product.name}
-        width={600}
-        height={600}
-        className="rounded-lg object-contain"
-      />
-    </div>
-  </div>
-);
 
 const DetailsSection = ({
   product,
