@@ -8,7 +8,6 @@ import ReviewsSection from "@/components/ReviewsSection";
 import { TProduct } from "@/types";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function ProductDetailsPage({
   params,
@@ -209,30 +208,32 @@ const ProductInfo = ({
   </div>
 );
 
-const Specifications = ({ product }: { product: TProduct }) => (
-  <div className="bg-white grid gap-6 rounded-md py-6 px-10">
-    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-      Product Specifications
-    </h2>
-    <div className="grid gap-4">
-      {[
-        { label: product.details_Label, value: product.details_Value },
-        { label: product.details_Label_2, value: product.details_Value_2 },
-        { label: product.details_Label_3, value: product.details_Value_3 },
-        { label: product.details_Label_4, value: product.details_Value_4 },
-      ].map(({ label, value }, idx) => (
-        <div
-          className="flex justify-between border-b last:border-b-0 py-2"
-          style={{ borderColor: "rgba(198, 198, 198, 0.75)" }}
-          key={idx}
-        >
-          <h3 className="text-lg font-semibold">{label}</h3>
-          <p className="text-muted-foreground">{value}</p>
-        </div>
-      ))}
+const Specifications = ({ product }: { product: TProduct }) => {
+  return (
+    <div className="bg-white grid gap-6 rounded-md py-6 px-10">
+      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+        Product Specifications
+      </h2>
+      <div className="grid gap-4">
+        {[
+          { label: product.details_Label, value: product.details_Value },
+          { label: product.details_Label_2, value: product.details_Value_2 },
+          { label: product.details_Label_3, value: product.details_Value_3 },
+          { label: product.details_Label_4, value: product.details_Value_4 },
+        ].map(({ label, value }, idx) => (
+          <div
+            className="flex justify-between border-b last:border-b-0 py-2"
+            style={{ borderColor: "rgba(198, 198, 198, 0.75)" }}
+            key={idx}
+          >
+            <h3 className="text-lg font-semibold">{label}</h3>
+            <p className="text-muted-foreground">{value}</p>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const RelatedProducts = ({ products }: { products: TProduct[] }) => (
   <div className="flex justify-center items-center">

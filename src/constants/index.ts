@@ -12,6 +12,11 @@ export const navigationData: TNavigation[] = [
     slug: "shop",
   },
   {
+    sl_title: "Primerjaj",
+    en_title: "Compare",
+    slug: "compare",
+  },
+  {
     sl_title: "Kontakt",
     en_title: "Contact",
     slug: "contact",

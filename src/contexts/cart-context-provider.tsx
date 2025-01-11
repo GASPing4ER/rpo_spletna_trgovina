@@ -41,6 +41,7 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
   // handlers
   const handleAddProduct = async (newProduct: TProduct) => {
+    console.log("Adding new item...");
     setCart((prevCart) => {
       const exist = prevCart.find((product) => product.id === newProduct.id);
       if (exist) {
