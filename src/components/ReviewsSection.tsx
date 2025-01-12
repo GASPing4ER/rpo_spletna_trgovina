@@ -21,7 +21,7 @@ const ReviewsSection = ({
   );
   const [reviewTitle, setReviewTitle] = useState("");
   const [reviewDescription, setReviewDescription] = useState("");
-  const [reviewRating, setReviewRating] = useState(0);
+  const [reviewRating, setReviewRating] = useState(1);
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -80,10 +80,10 @@ const ReviewsSection = ({
               id="rating"
               value={reviewRating}
               onChange={(e) => setReviewRating(Number(e.target.value))}
-              className="border rounded p-2 w-full"
+              className="border bg-surface rounded p-2 w-full"
             >
               {[1, 2, 3, 4, 5].map((star) => (
-                <option key={star} value={star}>
+                <option key={star} value={star} className="hover:bg-onHover">
                   {star} Star{star > 1 && "s"}
                 </option>
               ))}
@@ -98,6 +98,7 @@ const ReviewsSection = ({
               id="title"
               value={reviewTitle}
               onChange={(e) => setReviewTitle(e.target.value)}
+              className="border border-border rounded flex bg-onBackground"
             />
           </div>
           <div>
@@ -111,7 +112,7 @@ const ReviewsSection = ({
               id="description"
               value={reviewDescription}
               onChange={(e) => setReviewDescription(e.target.value)}
-              className="border rounded p-2 w-full"
+              className="border rounded p-2 w-full bg-onBackground"
               rows={4}
             />
           </div>
@@ -130,8 +131,8 @@ const RatingDisplay = ({ rating }: { rating: number }) => {
       key={index}
       className={`w-6 h-6 ${
         index < Math.round(rating)
-          ? "fill-accent stroke-accent"
-          : "fill-gray stroke-accent"
+          ? "fill-primary stroke-primary"
+          : "fill-background stroke-primary"
       }`}
     />
   ));

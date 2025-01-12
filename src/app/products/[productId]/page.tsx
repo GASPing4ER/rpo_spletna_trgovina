@@ -6,8 +6,7 @@ import AddToCartButton from "@/components/AddToCartButton";
 import ImageSection from "@/components/ImageSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import { TProduct } from "@/types";
-import { StarIcon } from "lucide-react";
-import Image from "next/image";
+import { StarIcon, Truck, Store, BadgeCheck } from "lucide-react";
 
 export default async function ProductDetailsPage({
   params,
@@ -35,7 +34,11 @@ export default async function ProductDetailsPage({
     const user = userResponse.data;
 
     if (!product) {
-      return <div>Product not found!</div>;
+      return (
+        <div className="flex min-h-screen bg-background text-textPrimary justify-center mt-20 p-20">
+          Product not found!
+        </div>
+      );
     }
 
     const productRating = productReviews.length
@@ -48,7 +51,7 @@ export default async function ProductDetailsPage({
       .slice(0, 3);
 
     return (
-      <main className="flex flex-col">
+      <main className="flex flex-col bg-surface text-textPrimary">
         {/* Product Details */}
         <section className="bg-muted py-24 lg:py-32 md:px-20">
           <div className="container grid md:grid-cols-2 gap-8 px-4 md:px-6">
@@ -62,7 +65,7 @@ export default async function ProductDetailsPage({
         </section>
 
         {/* Product Information */}
-        <section className="bg-gray pb-12 md:pb-24 lg:pb-32 pt-8">
+        <section className="bg-background pb-12 md:pb-24 lg:pb-32 pt-8">
           <div className="container grid gap-12 px-4 md:px-6 max-w-7xl mx-auto">
             <ProductInfo
               title="Product Details"
@@ -131,13 +134,8 @@ const DetailsSection = ({
       {/* Gray Boxes Section */}
       <div className="w-full mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
         {/* Delivery Time Box */}
-        <div className="flex items-center gap-2 p-4 bg-gray rounded-md">
-          <Image
-            src="/icons/delivery.png"
-            alt="Čas dostave"
-            width={24}
-            height={24}
-          />
+        <div className="flex items-center gap-2 p-4 bg-onSurface rounded-md">
+          <Truck size={24} className="text-iconColor" />
           <div>
             <p className="text-sm font-medium">Čas dostave</p>
             <p className="text-lg font-semibold">1-2 dni</p>
@@ -145,13 +143,8 @@ const DetailsSection = ({
         </div>
 
         {/* In Stock Box */}
-        <div className="flex items-center gap-2 p-4 bg-gray rounded-md">
-          <Image
-            src="/icons/domov.png"
-            alt="Čas dostave"
-            width={24}
-            height={24}
-          />
+        <div className="flex items-center gap-2 p-4 bg-onSurface rounded-md">
+          <Store size={24} className="text-iconColor" />
           <div>
             <p className="text-sm font-medium">Na zalogi</p>
             <p className="text-lg font-semibold">Danes</p>
@@ -159,13 +152,8 @@ const DetailsSection = ({
         </div>
 
         {/* Warranty Box */}
-        <div className="flex items-center gap-2 p-4 bg-gray rounded-md">
-          <Image
-            src="/icons/guarantee.png"
-            alt="Čas dostave"
-            width={24}
-            height={24}
-          />
+        <div className="flex items-center gap-2 p-4 bg-onSurface rounded-md">
+          <BadgeCheck size={24} className="text-iconColor" />
           <div>
             <p className="text-sm font-medium">Garancija</p>
             <p className="text-lg font-semibold">1 leto</p>
@@ -182,8 +170,8 @@ const RatingDisplay = ({ rating }: { rating: number }) => {
       key={index}
       className={`w-6 h-6 ${
         index < Math.round(rating)
-          ? "fill-accent stroke-accent"
-          : "fill-gray stroke-accent"
+          ? "fill-primary stroke-primary"
+          : "fill-surface stroke-primary"
       }`}
     />
   ));
@@ -199,7 +187,7 @@ const ProductInfo = ({
 }) => (
   <div
     id="product-details"
-    className="bg-white grid gap-6 rounded-md py-6 px-10"
+    className="bg-onBackground grid gap-6 rounded-md py-6 px-10"
   >
     <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">{title}</h2>
     <div className="grid gap-4 text-muted-foreground text-xs sm:text-sm md:text-base">
@@ -210,7 +198,7 @@ const ProductInfo = ({
 
 const Specifications = ({ product }: { product: TProduct }) => {
   return (
-    <div className="bg-white grid gap-6 rounded-md py-6 px-10">
+    <div className="bg-onBackground grid gap-6 rounded-md py-6 px-10">
       <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
         Product Specifications
       </h2>
@@ -223,7 +211,7 @@ const Specifications = ({ product }: { product: TProduct }) => {
         ].map(({ label, value }, idx) => (
           <div
             className="flex justify-between border-b last:border-b-0 py-2"
-            style={{ borderColor: "rgba(198, 198, 198, 0.75)" }}
+            style={{ borderColor: "separator" }}
             key={idx}
           >
             <h3 className="text-lg font-semibold">{label}</h3>

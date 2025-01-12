@@ -11,7 +11,7 @@ const AddToCartButton = ({ product }: { product: TProduct }) => {
     <Button
       onClick={() => handleAddProduct(product)}
       size="lg"
-      className="w-full bg-accent"
+      className="w-full bg-primary text-textOnPrimary"
     >
       Dodaj v košarico
     </Button>

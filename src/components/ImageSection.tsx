@@ -20,7 +20,7 @@ const ImageSection = ({ product }: { product: TProduct }) => {
               width={100}
               height={100}
               className={`rounded-lg object-cover cursor-pointer hover:opacity-80 ${
-                imageUrl === url ? "border border-black" : ""
+                imageUrl === url ? "border border-border" : ""
               }`}
             />
           )
