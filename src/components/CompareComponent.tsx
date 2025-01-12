@@ -34,18 +34,18 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
     : [];
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-8 p-6 lg:p-24 bg-gray-50">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6">
+    <div className="min-h-screen bg-background flex flex-col items-center gap-8 p-6 lg:p-24 bg-gray-50">
+      <h1 className="text-4xl text-textPrimary font-bold text-gray-800 mb-6">
         Compare Products
       </h1>
       <div className="flex flex-col gap-6 lg:flex-row lg:gap-8 w-full max-w-6xl">
         {/* Dropdown for first product */}
         <div className="flex-1">
-          <label className="block text-lg font-medium text-gray-700 mb-2">
+          <label className="block text-lg text-textPrimary font-medium text-gray-700 mb-2">
             Select the first product:
           </label>
           <select
-            className="w-full border border-gray-300 rounded-md p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="w-full bg-onBackground border border-border text-textPrimary rounded-md p-3 shadow-sm focus:border-primary focus:ring-primary"
             value={selectedProduct1?.id || ""}
             onChange={handleProduct1Change}
           >
@@ -62,11 +62,11 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
 
         {/* Dropdown for second product */}
         <div className="flex-1">
-          <label className="block text-lg font-medium text-gray-700 mb-2">
+          <label className="block text-lg text-textPrimary font-medium text-gray-700 mb-2">
             Select the second product:
           </label>
           <select
-            className="w-full border border-gray-300 rounded-md p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="w-full bg-onBackground border border-border text-textPrimary rounded-md p-3 shadow-sm focus:border-primary focus:ring-primary"
             value={selectedProduct2?.id || ""}
             onChange={handleProduct2Change}
             disabled={!selectedProduct1}
@@ -98,8 +98,8 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
 export default CompareComponent;
 
 const ProductDetailsCard = ({ product }: { product: TProduct }) => (
-  <div className="flex-1 bg-white shadow-lg rounded-md p-6 border border-gray-200">
-    <h2 className="text-2xl font-bold text-gray-800 mb-4">{product.name}</h2>
+  <div className="flex-1 bg-surface shadow-lg rounded-md p-6 border border-gray-200">
+    <h2 className="text-2xl font-bold text-textPrimary mb-4">{product.name}</h2>
     {product.imgUrl && (
       <div className="w-full h-48 mb-4">
         <Image
@@ -111,7 +111,7 @@ const ProductDetailsCard = ({ product }: { product: TProduct }) => (
         />
       </div>
     )}
-    <ul className="space-y-3 text-gray-700">
+    <ul className="space-y-3 text-textPrimary">
       <li className="flex justify-between">
         <span className="font-medium">Price:</span>
         <span>${product.price}</span>
@@ -138,8 +138,8 @@ const ProductDetailsCard = ({ product }: { product: TProduct }) => (
       </li>
     </ul>
     <div className="mt-6">
-      <h3 className="text-lg font-semibold text-gray-800">Description</h3>
-      <p className="text-gray-600 mt-2">{product.description}</p>
+      <h3 className="text-lg font-semibold text-textPrimary">Description</h3>
+      <p className="text-textPrimary mt-2">{product.description}</p>
     </div>
   </div>
 );

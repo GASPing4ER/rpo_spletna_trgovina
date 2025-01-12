@@ -6,7 +6,7 @@ const ComparePage = async () => {
 
   if (!products || products.length === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-24">
+      <div className="bg-background min-h-screen flex items-center justify-center p-24">
         <p className="text-xl">No products available for comparison.</p>
       </div>
     );
