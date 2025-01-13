@@ -2,6 +2,7 @@ import { getProductReviews } from "@/actions/product_reviews";
 import { getProduct, getProducts } from "@/actions/products";
 import { getUserData } from "@/actions/profile";
 import { ProductCard } from "@/components";
+import Specifications from "@/components/Specifications";
 import AddToCartButton from "@/components/AddToCartButton";
 import ImageSection from "@/components/ImageSection";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -196,6 +197,7 @@ const ProductInfo = ({
   </div>
 );
 
+/*
 const Specifications = ({ product }: { product: TProduct }) => {
   return (
     <div className="bg-onBackground grid gap-6 rounded-md py-6 px-10">
@@ -222,6 +224,7 @@ const Specifications = ({ product }: { product: TProduct }) => {
     </div>
   );
 };
+*/
 
 const RelatedProducts = ({ products }: { products: TProduct[] }) => (
   <div className="flex justify-center items-center">
