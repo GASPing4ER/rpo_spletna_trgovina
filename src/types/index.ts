@@ -2,7 +2,9 @@ export type TProduct = {
   id: string;
   branch_id: string;
   name: string;
+  name_en: string;
   description: string;
+  description_en: string;
   price: number;
   stock: number;
   category: string;

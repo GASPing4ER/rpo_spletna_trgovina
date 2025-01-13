@@ -6,6 +6,7 @@ import { FormEvent, useState } from "react";
 import { Button } from "./ui/button";
 import { addProductReviews } from "@/actions/product_reviews";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const ReviewsSection = ({
   productId,
@@ -16,6 +17,7 @@ const ReviewsSection = ({
   user: TUser | null;
   initialReviews: TProductReview[];
 }) => {
+  const t = useTranslations("Products");
   const [reviews, setReviews] = useState<TProductReview[]>(
     initialReviews || []
   );
@@ -66,15 +68,13 @@ const ReviewsSection = ({
           </div>
         ))}
 
-        {reviews.length === 0 && (
-          <p>No reviews yet. Be the first to leave one!</p>
-        )}
+        {reviews.length === 0 && <p>{t("no_reviews")}</p>}
       </div>
       {user && (
         <form onSubmit={handleSubmit} className="grid gap-4">
           <div>
             <label htmlFor="rating" className="block text-lg font-semibold">
-              Rating
+              {t("rating")}
             </label>
             <select
               id="rating"
@@ -91,7 +91,7 @@ const ReviewsSection = ({
           </div>
           <div>
             <label htmlFor="title" className="block text-lg font-semibold">
-              Title
+              {t("title")}
             </label>
             <input
               type="text"
@@ -106,7 +106,7 @@ const ReviewsSection = ({
               htmlFor="description"
               className="block text-lg font-semibold"
             >
-              Description
+              {t("description")}
             </label>
             <textarea
               id="description"
@@ -116,7 +116,7 @@ const ReviewsSection = ({
               rows={4}
             />
           </div>
-          <Button type="submit">Submit Review</Button>
+          <Button type="submit">{t("submit_review")}</Button>
         </form>
       )}
     </div>

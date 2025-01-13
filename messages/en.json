@@ -150,6 +150,27 @@
     "option_select3": "Please select the first product first",
     "price": "Price",
     "brand": "Brand",
-    "description": "Description"
+    "description": "Description",
+    "no_products": "No products available for comparison."
+  },
+  "Products": {
+    "no_products": "Product not found!",
+    "error": "Failed to load product details. Please try again later.",
+    "read_more": "Read more",
+    "reviews": "reviews",
+    "add_to_cart": "Add to cart",
+    "delivery_time": "Delivery time",
+    "days": "days",
+    "stock": "In stock",
+    "today": "Today",
+    "warranty": "Warranty",
+    "year": "year",
+    "related_products": "Related Products",
+    "add_button": "Add to cart",
+    "no_reviews": "No reviews yet. Be the first to leave one!",
+    "rating": "Rating",
+    "title": "Title",
+    "description": "Description",
+    "submit_review": "Submit review"
   }
 }
