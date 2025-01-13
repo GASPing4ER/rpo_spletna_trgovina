@@ -3,9 +3,11 @@
 import { useCartContext } from "@/hooks";
 import { Button } from "./ui/button";
 import { TProduct } from "@/types";
+import { useTranslations } from "next-intl";
 
 const AddToCartButton = ({ product }: { product: TProduct }) => {
   const { handleAddProduct } = useCartContext();
+  const t = useTranslations("Products");
 
   return (
     <Button
@@ -13,7 +15,7 @@ const AddToCartButton = ({ product }: { product: TProduct }) => {
       size="lg"
       className="w-full bg-primary text-textOnPrimary"
     >
-      Dodaj v košarico
+      {t("add_to_cart")}
     </Button>
   );
 };

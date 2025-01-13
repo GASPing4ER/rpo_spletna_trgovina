@@ -5,7 +5,7 @@ import { ArrowRightIcon, ArrowLeftIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedCarouselProps } from "@/types";
 import { useCartContext } from "@/hooks";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -38,6 +38,8 @@ const AnimatedCarousel = ({
   initialIndex,
 }: AnimatedCarouselProps) => {
   const t = useTranslations("Home");
+  const locale: string = useLocale();
+
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [direction, setDirection] = useState<string>("");
   const { handleAddProduct } = useCartContext();
@@ -107,7 +109,7 @@ const AnimatedCarousel = ({
                   />
                 </Link>
                 <h2 className="text-center text-sm text-textPrimary">
-                  {product.name}
+                  {locale === "en" ? product.name_en : product.name}
                 </h2>
               </div>
               <div className="flex flex-col gap-2 items-center">

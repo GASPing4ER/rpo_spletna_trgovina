@@ -149,6 +149,27 @@
     "option_select3": "-- Potrebno je izbrati prvi produkt --",
     "price": "Cena",
     "brand": "Znamka",
-    "description": "Opis"
+    "description": "Opis",
+    "no_products": "Ni produktov za primerjavo."
+  },
+  "Products": {
+    "no_products": "Ni produktov za prikaz.",
+    "error": "Napaka pri nalaganju produktov.",
+    "read_more": "Več",
+    "reviews": "mnenj",
+    "add_to_cart": "Dodaj v košarico",
+    "delivery_time": "Čas dostave",
+    "days": "dni",
+    "stock": "Na zalogi",
+    "today": "Danes",
+    "warranty": "Garancija",
+    "year": "leto",
+    "related_products": "Podobni produkti",
+    "add_button": "Kupi zdaj",
+    "no_reviews": "Ni mnenj. Bodite prvi in napišite svoje mnenje!",
+    "rating": "Ocena",
+    "title": "Naslov",
+    "description": "Opis",
+    "submit_review": "Oddaj mnenje"
   }
 }

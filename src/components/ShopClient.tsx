@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { CategoryListBox, FilterDropDown } from "@/components";
 import { categoriesData } from "@/constants";
 import { useCartContext } from "@/hooks";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import Pagination from "@mui/material/Pagination";
 import Image from "next/image";
@@ -14,6 +14,7 @@ import Link from "next/link";
 
 const ShopClient = ({ products, category, page }: ShopClientProps) => {
   const t = useTranslations("Shop");
+  const locale: string = useLocale();
   const router = useRouter();
   const { handleAddProduct } = useCartContext();
 
@@ -116,7 +117,9 @@ const ShopClient = ({ products, category, page }: ShopClientProps) => {
                 height={200}
               />
             </Link>
-            <h3 className="text-center text-sm">{product.name}</h3>
+            <h3 className="text-center text-sm">
+              {locale === "en" ? product.name_en : product.name}
+            </h3>
             <p className="text-2xl font-bold">{product.price},00 €</p>
             <button
               onClick={() => handleAddProduct(product)}

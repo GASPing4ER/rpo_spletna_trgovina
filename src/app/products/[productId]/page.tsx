@@ -8,6 +8,7 @@ import ImageSection from "@/components/ImageSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import { TProduct } from "@/types";
 import { StarIcon, Truck, Store, BadgeCheck } from "lucide-react";
+import { getTranslations, getLocale } from "next-intl/server";
 
 export default async function ProductDetailsPage({
   params,
@@ -15,6 +16,8 @@ export default async function ProductDetailsPage({
   params: Promise<{ productId: string }>;
 }) {
   const { productId } = await params;
+  const t = await getTranslations("Products");
+  const locale: string = await getLocale();
 
   try {
     const [
@@ -37,7 +40,7 @@ export default async function ProductDetailsPage({
     if (!product) {
       return (
         <div className="flex min-h-screen bg-background text-textPrimary justify-center mt-20 p-20">
-          Product not found!
+          {t("no_products")}
         </div>
       );
     }
@@ -69,8 +72,12 @@ export default async function ProductDetailsPage({
         <section className="bg-background pb-12 md:pb-24 lg:pb-32 pt-8">
           <div className="container grid gap-12 px-4 md:px-6 max-w-7xl mx-auto">
             <ProductInfo
-              title="Product Details"
-              content={product.description}
+              title={
+                locale === "en" ? "Product Details" : "Podrobnosti Izdelka"
+              }
+              content={
+                locale === "en" ? product.description_en : product.description
+              }
             />
             <Specifications product={product} />
             <ReviewsSection
@@ -85,11 +92,11 @@ export default async function ProductDetailsPage({
     );
   } catch (error) {
     console.error("Error loading product details:", error);
-    return <div>Failed to load product details. Please try again later.</div>;
+    return <div>{t("error")}</div>;
   }
 }
 
-const DetailsSection = ({
+const DetailsSection = async ({
   product,
   productRating,
   reviewCount,
@@ -99,30 +106,36 @@ const DetailsSection = ({
   reviewCount: number;
 }) => {
   const MAX_LENGTH = 200; // Maximum number of characters before truncation
+  const locale: string = await getLocale();
+  const t = await getTranslations("Products");
 
   // Truncate the description if it's longer than MAX_LENGTH
   const truncatedDescription =
-    product.description.length > MAX_LENGTH
+    locale === "en"
+      ? product.description_en.length > MAX_LENGTH
+        ? product.description_en.substring(0, MAX_LENGTH) + "..."
+        : product.description_en
+      : product.description.length > MAX_LENGTH
       ? product.description.substring(0, MAX_LENGTH) + "..."
       : product.description;
 
   return (
     <div className="flex flex-col items-start gap-6">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-        {product.name}
+        {locale === "en" ? product.name_en : product.name}
       </h1>
       <p className="text-muted-foreground text-lg">
         {truncatedDescription}{" "}
         {product.description.length > MAX_LENGTH && (
           <a href="#product-details" className="text-grey underline">
-            več
+            {t("read_more")}
           </a>
         )}
       </p>
       <div className="flex items-center gap-4">
         <RatingDisplay rating={productRating} />
         <p className="text-lg font-semibold">
-          {productRating.toFixed(1)} ({reviewCount} reviews)
+          {productRating.toFixed(1)} ({reviewCount} {t("reviews")})
         </p>
       </div>
       <div className="flex items-center gap-4">
@@ -138,8 +151,8 @@ const DetailsSection = ({
         <div className="flex items-center gap-2 p-4 bg-onSurface rounded-md">
           <Truck size={24} className="text-iconColor" />
           <div>
-            <p className="text-sm font-medium">Čas dostave</p>
-            <p className="text-lg font-semibold">1-2 dni</p>
+            <p className="text-sm font-medium">{t("delivery_time")}</p>
+            <p className="text-lg font-semibold">1-2 {t("days")}</p>
           </div>
         </div>
 
@@ -147,8 +160,8 @@ const DetailsSection = ({
         <div className="flex items-center gap-2 p-4 bg-onSurface rounded-md">
           <Store size={24} className="text-iconColor" />
           <div>
-            <p className="text-sm font-medium">Na zalogi</p>
-            <p className="text-lg font-semibold">Danes</p>
+            <p className="text-sm font-medium">{t("stock")}</p>
+            <p className="text-lg font-semibold">{t("today")}</p>
           </div>
         </div>
 
@@ -156,8 +169,8 @@ const DetailsSection = ({
         <div className="flex items-center gap-2 p-4 bg-onSurface rounded-md">
           <BadgeCheck size={24} className="text-iconColor" />
           <div>
-            <p className="text-sm font-medium">Garancija</p>
-            <p className="text-lg font-semibold">1 leto</p>
+            <p className="text-sm font-medium">{t("warranty")}</p>
+            <p className="text-lg font-semibold">1 {t("year")}</p>
           </div>
         </div>
       </div>
@@ -226,17 +239,21 @@ const Specifications = ({ product }: { product: TProduct }) => {
 };
 */
 
-const RelatedProducts = ({ products }: { products: TProduct[] }) => (
-  <div className="flex justify-center items-center">
-    <div className="grid gap-6">
-      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-        Related Products
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((product) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
+const RelatedProducts = async ({ products }: { products: TProduct[] }) => {
+  const t = await getTranslations("Products");
+
+  return (
+    <div className="flex justify-center items-center">
+      <div className="grid gap-6">
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+          {t("related_products")}
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};

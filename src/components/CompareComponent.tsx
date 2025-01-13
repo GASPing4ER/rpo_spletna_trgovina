@@ -7,6 +7,8 @@ import { useTranslations, useLocale } from "next-intl";
 
 const CompareComponent = ({ products }: { products: TProduct[] }) => {
   const t = useTranslations("Compare");
+  const locale: string = useLocale();
+
   const [selectedProduct1, setSelectedProduct1] = useState<TProduct | null>(
     null
   );
@@ -56,7 +58,7 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
             </option>
             {products.map((product) => (
               <option key={product.id} value={product.id}>
-                {product.name}
+                {locale === "en" ? product.name_en : product.name}
               </option>
             ))}
           </select>
@@ -78,7 +80,7 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
             </option>
             {filteredProductsForSecondDropdown.map((product) => (
               <option key={product.id} value={product.id}>
-                {product.name}
+                {locale === "en" ? product.name_en : product.name}
               </option>
             ))}
           </select>
@@ -179,7 +181,9 @@ const ProductDetailsCard = ({ product }: { product: TProduct }) => {
         <h3 className="text-lg font-semibold text-textPrimary">
           {t("description")}
         </h3>
-        <p className="text-textPrimary mt-2">{product.description}</p>
+        <p className="text-textPrimary mt-2">
+          {locale === "en" ? product.description_en : product.description}
+        </p>
       </div>
     </div>
   );
