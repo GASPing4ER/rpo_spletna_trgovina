@@ -98,7 +98,7 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
 export default CompareComponent;
 
 const ProductDetailsCard = ({ product }: { product: TProduct }) => (
-  <div className="flex-1 bg-surface shadow-lg rounded-md p-6 border border-gray-200">
+  <div className="flex-1 bg-surface shadow-lg rounded-md p-6 border border-border">
     <h2 className="text-2xl font-bold text-textPrimary mb-4">{product.name}</h2>
     {product.imgUrl && (
       <div className="w-full h-48 mb-4">
