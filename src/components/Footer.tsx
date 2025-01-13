@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = async () => {
@@ -8,11 +9,8 @@ const Footer = async () => {
     <footer className="bg-footer flex flex-col sm:flex-row gap-8 justify-between items-center border-t py-12 px-20 text-textFooter">
       <div className="flex flex-col items-center sm:items-start gap-6">
         <h1>
-          <Link
-            href="/"
-            className="text-xs bg-primary py-2 px-4 text-black font-bold"
-          >
-            LOGO
+          <Link href="/" className="text-xs py-2 px-4 text-white font-bold">
+            <Image src="/icons/logo.svg" width={150} height={75} alt="logo" />
           </Link>
         </h1>
         <p className="max-w-[384px] text-sm">{t("description")}</p>

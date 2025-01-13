@@ -5,6 +5,7 @@ import { LanguageSelector, ThemeSelector } from "@/components";
 import { Navigation } from "@/components";
 import MobileMenu from "./MobileMenu"; // New client-only component for the mobile menu
 import { getUserLocale } from "@/utils/lang/locale";
+import Image from "next/image";
 
 const Header = async () => {
   const locale = await getUserLocale();
@@ -14,11 +15,8 @@ const Header = async () => {
         <MobileMenu locale={locale} />
       </div>
       <h1>
-        <Link
-          href="/"
-          className="text-xs bg-primary py-2 px-4 text-white font-bold"
-        >
-          LOGO
+        <Link href="/" className="text-xs py-2 px-4 text-white font-bold">
+          <Image src="/icons/logo.svg" width={150} height={75} alt="logo" />
         </Link>
       </h1>
       {/* TODO: Logo here */}
