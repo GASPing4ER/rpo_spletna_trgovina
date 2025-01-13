@@ -58,7 +58,9 @@ const ReviewsSection = ({
 
   return (
     <div className="grid gap-6">
-      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Reviews</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+        {t("reviews_title")}
+      </h2>
       <div className="grid gap-4">
         {reviews.map((review, idx) => (
           <div key={idx} className="border-b border-muted pb-4">
