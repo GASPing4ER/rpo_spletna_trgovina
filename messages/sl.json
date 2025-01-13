@@ -139,5 +139,16 @@
     "order": "Nadaljuj na blagajno",
     "add_products_to_cart": "Dodajte produkte v košarico!",
     "continue_shopping": "Nadaljuj z nakupom"
+  },
+  "Compare": {
+    "compare_title": "Primerjaj Produkte",
+    "product_label1": "Izberi prvi produkt",
+    "product_label2": "Izberi drugi produkt",
+    "option_select1": "-- Izberi produkt --",
+    "option_select2": "-- Izberi produkt v isti kategoriji --",
+    "option_select3": "-- Potrebno je izbrati prvi produkt --",
+    "price": "Cena",
+    "brand": "Znamka",
+    "description": "Opis"
   }
 }

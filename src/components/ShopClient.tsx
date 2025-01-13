@@ -7,6 +7,7 @@ import { CategoryListBox, FilterDropDown } from "@/components";
 import { categoriesData } from "@/constants";
 import { useCartContext } from "@/hooks";
 import { useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
 import Pagination from "@mui/material/Pagination";
 import Image from "next/image";
 import Link from "next/link";
@@ -96,29 +97,37 @@ const ShopClient = ({ products, category, page }: ShopClientProps) => {
     const endIndex = startIndex + 9;
     const productsToDisplay = filteredProducts.slice(startIndex, endIndex);
 
-    return productsToDisplay.map((product, index) => (
-      <div
-        key={index}
-        className="w-[360px] h-[450px] bg-onSurface text-textPrimary flex flex-col items-center justify-center py-4 px-2 gap-4 shadow-inner transition-all transform hover:scale-105 hover:shadow-lg"
-      >
-        <Link href="/products/[id]" as={`/products/${product.id}`}>
-          <Image
-            src={product.imgUrl}
-            alt={product.name}
-            width={200}
-            height={200}
-          />
-        </Link>
-        <h3 className="text-center text-sm">{product.name}</h3>
-        <p className="text-2xl font-bold">{product.price},00 €</p>
-        <button
-          onClick={() => handleAddProduct(product)}
-          className="px-8 py-3 bg-primary text-textOnPrimary rounded-[8px]"
-        >
-          {t("buy_now")}
-        </button>
-      </div>
-    ));
+    return (
+      <AnimatePresence mode="popLayout">
+        {productsToDisplay.map((product) => (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.4 }}
+            key={product.id}
+            className="w-[360px] h-[450px] bg-onSurface text-textPrimary flex flex-col items-center justify-center py-4 px-2 gap-4 shadow-inner transition-all transform hover:scale-105 hover:shadow-lg"
+          >
+            <Link href="/products/[id]" as={`/products/${product.id}`}>
+              <Image
+                src={product.imgUrl}
+                alt={product.name}
+                width={200}
+                height={200}
+              />
+            </Link>
+            <h3 className="text-center text-sm">{product.name}</h3>
+            <p className="text-2xl font-bold">{product.price},00 €</p>
+            <button
+              onClick={() => handleAddProduct(product)}
+              className="px-8 py-3 bg-primary text-textOnPrimary rounded-[8px]"
+            >
+              {t("buy_now")}
+            </button>
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    );
   };
 
   return (

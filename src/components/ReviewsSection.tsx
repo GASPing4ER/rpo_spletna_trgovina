@@ -98,7 +98,7 @@ const ReviewsSection = ({
               id="title"
               value={reviewTitle}
               onChange={(e) => setReviewTitle(e.target.value)}
-              className="border border-border rounded flex bg-onBackground"
+              className="border rounded flex bg-onBackground"
             />
           </div>
           <div>

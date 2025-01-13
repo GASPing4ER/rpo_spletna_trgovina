@@ -29,7 +29,7 @@
     "big_sale_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "big_sale_button": "See offer",
     "category_title": "Browse by category",
-    "add_button": "Buy now"
+    "add_button": "Add to cart"
   },
   "Login": {
     "login_title": "Welcome back!",
@@ -116,7 +116,7 @@
   "Shop": {
     "no_products_category": "There are no products available for this category.",
     "no_products_filters": "No products match the selected filters.",
-    "buy_now": "Buy Now",
+    "buy_now": "Add to cart",
     "sort_by": "Sort by price, Availability or name",
     "low_to_high": "Low to High",
     "high_to_low": "High to Low",
@@ -137,8 +137,19 @@
     "tax": "Tax",
     "shipping": "Shipping",
     "total": "Total",
-    "order": "Contionue to Checkout",
+    "order": "Continue to Checkout",
     "add_products_to_cart": "Add products to the cart!",
     "continue_shopping": "Continue shopping"
+  },
+  "Compare": {
+    "compare_title": "Compare Products",
+    "product_label1": "Select the first product",
+    "product_label2": "Select the second product",
+    "option_select1": "-- Select a product --",
+    "option_select2": "-- Select a product in the same category --",
+    "option_select3": "Please select the first product first",
+    "price": "Price",
+    "brand": "Brand",
+    "description": "Description"
   }
 }
