@@ -75,12 +75,12 @@ Check out [Next.js deployment documentation](https://nextjs.org/docs/app/buildin
 - **Frontend Hosting**: Vercel
 - **CI/CD**: GitHub
 
-## Sprint 1
+# Sprint 1
 
-### Sprint Goal
+## Sprint Goal
 The primary goal of Sprint 1 was to design and implement the visual components of the e-commerce website, ensuring a responsive, user-friendly, and aesthetically pleasing interface. This sprint focused on laying a strong foundation for the customer-facing side of the platform.
 
-### Objectives
+## Objectives
 1. **Choosing Technologies (1P):** This task involves finalizing the tech stack 
 2. **Planning and Implementing the Database (3P):** Design and implement the database schema using Supabase
 3. **Product Information (5P):** Build a dynamic product detail page that fetches data from Supabase using Next.js. 
@@ -93,7 +93,7 @@ The primary goal of Sprint 1 was to design and implement the visual components o
 10. **Product Listing Page (Shopping Menu) (5P):** Create a product listing page that fetches products.
 11. **Language Dropdown Component (1P):** Create a language switcher component.
 
-### Tasks Moving to Sprint 2:
+## Tasks Moving to Sprint 2:
 -**Language Dropdown Component (1P):** Create a language switcher component.
 
 ## Key Achievements
@@ -114,30 +114,30 @@ The primary goal of Sprint 1 was to design and implement the visual components o
 3. Begin developing user authentication and session management features.
 4. Create responsive layouts for desktop, tablet, and mobile devices.
 
-## Sprint 2
+# Sprint 2
 
-### Sprint Goal
+## Sprint Goal
 The primary goal of Sprint 2 was to connect our Supabase tables with our frontend. We also wanted to finish the login/signup functionality and the task from last sprint. 
 
-### Objectives
+## Objectives
 1. **Connect Supabase with our Next.js app (1P):** This task involves connecting environment variables from Supabase to our Next.js app. 
 2. **Implement actions for fetching products, orders, and users. (5P):** This task involves programming actions for fetching data from Supabase.
 3. **Finish functionality for Login/Signup page (5P):** Build a form for login/signup and forward the data to our database to create user instances.
 4. **Finish Language Dropdown Component from last sprint (1P):** Create a language switcher component.
 
-### Key Achievements
+## Key Achievements
 - Successfully integrated Supabase with the Next.js app by configuring environment variables and establishing a connection.
 - Developed and tested actions for fetching data such as products, orders, and users, ensuring proper data flow between the frontend and the database.
 - Completed the login/signup functionality, including form validation and seamless user creation in the database.
 - Finalized the Language Dropdown Component, providing users with an intuitive way to switch languages on the platform.
 
-### Challenges
+## Challenges
 - Encountered issues with environment variable misconfigurations during the Supabase integration, which delayed initial progress.
 - Debugging data-fetching actions was time-consuming due to inconsistencies in database schema definitions.
 - Managing asynchronous operations for login/signup posed challenges in error handling and state management.
 - Achieving a polished UI for the Language Dropdown Component required additional iterations.
 
-### Next Steps
+## Next Steps
 1. **Improve error handling and validations:**
    - Refine error messages for login/signup forms.
    - Ensure robust fallback mechanisms for failed API calls.
@@ -145,12 +145,12 @@ The primary goal of Sprint 2 was to connect our Supabase tables with our fronten
    - Add design refinements to the Language Dropdown Component for a better user experience.
    - Implement loading indicators for actions like fetching data or form submissions.
 
-## Sprint 3  
+# Sprint 3  
 
-### Sprint Goal  
+## Sprint Goal  
 The primary goal of Sprint 3 is to implement advanced features and functionalities, focusing on enhancing the user experience and providing key e-commerce functionalities for both registered and unregistered users.  
 
-### Objectives  
+## Objectives  
 1. **Design and Implement Login/Register/Profile and Cart Pages (8P):**  
    - Finalize the visual designs for login, register, profile, and cart pages.  
    - Implement functionality for user profile management, including editing delivery and payment information.  
@@ -175,18 +175,18 @@ The primary goal of Sprint 3 is to implement advanced features and functionaliti
    - Provide a view of purchased products.  
    - Enforce limitations for non-administrator users, such as restricted access to certain areas or actions.  
 
-### Key Achievements (Carried Over)  
+## Key Achievements (Carried Over)  
 - Completed the design for login, register, profile, and cart pages.  
 - Built visual options for shopping cart functionalities such as payment and delivery selection.  
 - Enhanced profile features with editable delivery and banking information.  
 - Added pagination and robust product filtering capabilities.  
 
-### Challenges  
+## Challenges  
 - Ensuring seamless integration of shopping cart functionalities for both registered and unregistered users.  
 - Managing performance and responsiveness for pagination and filter features on large datasets.  
 - Designing intuitive yet secure profile functionality for editing sensitive information like banking details.  
 
-### Next Steps  
+## Next Steps  
 1. **Backend Integration for Cart and Profile Features:**  
    - Connect cart functionalities to the backend for live updates.  
    - Implement backend validations for profile changes (e.g., delivery and banking details).  
@@ -199,12 +199,12 @@ The primary goal of Sprint 3 is to implement advanced features and functionaliti
    - Add feedback mechanisms (e.g., success/error messages for profile updates and order placement).  
    - Introduce tooltips and additional guidance for sensitive fields like banking information.  
 
-## Sprint 4
+# Sprint 4
 
-### Sprint Goal  
+## Sprint Goal  
 Enhance the application's usability by implementing key features, including multilingual support, business listing, and user-friendly design updates.
 
-### Objectives  
+## Objectives  
 
 1. **Details Screen Design (5P):**  
    - Design an intuitive and visually appealing details screen.  
@@ -233,9 +233,9 @@ Enhance the application's usability by implementing key features, including mult
 - Enhanced cart functionality with delivery and payment details.  
 - Finalized and updated project documentation.  
 
-## Sprint 5
+# Sprint 5
 
-### Sprint Goal  
+## Sprint Goal  
 Refine usability and enhance features for product pages, including theme customization and improved user interactions.
 
 ### Objectives  
@@ -254,8 +254,46 @@ Refine usability and enhance features for product pages, including theme customi
 4. **Details Page Update (4P):**  
    - Redesign product details with features, specs, and social sharing.  
 
-### Key Achievements  
+## Key Achievements  
 - Implemented product comments with moderation.  
 - Added theme selection and preview functionality.  
 - Integrated product images with zoom.  
 - Redesigned details page for better engagement.  
+
+# Sprint 6
+
+## Sprint Goal
+Enhance performance and accessibility, optimize product pages, and finalize the implementation of multilingual support.
+
+## Objectives
+
+- **Optimization of pages and accessibility improvements (8P)**:  
+  Improve the performance and accessibility of various pages to enhance user experience.
+
+- **Implementation of the "compare" functionality (5P)**:  
+  Add a compare feature for products, enabling users to evaluate them side-by-side.
+
+- **Updates to product pages (5P)**:  
+  Redesign product pages to improve visual appeal and usability.
+
+- **Image optimization (5P)**:  
+  Optimize product images for faster loading and better quality.
+
+- **Bug fixes and testing (5P)**:  
+  Test all pages thoroughly and resolve identified bugs to ensure stability.
+
+- **Multilingual theme and language support (5P)**:  
+  Implement theme and language settings across updated pages for a global audience.
+
+- **Documentation updates (3P)**:  
+  Complete and finalize documentation for the sprint deliverables.
+
+## Key Achievements
+
+- Enhanced page performance and accessibility.
+- Successfully implemented the compare feature for products.
+- Redesigned and improved product pages.
+- Optimized product images for better performance and quality.
+- Resolved all identified bugs after thorough testing.
+- Added theme and language customization across pages.
+- Completed and updated project documentation.
