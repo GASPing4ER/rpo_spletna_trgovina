@@ -18,6 +18,7 @@ import CheckoutForm from "./CheckoutForm";
 import CheckoutProductsDisplay from "./CheckoutProductsDisplay";
 import ShopClient from "./ShopClient";
 import ThemeSelector from "./ThemeSelector";
+import ResetPasswordForm from "./ResetPasswordForm";
 
 export {
   Header,
@@ -40,4 +41,5 @@ export {
   CheckoutProductsDisplay,
   ShopClient,
   ThemeSelector,
+  ResetPasswordForm,
 };
