@@ -57,7 +57,9 @@
     "password_placeholder": "Enter your password",
     "confirm_password_placeholder": "Repeat your password",
     "signup_button": "Sign Up",
-    "error_password": "Passwords do not match."
+    "error_password": "Passwords do not match.",
+    "have_account_question": "Already have an account?",
+    "login_link": "Login"
   },
   "Contact": {
     "title": "Contact",
@@ -173,5 +175,15 @@
     "title": "Title",
     "description": "Description",
     "submit_review": "Submit review"
+  },
+  "ResetPassword": {
+    "reset_password_title": "Reset password",
+    "error_password": "Passwords do not match.",
+    "page_title": "Reset password",
+    "password_label": "Password",
+    "password_placeholder": "Enter your password",
+    "confirm_password_placeholder": "Repeat your password",
+    "reset_password_button": "Reset password",
+    "error": "Something went wrong. Please try again later."
   }
 }

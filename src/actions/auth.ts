@@ -12,6 +12,7 @@ import { redirect } from "next/navigation";
 import { User } from "@supabase/supabase-js";
 import { getLocale } from "next-intl/server";
 import { supabase } from "@/lib/supabase";
+import { headers } from "next/headers";
 
 export const signup = async (formData: NewUserDataProps) => {
   const supabaseAuth = await createClient();
@@ -135,7 +136,11 @@ export const getUserNoRedirect = async (): Promise<User | null> => {
 export const forgotPassword = async (email: string) => {
   const supabaseAuth = await createClient();
   const locale: string = await getLocale();
-  const { error } = await supabaseAuth.auth.resetPasswordForEmail(email);
+  const origin = (await headers()).get("origin");
+
+  const { error } = await supabaseAuth.auth.resetPasswordForEmail(email, {
+    redirectTo: `${origin}/reset-password`,
+  });
 
   if (error) {
     if (error.code === "over_email_send_rate_limit" && locale === "sl") {
@@ -157,6 +162,29 @@ export const forgotPassword = async (email: string) => {
   } else {
     return { data: "We sent a password change request to your E-mail." };
   }
+};
+
+export const updatePassword = async (code: string, new_password: string) => {
+  const supabaseAuth = await createClient();
+
+  const { error: codeError } = await supabaseAuth.auth.exchangeCodeForSession(
+    code
+  );
+
+  if (codeError) {
+    console.log(codeError);
+    return { error: codeError.message };
+  }
+
+  const { error } = await supabaseAuth.auth.updateUser({
+    password: new_password,
+  });
+
+  if (error) {
+    return { error: "Error occurred" };
+  }
+
+  return { data: "Password updated successfully." };
 };
 
 export const addUser = async (

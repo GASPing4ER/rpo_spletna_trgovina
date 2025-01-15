@@ -32,12 +32,21 @@ const LanguageSelector = () => {
         <TooltipTrigger asChild>
           <Menu as="div" className="relative">
             <MenuButton className="relative py-1.5 px-1.5 text-sm font-semibold text-textSecondary focus:outline-none">
-              <Image
-                src="/icons/slovene-flag.svg"
-                alt="Select language"
-                width={24}
-                height={24}
-              />
+              {locale === "en" ? (
+                <Image
+                  src="/icons/usa-flag.svg"
+                  alt="Select language"
+                  width={24}
+                  height={24}
+                />
+              ) : (
+                <Image
+                  src="/icons/slovene-flag.svg"
+                  alt="Select language"
+                  width={24}
+                  height={24}
+                />
+              )}
             </MenuButton>
             <MenuItems className="absolute right-0 top-full bg-surface w-36 mt-2 p-2 rounded-md shadow-lg focus:outline-none z-50">
               <p className="text-sm font-medium text-textSecondary mb-1">

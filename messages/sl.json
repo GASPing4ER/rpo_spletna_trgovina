@@ -57,7 +57,9 @@
     "password_placeholder": "Vpiši geslo",
     "confirm_password_placeholder": "Ponovi geslo",
     "signup_button": "Registriraj se",
-    "error_password": "Gesli se ne ujemata."
+    "error_password": "Gesli se ne ujemata.",
+    "have_account_question": "Že imaš račun?",
+    "login_link": "Vpiši se"
   },
   "Contact": {
     "title": "Kontakt",
@@ -172,5 +174,15 @@
     "title": "Naslov",
     "description": "Opis",
     "submit_review": "Oddaj mnenje"
+  },
+  "ResetPassword": {
+    "reset_password_title": "Sprememba gesla",
+    "error_password": "Gesli se ne ujemata.",
+    "page_title": "Sprememba gesla",
+    "password_label": "Geslo",
+    "password_placeholder": "Vpiši geslo",
+    "confirm_password_placeholder": "Ponovi geslo",
+    "reset_password_button": "Spremeni geslo",
+    "error": "Napaka pri spremembi gesla. Poskusite znova."
   }
 }
