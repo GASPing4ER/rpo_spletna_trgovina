@@ -6,15 +6,11 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(dateString: Date): string {
-  if (isNaN(dateString.getTime())) {
-    throw new Error("Invalid date");
-  }
-
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "short",
     day: "numeric",
   };
-
-  return dateString.toLocaleDateString(undefined, options);
+  const date = new Date(dateString);
+  return date.toLocaleDateString(undefined, options);
 }
