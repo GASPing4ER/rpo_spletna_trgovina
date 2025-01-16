@@ -1,16 +1,12 @@
-"use server";
-
 import React from "react";
 import { getProducts } from "@/actions/products";
 import { categoriesData } from "@/constants";
 import { ShopClient } from "@/components";
 
-export default async function Shop({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] };
-}) {
-  const params = await searchParams;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+
+export default async function Page(props: { searchParams: SearchParams }) {
+  const params = await props.searchParams;
 
   const category = Array.isArray(params.category)
     ? params.category[0]
