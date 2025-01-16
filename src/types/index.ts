@@ -1,34 +1,34 @@
 export type TProduct = {
   id: string;
   branch_id: string;
+  created_at: string; // ISO 8601 format (e.g., "2024-12-16T13:25:41.053832+00:00")
   name: string;
   name_en: string;
   description: string;
-  description_en: string;
   price: number;
   stock: number;
-  category: string;
   imgUrl: string;
+  category: string;
+  brand: string;
   imgUrl_2: string;
   imgUrl_3: string;
   details_Label: string;
-  details_Label_en: string;
   details_Label_2: string;
-  details_Label_2_en: string;
   details_Label_3: string;
-  details_Label_3_en: string;
   details_Label_4: string;
-  details_Label_4_en: string;
   details_Value: string;
-  details_Value_en: string;
   details_Value_2: string;
-  details_Value_2_en: string;
   details_Value_3: string;
-  details_Value_3_en: string;
   details_Value_4: string;
+  details_Label_en: string;
+  details_Label_2_en: string;
+  details_Label_3_en: string;
+  details_Label_4_en: string;
+  details_Value_en: string;
+  details_Value_2_en: string;
+  details_Value_3_en: string;
   details_Value_4_en: string;
-  created_at: Date;
-  brand: string;
+  description_en: string;
 };
 
 export type TProductReview = {

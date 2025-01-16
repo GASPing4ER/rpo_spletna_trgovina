@@ -9,6 +9,7 @@ import { getProducts } from "@/actions/products";
 export default async function Home() {
   const { data: products } = await getProducts();
   const t = await getTranslations("Home");
+  console.log(products);
 
   return (
     <main className="w-full min-h-screen flex flex-col items-center justify-center">

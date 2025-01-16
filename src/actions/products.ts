@@ -1,3 +1,5 @@
+"use server";
+
 import { supabase } from "@/lib/supabase";
 import { TProduct } from "@/types";
 import { PostgrestError } from "@supabase/supabase-js";
