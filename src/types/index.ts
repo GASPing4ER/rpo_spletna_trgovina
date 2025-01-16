@@ -1,7 +1,7 @@
 export type TProduct = {
   id: string;
   branch_id: string;
-  created_at: string; // ISO 8601 format (e.g., "2024-12-16T13:25:41.053832+00:00")
+  created_at: Date; // ISO 8601 format (e.g., "2024-12-16T13:25:41.053832+00:00")
   name: string;
   name_en: string;
   description: string;
