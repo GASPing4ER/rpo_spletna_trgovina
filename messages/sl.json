@@ -152,7 +152,8 @@
     "price": "Cena",
     "brand": "Znamka",
     "description": "Opis",
-    "no_products": "Ni produktov za primerjavo."
+    "no_products": "Ni produktov za primerjavo.",
+    "option_select_category": "Izberi kategorijo"
   },
   "Products": {
     "no_products": "Ni produktov za prikaz.",

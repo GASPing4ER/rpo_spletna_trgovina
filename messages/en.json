@@ -153,7 +153,8 @@
     "price": "Price",
     "brand": "Brand",
     "description": "Description",
-    "no_products": "No products available for comparison."
+    "no_products": "No products available for comparison.",
+    "option_select_category": "Choose category"
   },
   "Products": {
     "no_products": "Product not found!",

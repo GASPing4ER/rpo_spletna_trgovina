@@ -4,11 +4,13 @@ import { TProduct } from "@/types";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
+import { categoriesData } from "@/constants";
 
 const CompareComponent = ({ products }: { products: TProduct[] }) => {
   const t = useTranslations("Compare");
   const locale: string = useLocale();
 
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedProduct1, setSelectedProduct1] = useState<TProduct | null>(
     null
   );
@@ -16,12 +18,20 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
     null
   );
 
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSelectedCategory(event.target.value || null);
+    setSelectedProduct1(null); // Reset selections when category changes
+    setSelectedProduct2(null);
+  };
+
   const handleProduct1Change = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const product = products.find((p) => p.id === event.target.value) || null;
     setSelectedProduct1(product);
-    setSelectedProduct2(null); // Reset the second selection when the first changes
+    setSelectedProduct2(null);
   };
 
   const handleProduct2Change = (
@@ -31,17 +41,32 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
     setSelectedProduct2(product);
   };
 
-  const filteredProductsForSecondDropdown = selectedProduct1
-    ? products.filter(
-        (product) => product.category === selectedProduct1.category
-      )
-    : [];
+  const filteredProducts = selectedCategory
+    ? products.filter((product) => product.category === selectedCategory)
+    : products;
 
   return (
     <div className="min-h-screen bg-background flex flex-col items-center gap-8 p-6 lg:p-24 bg-gray-50">
       <h1 className="text-4xl text-textPrimary font-bold text-gray-800 mb-6">
         {t("compare_title")}
       </h1>
+
+      {/* Category Dropdown */}
+      <div className="w-full max-w-6xl mb-6">
+        <select
+          className="w-full bg-onBackground border border-border text-textPrimary rounded-md p-3 shadow-sm focus:border-primary focus:ring-primary"
+          value={selectedCategory || ""}
+          onChange={handleCategoryChange}
+        >
+          <option value="">{t("option_select_category")}</option>
+          {categoriesData.map((category) => (
+            <option key={category.slugId} value={category.slugId}>
+              {locale === "en" ? category.en_title : category.sl_title}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className="flex flex-col gap-6 lg:flex-row lg:gap-8 w-full max-w-6xl">
         {/* Dropdown for first product */}
         <div className="flex-1">
@@ -53,10 +78,8 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
             value={selectedProduct1?.id || ""}
             onChange={handleProduct1Change}
           >
-            <option value="" disabled>
-              {t("option_select1")}
-            </option>
-            {products.map((product) => (
+            <option value="">{t("option_select1")}</option>
+            {filteredProducts.map((product) => (
               <option key={product.id} value={product.id}>
                 {locale === "en" ? product.name_en : product.name}
               </option>
@@ -75,10 +98,10 @@ const CompareComponent = ({ products }: { products: TProduct[] }) => {
             onChange={handleProduct2Change}
             disabled={!selectedProduct1}
           >
-            <option value="" disabled>
+            <option value="">
               {selectedProduct1 ? t("option_select2") : t("option_select3")}
             </option>
-            {filteredProductsForSecondDropdown.map((product) => (
+            {filteredProducts.map((product) => (
               <option key={product.id} value={product.id}>
                 {locale === "en" ? product.name_en : product.name}
               </option>
