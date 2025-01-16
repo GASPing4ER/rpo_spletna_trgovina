@@ -2,7 +2,7 @@ import { TCategory, TNavigation, TProduct } from "@/types";
 
 export const testProduct: TProduct = {
   branch_id: "eebc0688-7687-48c6-a4f7-b4e7ae3c618d",
-  created_at: "2024-12-16T13:25:41.053832+00:00",
+  created_at: new Date("2024-12-16T13:25:41.053832+00:00"),
   name: "SONY WH1000XM4 brezžične naglavne srebrne slušalke",
   description:
     "Ko uporabljate slušalke WH-1000XM4, vas obdaja samo glasba. To je enostavnejši način za čistejši zvok z manj šuma, ki s pametno tehnologijo za poslušanje samodejno prilagodi vaše doživetje.\r\n" +
