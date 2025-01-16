@@ -71,7 +71,7 @@ const AnimatedCarousel = ({
     <AnimatePresence initial={false} custom={direction} mode="popLayout">
       <motion.div
         key={currentIndex}
-        className="flex gap-4 sm:gap-6 md:gap-8 justify-center relative"
+        className="w-full flex gap-4 sm:gap-6 md:gap-8 justify-center relative"
         initial="enter"
         animate="center"
         exit="exit"
@@ -96,7 +96,7 @@ const AnimatedCarousel = ({
           return (
             <div
               key={index}
-              className="bg-onSurface w-full md:w-[45%] lg:flex-1 h-[300px] md:h-[350px] flex flex-col items-center justify-between py-4 sm:py-6 px-2 sm:px-4 gap-2 sm:gap-4 transition-all transform hover:scale-105 hover:shadow-lg"
+              className="bg-onSurface w-full md:w-[45%] lg:flex-1 h-[350px] flex flex-col items-center justify-between py-4 sm:py-6 px-2 sm:px-4 gap-2 sm:gap-4 transition-all transform hover:scale-105 hover:shadow-lg"
             >
               <div className="flex flex-col gap-2 items-center">
                 <Link href="/products/[id]" as={`/products/${product.id}`}>

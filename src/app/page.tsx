@@ -16,7 +16,7 @@ export default async function Home() {
       {/* Hero */}
       <section className="w-full bg-hero mt-20 text-heroTitle">
         <div className="flex flex-col gap-4 hero-bg h-full w-full p-24">
-          <h1 className="text-8xl font-extralight">
+          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-extralight">
             Samsung{" "}
             <span className="block">
               Galaxy <span className="font-bold">S24</span>
@@ -32,18 +32,18 @@ export default async function Home() {
       </section>
 
       {/* Categories */}
-      <section className="flex flex-col gap-10 bg-background w-full py-20 px-40">
+      <section className="flex flex-col gap-10 bg-background w-full py-20 px-20 sm:px-40">
         <AnimatedCategory categories={categoriesData} initialIndex={0} />
       </section>
 
       {/* Carousels */}
-      <section className="flex flex-col gap-10 bg-surface w-full py-20 px-40">
+      <section className="flex flex-col gap-10 bg-surface w-full py-20 px-20 sm:px-40">
         <h2 className="text-2xl font-semibold text-textPrimary">
           {t("new_offers_title")}
         </h2>
         {products && <AnimatedCarousel products={products} initialIndex={0} />}
       </section>
-      <section className="flex flex-col gap-10 bg-surface w-full pb-20 px-40">
+      <section className="flex flex-col gap-10 bg-surface w-full pb-20 px-20 sm:px-40">
         <h2 className="text-2xl font-semibold text-textPrimary">
           {t("discount_title")}
         </h2>
@@ -53,7 +53,7 @@ export default async function Home() {
       {/* Second Hero */}
       <section className="w-full bg-hero pt-20 flex flex-col relative text-heroTitle">
         <div className="flex flex-col gap-4 h-full w-full p-24">
-          <h1 className="text-8xl font-extralight">
+          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-extralight">
             Nintendo <span className="font-bold">Switch</span>
           </h1>
           <p className="text-lg text-heroSubTitle font-semibold">
@@ -108,7 +108,7 @@ export default async function Home() {
       </section>
 
       {/* Second Carousel */}
-      <section className="flex flex-col gap-10 bg-surface w-full pb-20 px-40">
+      <section className="flex flex-col gap-10 bg-surface w-full pb-20 px-20 lg:px-40">
         <h2 className="text-2xl font-semibold text-textPrimary">
           {t("discount_title")}
         </h2>
