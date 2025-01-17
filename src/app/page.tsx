@@ -128,7 +128,7 @@ export default async function Home() {
       {/* Big Sale */}
       <section className="w-full bg-hero pt-20 text-heroTitle flex relative">
         <div className="flex flex-col items-center justify-center gap-4 h-full w-full px-8 py-24 md:p-24 z-20">
-          <h1 className="text-8xl font-extralight">
+          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-extralight">
             {t("big_sale_main_heading-1")}{" "}
             <span className="font-bold">{t("big_sale_main_heading-2")}</span>
           </h1>
