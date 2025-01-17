@@ -104,7 +104,7 @@ const LoginForm = () => {
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
         {message && <p className="text-green-500 text-sm">{message}</p>}
-        <div className="flex items-center justify-between mt-6">
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-between mt-6">
           <button
             type="button"
             onClick={() => handlePasswordReset(formData.email)}
