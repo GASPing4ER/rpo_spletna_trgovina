@@ -5,6 +5,7 @@ import { categoriesData } from "@/constants";
 import { ArrowUpIcon } from "lucide-react";
 import { AnimatedCarousel, AnimatedCategory } from "@/components";
 import { getProducts } from "@/actions/products";
+import Link from "next/link";
 
 export default async function Home() {
   const { data: products } = await getProducts();
@@ -25,9 +26,12 @@ export default async function Home() {
           <p className="text-lg text-heroSubTitle font-semibold">
             {t("carousel_description")}
           </p>
-          <button className="text-left border border-heroBorder py-4 px-14 rounded-[6px] w-fit font-medium text-lg">
+          <Link
+            href="/shop"
+            className="text-left border border-heroBorder py-4 px-14 rounded-[6px] w-fit font-medium text-lg"
+          >
             {t("carousel_button")}
-          </button>
+          </Link>
         </div>
       </section>
 
@@ -59,9 +63,12 @@ export default async function Home() {
           <p className="text-lg text-heroSubTitle font-semibold">
             {t("nintendo_description")}
           </p>
-          <button className="text-left border border-heroBorder py-4 px-14 rounded-[6px] w-fit font-medium text-lg">
+          <Link
+            href="/shop"
+            className="text-left border border-heroBorder py-4 px-14 rounded-[6px] w-fit font-medium text-lg"
+          >
             {t("nintendo_button")}
-          </button>
+          </Link>
         </div>
         <Image
           src="/images/nintendo-switch.png"
@@ -84,9 +91,12 @@ export default async function Home() {
               <ArrowUpIcon width={32} height={32} />
             </div>
             <p>{t("dell_xps_description")} </p>
-            <button className="text-left border border-surfaceBorder py-4 px-14 rounded-[6px] w-fit font-medium text-lg">
+            <Link
+              href="/shop"
+              className="text-left border border-surfaceBorder py-4 px-14 rounded-[6px] w-fit font-medium text-lg"
+            >
               {t("dell_xps_button")}
-            </button>
+            </Link>
             <hr className="border-t-1 border-border" />
             <h3 className="text-3xl">
               MacBook <span className="font-semibold">Pro</span>
@@ -125,9 +135,12 @@ export default async function Home() {
           <p className="text-lg text-heroSubTitle font-semibold">
             {t("big_sale_description")}
           </p>
-          <button className="text-left border border-heroBorder py-4 px-14 rounded-[6px] w-fit font-medium text-lg mt-10">
+          <Link
+            href="/shop"
+            className="text-left border border-heroBorder py-4 px-14 rounded-[6px] w-fit font-medium text-lg mt-10"
+          >
             {t("big_sale_button")}
-          </button>
+          </Link>
         </div>
         <Image
           src="/images/before-footer/img-1.png"
