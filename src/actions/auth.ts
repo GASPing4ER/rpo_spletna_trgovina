@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 import { User } from "@supabase/supabase-js";
 import { getLocale } from "next-intl/server";
 import { supabase } from "@/lib/supabase";
-import { headers } from "next/headers";
+// import { headers } from "next/headers";
 
 export const signup = async (formData: NewUserDataProps) => {
   const supabaseAuth = await createClient();
@@ -136,10 +136,10 @@ export const getUserNoRedirect = async (): Promise<User | null> => {
 export const forgotPassword = async (email: string) => {
   const supabaseAuth = await createClient();
   const locale: string = await getLocale();
-  const origin = (await headers()).get("origin");
+  // const origin = (await headers()).get("origin");
 
   const { error } = await supabaseAuth.auth.resetPasswordForEmail(email, {
-    redirectTo: `${origin}/reset-password`,
+    redirectTo: `https://rpo-spletna-trgovina.vercel.app/reset-password`,
   });
 
   if (error) {
